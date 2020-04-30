@@ -4,9 +4,9 @@
   "description": "Pet Finder Databasing between vets and pet owners",
   "main": "index.js",
   "dependencies": {
-    "react-router-dom": "^5.1.2",
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
