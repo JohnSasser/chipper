@@ -1,15 +1,21 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login"
 import userProfilePage from "./pages/UserProfile"
 import PetsProfilePage from "./pages/UserPetsProfile"
 import Admin from "./pages/Admin"
 import Navigation from "./components/Navigation"
+import Signup from './components/SignUp';
 
 function App() {
 
   return (
+
+   <Signup />
+
     <Router>
+    
       <div>
         <Navigation />
         <Switch>
@@ -20,6 +26,7 @@ function App() {
         </Switch>
       </div>
     </Router >
+
   );
 }
 
