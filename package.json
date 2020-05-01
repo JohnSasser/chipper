@@ -2,11 +2,20 @@
   "name": "chipper",
   "version": "1.0.0",
   "description": "Pet Finder Databasing between vets and pet owners",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
-    "react-router-dom": "^5.1.2",
+
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "express-session": "^1.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
