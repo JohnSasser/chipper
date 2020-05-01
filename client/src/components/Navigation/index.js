@@ -24,6 +24,9 @@ function Navigation() {
                 <li className="nav-item">
                     <Link smooth className="nav-link" to="/adminPage">Admin Page</Link>
                 </li>
+                <li className="nav-item">
+                    <Link smooth className="nav-link" to="/SignUp">SignUp</Link>
+                </li>
             </ul>
         </div>
     </nav>
