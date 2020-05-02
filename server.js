@@ -30,7 +30,6 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/index.html"));
 });
 
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chipperdb");
 
 app.listen(PORT, function() {
