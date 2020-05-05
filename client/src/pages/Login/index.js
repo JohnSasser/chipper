@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../../components/Logo"
+import passport from "passport";
 function Login() {
 
     // Some header animation goes here
@@ -7,16 +8,16 @@ function Login() {
         <Logo/>
         <form>
             <div className="form-group">
-                <label for="exampleInputEmail1">Username</label>
+                <label htmlFor="exampleInputEmail1">Username</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
             </div>
             <div className="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label htmlFor="exampleInputPassword1">Password</label>
                 <input type="password" className="form-control" id="exampleInputPassword1"></input>
             </div>
             <div className="form-group form-check">
                 <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
-                <label className="form-check-label" for="exampleCheck1">Check me out</label>
+                <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
@@ -26,5 +27,17 @@ function Login() {
     )
 
 }
+
+// write the logic for checking the typed in username and password to 
+// username and password in the DB. 
+
+// in the Server api route;
+// db.findOne({
+    // userName: userName,
+    // password: password
+// })
+
+
+
 
 export default Login
