@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../components/Logo"
 function Login() {
+
     // Some header animation goes here
     return (<div className="container">
         <Logo/>
