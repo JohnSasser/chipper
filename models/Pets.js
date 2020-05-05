@@ -9,7 +9,7 @@ const Pets = new Schema({
         trim: true,
       },
       micro_num: {
-        type: String,
+        type: Number,
         required: true
       }
 });
