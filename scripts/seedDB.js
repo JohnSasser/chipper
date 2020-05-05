@@ -1,4 +1,10 @@
 let db = require("../models");
+let mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/chipperdb", {
+    useNewUrlParser: true,
+    useFindAndModify: false
+});
 
 let petSeed = [
     {
