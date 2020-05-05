@@ -12,27 +12,28 @@ function Navigation() {
         </button>
         <div className="collapse navbar-collapse " id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto links">
+
+
+
+
                 <li className="nav-item active">
-                    <Link smooth className="nav-link" to="/#home">Home </Link>
+                    <Link className="nav-link" to="/#home">Home </Link>
                 </li>
                 <li className="nav-item">
-                    <Link smooth className="nav-link" to="/userProfile">Profile</Link>
+                    <Link className="nav-link" to="/userProfile">Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link smooth className="nav-link" to="/userPetsProfile">Pet Profile</Link>
+                    <Link className="nav-link" to="/userPetsProfile">Pet Profile</Link>
                 </li>
                 <li className="nav-item">
-                    <Link smooth className="nav-link" to="/adminPage">Admin Page</Link>
+                    <Link className="nav-link" to="/adminPage">Admin Page</Link>
                 </li>
                 <li className="nav-item">
-                    <Link smooth className="nav-link" to="/SignUp">SignUp</Link>
+                    <Link className="nav-link" to="/SignUp">SignUp</Link>
                 </li>
             </ul>
         </div>
     </nav>
-
-
-
 
 }
 
