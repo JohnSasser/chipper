@@ -10,6 +10,7 @@
     "express": "^4.16.3",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
+    "md5": "^2.2.1",
     "mongoose": "^5.9.10",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",

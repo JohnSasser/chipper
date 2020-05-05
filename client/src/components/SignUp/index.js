@@ -2,22 +2,14 @@ import React, { Component } from "react";
 import Axios from "axios";
 
 import Jumbotron from "../Jumbotorn";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
 
 class Signup extends Component {
   state = {
     username: "",
     password: "",
-
+    redirect: false,
   };
 
   handleChange = (e) => {
@@ -44,13 +36,10 @@ class Signup extends Component {
         if (res.data) {
           console.log(`Sign-in Successful`);
 
+          // debugger;
           this.setState({
-            redirectTo: '../Login'
-          })
-          // if (this.state.redirect) {
-          //   return <Redirect to='./Login' />
-          // }
-
+            redirect: true,
+          });
         }
       })
       .catch((err) => {
@@ -60,6 +49,9 @@ class Signup extends Component {
 
   //   Bootstrap Login Form;
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/"></Redirect>;
+    }
     return (
       <Container>
         <Jumbotron text="Sign Up" />
