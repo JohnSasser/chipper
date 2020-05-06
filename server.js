@@ -1,10 +1,11 @@
 let express = require("express");
 let session = require("express-session");
 
+
 const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
-const passport = require('passport');
+const passport = require('./passport');
 const bodyParser = require("body-parser");
 
 const apiRoutes = require("./routes/apiRoutes");
@@ -16,7 +17,8 @@ const app = express();
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(passport.initialize())
+app.use(passport.session())
 // middleware session instantiation;
 app.use(
   session({
