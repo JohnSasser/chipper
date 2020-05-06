@@ -9,6 +9,7 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    isAdmin: false,
     redirect: false,
   };
 
@@ -27,9 +28,9 @@ class Signup extends Component {
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
 
-    Axios.post("/api/tester", {
+    Axios.post("/api/signup", {
       username: this.state.username,
-      password: this.state.password,
+      password: this.state.password
     })
       .then((res) => {
         console.log(res);
