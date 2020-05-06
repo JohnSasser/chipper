@@ -9,6 +9,7 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    isAdmin: false,
     redirect: false,
   };
 
@@ -29,7 +30,7 @@ class Signup extends Component {
 
     Axios.post("/api/tester", {
       username: this.state.username,
-      password: this.state.password,
+      password: this.state.password
     })
       .then((res) => {
         console.log(res);
