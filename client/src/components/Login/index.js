@@ -10,7 +10,6 @@ class Signup extends Component {
   };
 
   handleChange = (e) => {
-    console.log(e.target, e.target.name, e.target.value);
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -24,9 +23,9 @@ class Signup extends Component {
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
 
-    Axios.get("/api/tester", {
+    Axios.post('/api/user',  {
       username: this.state.username,
-      password: this.state.password,
+      password: this.state.password
     })
       .then((res) => {
         console.log(res);
@@ -50,7 +49,7 @@ class Signup extends Component {
 
         <form className="" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">User Name</label>
+            <label htmlFor="">User Name</label>
             <input
               type="text"
               className="form-control"
