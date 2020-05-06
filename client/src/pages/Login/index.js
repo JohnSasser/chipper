@@ -22,7 +22,7 @@ class Login extends Component {
     console.log(
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
-    Axios.get("/api/user", {
+    Axios.post("/api/user", {
       username: this.state.username,
       password: this.state.password
     })
@@ -61,7 +61,7 @@ class Login extends Component {
               onChange={this.handleChange}
             ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group" style={{backgroundColor: "green"}}>
             <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="text"

@@ -28,7 +28,7 @@ class Signup extends Component {
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
 
-    Axios.post("/api/tester", {
+    Axios.post("/api/signup", {
       username: this.state.username,
       password: this.state.password
     })

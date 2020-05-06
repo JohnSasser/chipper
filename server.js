@@ -52,7 +52,7 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/index.html"));
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chipperdb");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chipperdb", { useNewUrlParser: true });
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
