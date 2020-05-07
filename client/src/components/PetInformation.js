@@ -1,26 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
+import Axios from "axios";
 
-function PetInformation() {
-    return (
-        <div className="row">
-            <div className="card" style={{width: 18 + 'rem'}}>
-                <img src="http://place-puppy.com/100x100" className="card-img-top" alt="..."></img>
-                <div className="card-body">
-                    <h5 className="card-title">Your pet name here</h5>
-                    <p className="card-text">Microchip Number: (microchip number here)</p>
-                    <a href="#" className="btn btn-primary">Possible Link to Records</a>
-                </div>
+class PetInformation extends Component {
+    state = {
+        pets: []
+    };
+
+    componentDidMount() {
+        Axios.get('/api/pets')
+            .then(res => {
+                this.setState({ pets: res.data });
+                console.log(this.state.pets);
+            })
+            .catch(err => console.log(err));
+    }
+
+    render() {
+        return (
+            <div className="row">
+                {
+                    this.state.pets.map((pet, index) => {
+                        return (
+                            <div key={index} className="card" style={{ width: 18 + 'rem' }}>
+                                <img src="https://placedog.net/70/40" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">{pet.petName}</h5>
+                                    <p className="card-text">Microchip Number: {pet.microNum}</p>
+                                    <a href="#" className="btn btn-primary">Possible Link to Records</a>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
-            <div className="card" style={{width: 18 + 'rem'}}>
-                <img src="http://place-puppy.com/100x101" className="card-img-top" alt="..."></img>
-                <div className="card-body">
-                    <h5 className="card-title">Snuggles</h5>
-                    <p className="card-text">Microchip Number: 4581215123</p>
-                    <a href="#" className="btn btn-primary">Records</a>
-                </div>
-            </div>
-        </div>
-    )
+        );
+    }
 }
 
 export default PetInformation;

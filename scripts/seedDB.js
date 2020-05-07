@@ -8,28 +8,28 @@ mongoose.connect("mongodb://localhost/chipperdb", {
 
 let petSeed = [
     {
-        pet_name: "Woofy",
-        micro_num: 123,
+        petName: "Woofy",
+        microNum: 123,
     },
     {
-        pet_name: "Barky",
-        micro_num: 124,
+        petName: "Barky",
+        microNum: 124,
     },
     {
-        pet_name: "Crazyeyes",
-        micro_num: 321,
+        petName: "Crazyeyes",
+        microNum: 321,
     },
     {
-        pet_name: "Smellyface",
-        micro_num: 524,
+        petName: "Smellyface",
+        microNum: 524,
     },
     {
-        pet_name: "Goatlord",
-        micro_num: 235,
+        petName: "Goatlord",
+        microNum: 235,
     },
     {
-        pet_name: "Chippy",
-        micro_num: 132,
+        petName: "Chippy",
+        microNum: 132,
     }
 ];
 
