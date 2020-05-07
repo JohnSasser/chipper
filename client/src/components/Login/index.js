@@ -20,7 +20,7 @@ class Signup extends Component {
 
   handleLogin = (e) => {
     this.setState({
-      loggedIn: true
+      redirect: true
     })
   }
 
