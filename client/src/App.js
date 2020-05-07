@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route
             exact
-            path={["/userProfile"]}
+            path={["/home"]}
             component={userProfilePage}
           ></Route>
           <Route
@@ -24,9 +24,9 @@ function App() {
             path={["/userPetsProfile"]}
             component={PetsProfilePage}
           ></Route>
-          <Route exact path={["/SignUp"]} component={Signup}></Route>
+          <Route exact path={["/signUp"]} component={Signup}></Route>
           <Route exact path={["/adminPage"]} component={Admin}></Route>
-          <Route exact path={["/", "/Chipper"]} component={Login}></Route>
+          <Route exact path={["/", "/login"]} component={Login}></Route>
         </Switch>
       </div>
     </Router>

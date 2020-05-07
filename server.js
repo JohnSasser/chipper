@@ -1,11 +1,12 @@
+require('dotenv').config()
 let express = require("express");
 let session = require("express-session");
-
 
 const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
-const passport = require('./passport');
+const flash = require("express-flash");
+const passport = require("./passport");
 const bodyParser = require("body-parser");
 
 const apiRoutes = require("./routes/apiRoutes");
@@ -17,12 +18,15 @@ const app = express();
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(passport.initialize())
-app.use(passport.session())
+
+// initialize app with passport and session
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 // middleware session instantiation;
 app.use(
   session({
-    secret: "drax-the-dogstroyer", //pick a random string to make the hash that is generated secure
+    secret: process.env.SESSION_SECRET, 
     resave: false, //required
     saveUninitialized: false, //required
   })
@@ -52,7 +56,9 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/index.html"));
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chipperdb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chipperdb", {
+  useNewUrlParser: true,
+});
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

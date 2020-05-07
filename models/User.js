@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 // const passportLocalMongoose = require('passport-local-mongoose');
  
 const User = new Schema({
-    userName: {
+    username: {
         type: String,
         required: true,
         trim: true,
@@ -15,5 +15,9 @@ const User = new Schema({
 });
  
 // User.plugin(passportLocalMongoose);
+
+// userSchema.methods.verifyPassword = function(password, callback) {
+//   callback(err, bcrypt.compareSync(password, this.password));
+// };
  
 module.exports = mongoose.model('User', User);
