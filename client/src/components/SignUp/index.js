@@ -51,7 +51,7 @@ class Signup extends Component {
   //   Bootstrap Login Form;
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/"></Redirect>;
+      return <Redirect to="/login"></Redirect>;
     }
     return (
       <Container>
@@ -61,7 +61,7 @@ class Signup extends Component {
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">User Name</label>
             <input
-              type="text"
+              
               className="form-control"
               name="username"
               value={this.state.username}

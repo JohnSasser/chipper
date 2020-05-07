@@ -8,7 +8,8 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
-    loggedIn: false
+    redirect: false,
+    isAdmin: false,
   };
 
   handleChange = (e) => {
@@ -31,16 +32,16 @@ class Signup extends Component {
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
 
-    Axios.post('/api/user',  {
+    Axios.post('/api/login',  {
       username: this.state.username,
       password: this.state.password
     })
       .then((res) => {
         console.log(res);
         if (res.data) {
-          console.log(`Sign-in Successful`);
+          console.log(`Login-in Successful`);
           this.setState({
-            redirectTo: "Login",
+            redirect: true,
           });
         }
       })
@@ -51,8 +52,8 @@ class Signup extends Component {
 
   //   Bootstrap Login Form;
   render() {
-    if (this.state.loggedIn){
-      return <Redirect to="/userProfile"></Redirect>
+    if (this.state.redirect) {
+      return <Redirect to="/home"></Redirect>
     }
     return (
       <Container>

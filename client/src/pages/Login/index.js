@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import Logo from "../../components/Logo";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
   state = {
-    userName: "",
+    username: "",
     password: "",
     redirect: false,
     isAdmin: false,
@@ -22,7 +23,7 @@ class Login extends Component {
     console.log(
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
-    Axios.post("/api/user", {
+    Axios.post("/api/login", {
       username: this.state.username,
       password: this.state.password
     })
@@ -44,20 +45,22 @@ class Login extends Component {
 
   //   Login From Render()
   render() {
-    // Some header animation goes here
+    if (this.state.redirect) {
+      return <Redirect to="/home"></Redirect>
+    }
 
     return (
       <div className="container">
         <Logo />
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Username</label>
+            <label htmlFor="exampleInputEmail1">username</label>
             <input
               type="text"
-              name="userName"
+              name="username"
               className="form-control"
               id="exampleInputEmail1"
-              value={this.state.userName}
+              value={this.state.username}
               onChange={this.handleChange}
             ></input>
           </div>
@@ -85,7 +88,7 @@ class Login extends Component {
 
 // in the Server api route;
 // db.findOne({
-// userName: userName,
+// username: username,
 // password: password
 // })
 
