@@ -9,6 +9,7 @@ const passport = require('./passport');
 const bodyParser = require("body-parser");
 
 const apiRoutes = require("./routes/apiRoutes");
+const petRoutes = require("./routes/petApi");
 
 const PORT = process.env.PORT || 3001;
 
@@ -45,6 +46,7 @@ app.use(express.static("client"));
 app.use(cors());
 
 app.use(apiRoutes);
+app.use(petRoutes);
 
 // Define all API routes before this runs
 // Send every request to the React app
