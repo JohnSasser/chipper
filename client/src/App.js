@@ -8,6 +8,7 @@ import Admin from "./pages/Admin";
 import Signup from "./components/SignUp";
 import UserFeed from "./pages/UserFeed";
 import UserUpdate from "./pages/UserUpdate";
+import "./App.css"
 
 function App() {
   return (
