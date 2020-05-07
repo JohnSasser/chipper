@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Jumbotron from "../Jumbotorn";
 import { Col, Row, Container } from "../Grid";
+import { Redirect } from "react-router-dom";
 
 class Signup extends Component {
   state = {
     username: "",
     password: "",
+    loggedIn: false
   };
 
   handleChange = (e) => {
@@ -14,6 +16,12 @@ class Signup extends Component {
       [e.target.name]: e.target.value,
     });
   };
+
+  handleLogin = (e) => {
+    this.setState({
+      loggedIn: true
+    })
+  }
 
   //   handleSubmit to send the axios req to DB for username: & password:
   //   If successful, will redirect to Login page.
@@ -43,6 +51,9 @@ class Signup extends Component {
 
   //   Bootstrap Login Form;
   render() {
+    if (this.state.loggedIn){
+      return <Redirect to="/userProfile"></Redirect>
+    }
     return (
       <Container>
         <Jumbotron text="Log In"/>
@@ -69,7 +80,7 @@ class Signup extends Component {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>
             Submit
           </button>
         </form>
