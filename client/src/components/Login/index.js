@@ -18,6 +18,12 @@ class Signup extends Component {
     });
   };
 
+  handleLogin = (e) => {
+    this.setState({
+      redirect: true
+    })
+  }
+
   //   handleSubmit to send the axios req to DB for username: & password:
   //   If successful, will redirect to Login page.
   handleSubmit = (e) => {
@@ -75,7 +81,7 @@ class Signup extends Component {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>
             Submit
           </button>
         </form>
