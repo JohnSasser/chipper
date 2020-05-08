@@ -19,6 +19,10 @@ const petSchema = new Schema({
   breed: {
     type: String,
     required: false
+  },
+  ownerId: {
+    type: String,
+    required: true
   }
 });
 
