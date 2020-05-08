@@ -1,19 +1,24 @@
 const router = require("express").Router();
 const db = require("../models");
 const passport = require("passport");
-// const passport = require("../passport");
+const bcrypt = require("bcrypt");
 
 // password encryption
-const md5 = require("md5");
 
 // respond with "hello world" when a GET request is made to the homepage;
 router.post("/api/signup", function (req, res) {
   console.log(req.body);
-  // const encryptedPass = md5(req.body.password)
+  // const encryptedPass = bcrypt(req.body.password)
   // console.log("encrypted password:", encryptedPass)
   db.User.create({
     username: req.body.username,
     password: req.body.password,
+    phone: req.body.phone,
+    email: req.body.email,
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
   })
     .then(function (result) {
       console.log("pushing ", result, " to database");
@@ -25,18 +30,15 @@ router.post("/api/signup", function (req, res) {
     });
 });
 
-
 // router.post('/url', someFunction, callback)
 // authentication for passport route
 
 router.post("/api/login", passport.authenticate("local"), function (req, res) {
-  console.log(req.user)
+  console.log(req.user);
   res.json({
     username: req.user.username,
     id: req.user.id,
   });
 });
-
-
 
 module.exports = router;
