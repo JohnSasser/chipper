@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Jumbotron, Col, Row, Container } from "../Grid";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+
 
 class Signup extends Component {
   state = {
@@ -83,6 +84,7 @@ class Signup extends Component {
           <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>
             Submit
           </button>
+          <Link className="sign-up-link" to="/signUp"><button type="button" className="btn btn-warning">Sign Up Here</button></Link>
         </form>
       </Container>
     );

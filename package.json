@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -12,7 +13,6 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
-    "md5": "^2.2.1",
     "mongoose": "^5.9.10",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
