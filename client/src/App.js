@@ -5,14 +5,15 @@ import Login from "./components/Login";
 import userProfilePage from "./pages/UserProfile";
 import PetsProfilePage from "./pages/UserPetsProfile";
 import Admin from "./pages/Admin";
-import Navigation from "./components/Navigation";
 import Signup from "./components/SignUp";
+import UserFeed from "./pages/UserFeed";
+import UserUpdate from "./pages/UserUpdate";
+import "./App.css"
 
 function App() {
   return (
     <Router>
       <div>
-        <Navigation />
         <Switch>
           <Route
             exact
@@ -20,10 +21,11 @@ function App() {
             component={userProfilePage}
           ></Route>
           <Route
-            exact
-            path={["/userPetsProfile"]}
+            exact path={["/userPetsProfile"]}
             component={PetsProfilePage}
           ></Route>
+          <Route exact path={["/userFeed"]} component={UserFeed}></Route>
+          <Route exact path={["/userUpdate"]} component={UserUpdate}></Route>
           <Route exact path={["/signUp"]} component={Signup}></Route>
           <Route exact path={["/adminPage"]} component={Admin}></Route>
           <Route exact path={["/", "/login"]} component={Login}></Route>
