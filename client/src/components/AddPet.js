@@ -39,27 +39,27 @@ function AddPet() {
     return (
         <div>
             <form>
-                <div class="form-group">
+                <div className="form-group">
                     <label>New Pet Name</label>
                     <input 
                     type="text" 
-                    class="form-control" 
+                    className="form-control" 
                     name="petName"
                     value={petName}
                     onChange={onChange}
                     placeholder="Pet Name Here"></input>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label>New pets microchip number</label>
                     <input 
                     type="text" 
-                    class="form-control" 
+                    className="form-control" 
                     name="petMicrochipNumber"
                     value={petMicrochipNumber}
                     onChange={onChange}
                     placeholder="55555555555"></input>
                 </div>
-                <button type="submit" class="btn btn-primary" onClick={onSubmit}>Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={onSubmit}>Submit</button>
             </form>
 
         </div>
