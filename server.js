@@ -16,22 +16,7 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// initialize app with passport and session
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(flash());
-// middleware session instantiation;
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET, 
-    resave: false, //required
-    saveUninitialized: false, //required
-  })
-);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -48,6 +33,16 @@ app.use(express.json());
 app.use(express.static("client"));
 
 app.use(cors());
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET, 
+    resave: false, //required
+    saveUninitialized: false, //required
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(apiRoutes);
 app.use(petRoutes);

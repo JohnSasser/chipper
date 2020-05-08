@@ -32,7 +32,7 @@ class Signup extends Component {
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
 
-    Axios.post('/api/login',  {
+    Axios.post('/api/login', {
       username: this.state.username,
       password: this.state.password
     })
@@ -57,7 +57,7 @@ class Signup extends Component {
     }
     return (
       <Container>
-        <Jumbotron text="Log In"/>
+        <Jumbotron text="Log In" />
 
         <form className="" onSubmit={this.handleSubmit}>
           <div className="form-group">
@@ -70,18 +70,15 @@ class Signup extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-
-          <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>
+          <label htmlFor="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
           <Link className="sign-up-link" to="/signUp"><button type="button" className="btn btn-warning">Sign Up Here</button></Link>

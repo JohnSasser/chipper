@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const db = require("../models");
 const passport = require("passport");
-const bcrypt = require("bcrypt");
+
 
 // password encryption
 
