@@ -18,6 +18,7 @@ function UserDirectory() {
                 <Link className="nav-link" to="/userPetsProfile">Pet Profile</Link>
                 <Link className="nav-link" to="/userUpdate">Update Profile</Link>
                 <Link className="nav-link" to="/">Logout</Link>
+                
             </ul>
         </div>
     )
