@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import Jumbotron from "../Jumbotorn";
-import { Col, Row, Container } from "../Grid";
-import { Redirect, Link } from "react-router-dom";
+import { Jumbotron, Col, Row, Container } from "../Grid";
+import { Redirect } from "react-router-dom";
+
 
 class Signup extends Component {
   state = {
