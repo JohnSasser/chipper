@@ -26,3 +26,11 @@ export function Col({ size, children }) {
     </div>
   );
 }
+
+export function Jumbotron(props) {
+  return (
+    <div className="jumbotron text-center">
+      <h2 className="display-4">{props.text}</h2>
+    </div>
+  );
+}

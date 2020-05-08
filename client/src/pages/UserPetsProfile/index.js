@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserDirectory from "../../components/UserDirectory"
 import PetInformation from "../../components/PetInformation"
+import AddPet from "../../components/AddPet"
 
 
 function UserPetsProfile() {
@@ -12,6 +13,7 @@ function UserPetsProfile() {
                 </div>
                 <div className="col-10 userInformation">
                     <PetInformation />
+                    <AddPet></AddPet>
                 </div>
             </div>
         </div>

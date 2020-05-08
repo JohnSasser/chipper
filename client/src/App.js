@@ -16,8 +16,7 @@ function App() {
       <div>
         <Switch>
           <Route
-            exact
-            path={["/home"]}
+            exact path={["/home"]}
             component={userProfilePage}
           ></Route>
           <Route
