@@ -1,15 +1,15 @@
 const router = require("express").Router();
 const db = require("../models");
 const passport = require("passport");
-// const passport = require("../passport");
+const bcrypt = require("bcrypt")
 
 // password encryption
-const md5 = require("md5");
+
 
 // respond with "hello world" when a GET request is made to the homepage;
 router.post("/api/signup", function (req, res) {
   console.log(req.body);
-  // const encryptedPass = md5(req.body.password)
+  // const encryptedPass = bcrypt(req.body.password)
   // console.log("encrypted password:", encryptedPass)
   db.User.create({
     username: req.body.username,
@@ -36,7 +36,6 @@ router.post("/api/login", passport.authenticate("local"), function (req, res) {
     id: req.user.id,
   });
 });
-
 
 
 module.exports = router;
