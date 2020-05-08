@@ -10,16 +10,20 @@ const petSchema = new Schema({
   },
   microNum: {
     type: Number,
-    required: true
+    required: true,
   },
   species: {
     type: String,
-    required: true
+    required: true,
   },
   breed: {
     type: String,
-    required: false
-  }
+    required: false,
+  },
+  ownerId: {
+    type: String,
+    required: true,
+  },
 });
 
 const Pets = mongoose.model("Pets", petSchema);

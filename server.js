@@ -41,6 +41,7 @@ app.use(
     saveUninitialized: false, //required
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
