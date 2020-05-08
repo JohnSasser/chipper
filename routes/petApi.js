@@ -4,7 +4,9 @@ const db = require("../models");
 router.get('/api/pets', function (req, res) {
     console.log("REACHED API/PETS");
     console.log("req.user:", req.user);
-    db.Pets.find()
+    db.Pets.find({
+        ownerId: req.user._id
+    })
         .then(pets => {
             res.status(200).json(pets);
         })
