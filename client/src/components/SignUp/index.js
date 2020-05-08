@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Axios from "axios";
 
 import Jumbotron from "../Jumbotorn";
-import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 import { Col, Row, Container } from "../Grid";
+
 
 class Signup extends Component {
   state = {
@@ -82,6 +83,7 @@ class Signup extends Component {
           <button type="submit" className="btn btn-primary" onClick>
             Submit
           </button>
+          <Link className="login-link" to="/login"><button type="button" className="btn btn-warning">Or Login</button></Link>
         </form>
       </Container>
     );
