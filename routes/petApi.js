@@ -14,10 +14,12 @@ router.get('/api/pets', function (req, res) {
 router.post('/api/add', function (req, res) {
     console.log("REACHED API/add");
 
+    console.log(req.user);
     let newPet = {
         petName: req.body.petName,
         microNum: req.body.microNum,
-        species: req.body.species
+        species: req.body.species,
+        ownerId: req.user.id
     }
 
     db.Pets.insertMany(newPet, (err, result) => {

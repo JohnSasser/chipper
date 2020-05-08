@@ -3,7 +3,6 @@ import Axios from "axios";
 import { Jumbotron, Col, Row, Container } from "../Grid";
 import { Redirect, Link } from "react-router-dom";
 
-
 class Signup extends Component {
   state = {
     username: "",
@@ -20,9 +19,9 @@ class Signup extends Component {
 
   handleLogin = (e) => {
     this.setState({
-      redirect: true
-    })
-  }
+      redirect: true,
+    });
+  };
 
   //   handleSubmit to send the axios req to DB for username: & password:
   //   If successful, will redirect to Login page.
@@ -32,9 +31,9 @@ class Signup extends Component {
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
 
-    Axios.post('/api/login', {
+    Axios.post("/api/login", {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
     })
       .then((res) => {
         console.log(res);
@@ -53,7 +52,7 @@ class Signup extends Component {
   //   Bootstrap Login Form;
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/home"></Redirect>
+      return <Redirect to="/home"></Redirect>;
     }
     return (
       <Container>
@@ -81,7 +80,11 @@ class Signup extends Component {
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-          <Link className="sign-up-link" to="/signUp"><button type="button" className="btn btn-warning">Sign Up Here</button></Link>
+          <Link className="sign-up-link" to="/signUp">
+            <button type="button" className="btn btn-warning">
+              Sign Up Here
+            </button>
+          </Link>
         </form>
       </Container>
     );
