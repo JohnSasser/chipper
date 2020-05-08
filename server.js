@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 const flash = require("express-flash");
-const passport = require("./passport");
+const passport = require("./config/passport");
 const bodyParser = require("body-parser");
 
 const apiRoutes = require("./routes/apiRoutes");
