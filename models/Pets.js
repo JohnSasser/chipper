@@ -10,11 +10,11 @@ const petSchema = new Schema({
   },
   microNum: {
     type: Number,
-    required: true
+    required: true,
   },
   species: {
     type: String,
-    required: true
+    required: true,
   },
   breed: {
     type: String,

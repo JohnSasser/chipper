@@ -3,13 +3,12 @@ import Axios from "axios";
 import { Jumbotron, Col, Row, Container } from "../Grid";
 import { Redirect, Link } from "react-router-dom";
 
-
-class Signup extends Component {
+class Login extends Component {
   state = {
     username: "",
     password: "",
     redirect: false,
-    isAdmin: false,
+    redirectRoute: ""
   };
 
   handleChange = (e) => {
@@ -18,30 +17,35 @@ class Signup extends Component {
     });
   };
 
-  handleLogin = (e) => {
+  handleLogin = () => {
     this.setState({
-      redirect: true
-    })
-  }
+      redirect: true,
+    });
+  };
 
   //   handleSubmit to send the axios req to DB for username: & password:
   //   If successful, will redirect to Login page.
   handleSubmit = (e) => {
     e.preventDefault();
+
     console.log(
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
 
-    Axios.post('/api/login', {
+    Axios.post("/api/login", {
       username: this.state.username,
       password: this.state.password
     })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
         if (res.data) {
           console.log(`Login-in Successful`);
+          //ASSUMING res.data is a user object that has the isAdmin flag:
+          let redirectRoute = res.data.isAdmin ? "/admin" : "/home";
+          console.log(redirectRoute);
           this.setState({
             redirect: true,
+            redirectRoute
           });
         }
       })
@@ -53,7 +57,7 @@ class Signup extends Component {
   //   Bootstrap Login Form;
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/home"></Redirect>
+      return <Redirect to={this.state.redirectRoute}></Redirect>;
     }
     return (
       <Container>
@@ -81,7 +85,11 @@ class Signup extends Component {
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-          <Link className="sign-up-link" to="/signUp"><button type="button" className="btn btn-warning">Sign Up Here</button></Link>
+          <Link className="sign-up-link" to="/signUp">
+            <button type="button" className="btn btn-warning">
+              Sign Up Here
+            </button>
+          </Link>
         </form>
       </Container>
     );

@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 
-
 import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 import { Jumbotron, Col, Row, Container } from "../Grid";
-
-
 
 class Signup extends Component {
   state = {
@@ -17,8 +14,7 @@ class Signup extends Component {
     city: "",
     state: "",
     zip: "",
-    isAdmin: false,
-    redirect: false,
+    redirect: false
   };
 
   handleChange = (e) => {
@@ -26,40 +22,39 @@ class Signup extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+
   };
 
   //   handleSubmit to send the axios req to DB for username: & password:
   //   If successful, will redirect to Login page.
   handleSubmit = (e) => {
     e.preventDefault();
+    
     console.log(
-      `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
+      `handleFormSubmit ${this.state}`
     );
-
-    Axios.post("/api/signup", {
-      username: this.state.username,
-      password: this.state.password,
-      phone: this.state.phone,
-      email: this.state.email,
-      street: this.state.street,
-      city: this.state.city,
-      state: this.state.state,
-      zip: this.state.zip,
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.data) {
-          console.log(`Sign-in Successful`);
-
-          // debugger;
-          this.setState({
-            redirect: true,
-          });
-        }
+      Axios.post("/api/signup", {
+        username: this.state.username,
+        password: this.state.password,
+        phone: this.state.phone,
+        email: this.state.email,
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
       })
-      .catch((err) => {
-        if (err) console.log(`Sign-Up server error ${err}`);
-      });
+        .then((res) => {
+          console.log(res);
+          if (res.data) {
+            console.log(`Sign-in Successful`);
+            this.setState({
+              redirect: true,
+            });
+          }
+        })
+        .catch((err) => {
+          if (err) console.log(`Sign-Up server error ${err}`);
+        });
   };
 
   //   Bootstrap Login Form;
@@ -163,10 +158,14 @@ class Signup extends Component {
             </div>
           </div>
 
-          <button type="submit" className="btn btn-primary" onClick>
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
-          <Link className="login-link" to="/login"><button type="button" className="btn btn-warning">Or Login</button></Link>
+          <Link className="login-link" to="/login">
+            <button type="button" className="btn btn-warning">
+              Or Login
+            </button>
+          </Link>
         </form>
       </Container>
     );
