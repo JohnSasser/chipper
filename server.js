@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 
 const apiRoutes = require("./routes/apiRoutes");
 const petRoutes = require("./routes/petApi");
+const adminRoutes = require("./routes/adminRoutes");
 
 const PORT = process.env.PORT || 3001;
 
@@ -47,6 +48,7 @@ app.use(passport.session());
 
 app.use(apiRoutes);
 app.use(petRoutes);
+app.use(adminRoutes);
 
 // Define all API routes before this runs
 // Send every request to the React app

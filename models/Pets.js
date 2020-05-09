@@ -18,12 +18,12 @@ const petSchema = new Schema({
   },
   breed: {
     type: String,
-    required: false,
+    required: false
   },
   ownerId: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const Pets = mongoose.model("Pets", petSchema);
