@@ -14,8 +14,7 @@ class Signup extends Component {
     city: "",
     state: "",
     zip: "",
-    isAdmin: false,
-    redirect: false,
+    redirect: false
   };
 
   handleChange = (e) => {
@@ -23,12 +22,6 @@ class Signup extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    console.log(this.state, `state in handleSubmit SignUp`);
-    if (this.state.username === "Admin" && this.state.password === "Admin") {
-      this.setState({
-        isAdmin: true,
-      });
-    }
 
   };
 
@@ -40,9 +33,7 @@ class Signup extends Component {
     console.log(
       `handleFormSubmit ${this.state}`
     );
-
       Axios.post("/api/signup", {
-        isAdmin: this.state.isAdmin,
         username: this.state.username,
         password: this.state.password,
         phone: this.state.phone,
@@ -56,7 +47,6 @@ class Signup extends Component {
           console.log(res);
           if (res.data) {
             console.log(`Sign-in Successful`);
-
             this.setState({
               redirect: true,
             });
@@ -65,13 +55,12 @@ class Signup extends Component {
         .catch((err) => {
           if (err) console.log(`Sign-Up server error ${err}`);
         });
-    
   };
 
   //   Bootstrap Login Form;
   render() {
     if (this.state.redirect) {
-      // return <Redirect to="/login"></Redirect>;
+      return <Redirect to="/login"></Redirect>;
     }
     return (
       <Container>
@@ -169,7 +158,7 @@ class Signup extends Component {
             </div>
           </div>
 
-          <button type="submit" className="btn btn-primary" onClick>
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
           <Link className="login-link" to="/login">
