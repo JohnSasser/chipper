@@ -36,7 +36,7 @@ router.post("/api/login", passport.authenticate("local"), function (req, res) {
 
 router.post("/api/search", function (req, res) {
   console.log("REACHED API/adminpets");
-  db.Pets.findOne({ petName: req.body.petName })
+  db.Pets.findOne({ microNum: req.body.microNum })
     .then(pet => {
       console.log(pet)
       res.status(200).json(pet);

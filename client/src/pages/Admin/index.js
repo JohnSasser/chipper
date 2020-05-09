@@ -13,7 +13,7 @@ function Admin (){
     const onSubmit = (e) => {
         const searchterm = search
         axios.post('/api/search', {
-            petName: searchterm
+            microNum: searchterm
         }).then((returnedSearch) => {
             if (returnedSearch.data) {
               setPet({
