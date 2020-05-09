@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Jumbotron, Col, Row, Container } from "../Grid";
 import { Redirect, Link } from "react-router-dom";
 
-class Signup extends Component {
+class Login extends Component {
   state = {
     username: "",
     password: "",
@@ -17,7 +17,7 @@ class Signup extends Component {
     });
   };
 
-  handleLogin = (e) => {
+  handleLogin = () => {
     this.setState({
       redirect: true,
     });
@@ -27,6 +27,12 @@ class Signup extends Component {
   //   If successful, will redirect to Login page.
   handleSubmit = (e) => {
     e.preventDefault();
+    if (this.state.username === "Admin" && this.state.password === "Admin") {
+      this.setState({
+        isAdmin: true,
+      });
+    }
+
     console.log(
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
@@ -34,6 +40,7 @@ class Signup extends Component {
     Axios.post("/api/login", {
       username: this.state.username,
       password: this.state.password,
+      isAdmin: this.state.isAdmin,
     })
       .then((res) => {
         console.log(res);
@@ -91,4 +98,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default Login;
