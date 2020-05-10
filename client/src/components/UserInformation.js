@@ -1,44 +1,31 @@
 import React from "react";
+import "../userInformation.css";
+import { Redirect, Link } from "react-router-dom";
+// import img from "../images/chipper/pets.png"
 
 function UserInformation() {
     return (
-        <div>
-            <ul className="list-group userInformation">
-                <li className="list-group-item active container">
-                    <div className="row">
-                        <h3>Email</h3>
-                    </div>
-                    <div className="row">
-                        <h5>Example@fakemail.com</h5>
-                    </div>
-                </li>
-                <li className="list-group-item active container">
-                    <div className="row">
-                        <h3>Phone</h3>
-                    </div>
-                    <div className="row">
-                        <h5>555-555-5555</h5>
-                    </div>
-                </li>
-                <li className="list-group-item active container">
-                    <div className="row">
-                        <h3>Your Pets Records</h3>
-                    </div>
-                    <div className="row">
-                        <h5>HealthyPup.pdf</h5>
-                    </div>
-                </li>
-                <li className="list-group-item active container">
-                    <div className="row">
-                        <h3>Your Vet Information</h3>
-                    </div>
-                    <div className="row">
-                        <h5>VET</h5>
-                    </div>
-                </li>
-                
-            </ul>
+        <div className="userInformation">
+            {/* <img src={img} alt="line-of-pets"/> */}
+            <h2 id="center-h1">Owner Information:</h2>
+            <hr className="hr-row"/>
+            <br />
+            <div class="card card-background">
+                <div class="card-body">
+                    <br/>
+                    <h3 class="card-text">Full Name:</h3>
+                    <p> Main Person</p>
+                    <h3 class="card-text"></h3>
+                    <p></p>
+                    <h3 class="card-text">Email Address:</h3>
+                    <p>main@main.com</p>
+                    <h3 class="card-text">Phone Number:</h3>
+                    <p>404-345-4673</p>
+                    <a href="#" class="btn btn-warning"><Link className="navlink"  to="/userUpdate">Update Information</Link></a>
+                </div>
+            </div>
         </div>
+
     )
 }
 
