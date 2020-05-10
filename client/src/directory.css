@@ -1,0 +1,23 @@
+.main-directory{
+    font-size:20px;
+    text-align: center;
+}
+.img{
+    margin-top:20px;
+}
+
+#box{
+    margin-top:30px;
+    padding:5px;
+
+}
+
+.nav-link{
+    margin-bottom:15px;
+    border:solid 3px black;
+}
+
+.nav-link:hover{
+    border:solid 3px black;
+    background-color: slategray;
+}
