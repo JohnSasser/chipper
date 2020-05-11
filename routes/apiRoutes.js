@@ -4,28 +4,18 @@ const passport = require("passport");
 
 // password encryption
 
-function requireAdmin() {
-  return function (req, res, next) {
-    db.User.findOne(req.body.username, function (err, user) {
-      if (err) {
-        return next(err);
-      }
+router.post("/api/admin-sign-up", function(req, res) {
+  console.log(req.body)
 
-      if (!user) {
-        // Do something - the user does not exist
-        console.log(`no user condition - apiRoutes`);
-      }
-
-      if (!user.isAdmin) {
-        // Do something - the user exists but is not admin user
-        console.log(`not user.admin - apiRoutes`)
-      }
-
-      // Hand over control to passport
-      next();
-    });
-  };
-}
+  db.AdminKey.findOne({
+    key: req.body.AdminKey
+  }).then(result => {
+    console.log(`api route admin-sign-up ROUTES ${key}`)
+    res.status(200)
+  }).catch(err => {
+    res.status(404)
+  })
+})
 
 // respond with "hello world" when a GET request is made to the homepage;
 router.post("/api/signup", function (req, res) {
@@ -55,14 +45,6 @@ router.post("/api/signup", function (req, res) {
 
 // router.post('/url', someFunction, callback)
 // authentication for passport route
-
-router.post("/login", requireAdmin(), passport.authenticate("local"), function (
-  req,
-  res
-) {
-  console.log(res, "admin passport auth apiRoutes.js")
-  res.redirect("/Admin");
-});
 
 router.post("/api/login", passport.authenticate("local"), function (req, res) {
   console.log(req.user);

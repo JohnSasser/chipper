@@ -20,4 +20,4 @@ POST "/api/signup"
 ADMIN PAGE 
 on componentDidMount / useEffect, check user authentication against some sort of /auth route 
     -IF user.isAdmin is false, redirect to homepage 
-    -Otherwise just render the page as if nothing happend 
+    -Otherwise just render the page as if nothing happened 

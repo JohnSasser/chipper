@@ -14,15 +14,16 @@ class Signup extends Component {
     city: "",
     state: "",
     zip: "",
+    key: "",
     redirect: false,
-    checked: false,
+    isAdmin: false,
   };
 
   handleChange = (e) => {
     console.log(e.target, e.target.name, e.target.value);
-    if (e.target.name === "checkbox") {
+    if (e.target.type === "checkbox") {
       this.setState({
-        checked: !this.state.checked,
+        isAdmin: !this.state.isAdmin,
       });
     }
     this.setState({
@@ -35,6 +36,11 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    if (this.state.isAdmin === true) {
+      Axios.post("/api/admin-sign-up"), {
+        key: this.state.key
+      }
+    } else 
     console.log(`handleFormSubmit ${this.state}`);
     Axios.post("/api/signup", {
       username: this.state.username,
@@ -65,16 +71,18 @@ class Signup extends Component {
     if (this.state.redirect) {
       return <Redirect to="/login"></Redirect>;
     }
-    const adminKeyInput = this.state.checked ? (
-      <div class="col-auto">
-        <label class="sr-only" for="inlineFormInput">
+    const adminKeyInput = this.state.isAdmin ? (
+      <div className="col-auto">
+        <label className="sr-only" htmlFor="inlineFormInput">
           Name
         </label>
         <input
           type="text"
-          class="form-control mb-2"
+          className="form-control mb-2"
           id="inlineFormInput"
           placeholder="Enter Admin Key"
+          value={this.state.key}
+          onChange={this.handleChange}
         />
       </div>
     ) : null;
@@ -181,7 +189,8 @@ class Signup extends Component {
               type="checkbox"
               className="custom-control-input"
               id="customSwitch1"
-              checked={this.state.checked}
+              name="is-admin"
+              checked={this.state.isAdmin}
               onChange={this.handleChange}
             />
             <label className="custom-control-label" htmlFor="customSwitch1">
