@@ -37,10 +37,10 @@ class Signup extends Component {
     e.preventDefault();
 
     if (this.state.isAdmin === true) {
-      Axios.post("/api/admin-sign-up"), {
+      Axios.post(("/api/admin-sign-up"), {
         key: this.state.key
-      }
-    } else 
+      })
+    }
     console.log(`handleFormSubmit ${this.state}`);
     Axios.post("/api/signup", {
       username: this.state.username,
