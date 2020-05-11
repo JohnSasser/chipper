@@ -14,47 +14,50 @@ class Signup extends Component {
     city: "",
     state: "",
     zip: "",
-    redirect: false
+    redirect: false,
+    checked: false,
   };
 
   handleChange = (e) => {
     console.log(e.target, e.target.name, e.target.value);
+    if (e.target.name === "checkbox") {
+      this.setState({
+        checked: !this.state.checked,
+      });
+    }
     this.setState({
       [e.target.name]: e.target.value,
     });
-
   };
 
   //   handleSubmit to send the axios req to DB for username: & password:
   //   If successful, will redirect to Login page.
   handleSubmit = (e) => {
     e.preventDefault();
-    
-    console.log(
-      `handleFormSubmit ${this.state}`
-    );
-      Axios.post("/api/signup", {
-        username: this.state.username,
-        password: this.state.password,
-        phone: this.state.phone,
-        email: this.state.email,
-        street: this.state.street,
-        city: this.state.city,
-        state: this.state.state,
-        zip: this.state.zip,
+
+    console.log(`handleFormSubmit ${this.state}`);
+    Axios.post("/api/signup", {
+      username: this.state.username,
+      password: this.state.password,
+      phone: this.state.phone,
+      email: this.state.email,
+      street: this.state.street,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.data) {
+          console.log(`Sign-in Successful`);
+          this.setState({
+            redirect: true,
+          });
+        }
       })
-        .then((res) => {
-          console.log(res);
-          if (res.data) {
-            console.log(`Sign-in Successful`);
-            this.setState({
-              redirect: true,
-            });
-          }
-        })
-        .catch((err) => {
-          if (err) console.log(`Sign-Up server error ${err}`);
-        });
+      .catch((err) => {
+        if (err) console.log(`Sign-Up server error ${err}`);
+      });
   };
 
   //   Bootstrap Login Form;
@@ -62,6 +65,20 @@ class Signup extends Component {
     if (this.state.redirect) {
       return <Redirect to="/login"></Redirect>;
     }
+    const adminKeyInput = this.state.checked ? (
+      <div class="col-auto">
+        <label class="sr-only" for="inlineFormInput">
+          Name
+        </label>
+        <input
+          type="text"
+          class="form-control mb-2"
+          id="inlineFormInput"
+          placeholder="Enter Admin Key"
+        />
+      </div>
+    ) : null;
+
     return (
       <Container>
         <Jumbotron text="Sign Up" />
@@ -157,6 +174,22 @@ class Signup extends Component {
               <input type="text" className="form-control" id="inputZip" />
             </div>
           </div>
+
+{/* ***** checkbox not working when tied to state */}
+          <div className="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customSwitch1"
+              checked={this.state.checked}
+              onChange={this.handleChange}
+            />
+            <label className="custom-control-label" htmlFor="customSwitch1">
+              Check if Admin
+            </label>
+          </div>
+
+          {adminKeyInput}
 
           <button type="submit" className="btn btn-primary">
             Submit
