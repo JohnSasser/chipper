@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const AdminKey = new Schema({
   key: {
     type: String,
-    required: false
+    required: false,
+    trim: true
   },
   expired: {
     type: Boolean,

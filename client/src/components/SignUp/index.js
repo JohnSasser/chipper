@@ -33,14 +33,19 @@ class Signup extends Component {
 
   //   handleSubmit to send the axios req to DB for username: & password:
   //   If successful, will redirect to Login page.
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
 
     if (this.state.isAdmin === true) {
-      Axios.post(("/api/admin-sign-up"), {
+      const response = await Axios.post("/api/admin-sign-up", {
         key: this.state.key
       })
+      if (response.status === 401) {
+        console.log(response.status)
+        return
+      }
     }
+
     console.log(`handleFormSubmit ${this.state}`);
     Axios.post("/api/signup", {
       username: this.state.username,
@@ -79,7 +84,7 @@ class Signup extends Component {
         <input
           type="text"
           className="form-control mb-2"
-          id="inlineFormInput"
+          name="key"
           placeholder="Enter Admin Key"
           value={this.state.key}
           onChange={this.handleChange}

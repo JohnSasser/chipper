@@ -6,14 +6,13 @@ const passport = require("passport");
 
 router.post("/api/admin-sign-up", function(req, res) {
   console.log(req.body)
-
-  db.AdminKey.findOne({
-    key: req.body.AdminKey
+  db.Admin.findOne({
+    key: req.body.key
   }).then(result => {
     console.log(`api route admin-sign-up ROUTES ${key}`)
-    res.status(200)
+    res.status(200).send()
   }).catch(err => {
-    res.status(404)
+    res.status(401).send()
   })
 })
 
