@@ -3,6 +3,9 @@ import Axios from "axios";
 
 import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 import { Jumbotron, Col, Row, Container } from "../Grid";
+import chip from "../../images/chipper/chipperOne.png"
+import Footer from "../footer";
+import "../../signup.css"
 
 class Signup extends Component {
   state = {
@@ -93,100 +96,100 @@ class Signup extends Component {
     ) : null;
 
     return (
-      <Container>
-        <Jumbotron text="Sign Up" />
-
-        <form className="" onSubmit={this.handleSubmit}>
-          {/* username */}
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">User Name</label>
-            <input
-              className="form-control"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </div>
-          {/* password */}
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-          {/* phone */}
-          <div className="form-group">
-            <label htmlFor="inputAddress">Phone Number</label>
-            <input
-              type="number"
-              className="form-control"
-              name="phone"
-              value={this.state.phone}
-              onChange={this.handleChange}
-              placeholder="678 456 1234"
-            />
-          </div>
-          {/* email */}
-          <div className="form-group">
-            <label htmlFor="inputAddress">Email</label>
-            <input
-              type="email"
-              className="form-control"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              placeholder="james@jamestown.com"
-            />
-          </div>
-          {/* street address */}
-          <div className="form-group">
-            <label htmlFor="inputAddress">Address</label>
-            <input
-              type="text"
-              className="form-control"
-              name="street"
-              value={this.state.street}
-              onChange={this.handleChange}
-              placeholder="1234 Main St"
-            />
-          </div>
-          {/* city */}
-          <div className="form-row">
-            <div className="form-group col-md-6">
-              <label htmlFor="inputCity">City</label>
+      <div className="background">
+        <div className="container main-content">
+          <img src={chip} alt="logo" className="center" ></img>
+          <form className="" onSubmit={this.handleSubmit}>
+            {/* username */}
+            <div className="form-group">
+              <label htmlFor="exampleInputEmail1">User Name</label>
               <input
-                type="text"
-                className="form-control"
-                id="inputCity"
-                name="city"
-                value={this.state.city}
+                className="form-control form-style"
+                name="username"
+                value={this.state.username}
                 onChange={this.handleChange}
-                placeholder="Atlanta"
               />
             </div>
-            {/* state */}
-            <div className="form-group col-md-4">
-              <label htmlFor="inputState">State</label>
+            {/* password */}
+            <div className="form-group">
+              <label htmlFor="exampleInputPassword1">Password</label>
               <input
-                type="text"
-                className="form-control"
-                id="inputCity"
-                name="state"
-                value={this.state.state}
+                type="password"
+                className="form-control form-style"
+                name="password"
+                value={this.state.password}
                 onChange={this.handleChange}
-                placeholder="Georgia"
               />
             </div>
-            {/* zip */}
-            <div className="form-group col-md-2">
-              <label htmlFor="inputZip">Zip</label>
-              <input type="text" className="form-control" id="inputZip" />
+            {/* phone */}
+            <div className="form-group">
+              <label htmlFor="inputAddress">Phone Number</label>
+              <input
+                type="number"
+                className="form-control form-style"
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleChange}
+                placeholder="678 456 1234"
+              />
             </div>
-          </div>
+            {/* email */}
+            <div className="form-group">
+              <label htmlFor="inputAddress">Email</label>
+              <input
+                type="email"
+                className="form-control form-style"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+                placeholder="james@jamestown.com"
+              />
+            </div>
+            {/* street address */}
+            <div className="form-group">
+              <label htmlFor="inputAddress">Address</label>
+              <input
+                type="text"
+                className="form-control form-style"
+                name="street"
+                value={this.state.street}
+                onChange={this.handleChange}
+                placeholder="1234 Main St"
+              />
+            </div>
+            {/* city */}
+            <div className="form-row">
+              <div className="form-group col-md-6">
+                <label htmlFor="inputCity">City</label>
+                <input
+                  type="text"
+                  className="form-control form-style"
+                  id="inputCity"
+                  name="city"
+                  value={this.state.city}
+                  onChange={this.handleChange}
+                  placeholder="Atlanta"
+                />
+              </div>
+              {/* state */}
+              <div className="form-group col-md-4">
+                <label htmlFor="inputState">State</label>
+                <input
+                  type="text"
+                  className="form-control form-style"
+                  id="inputCity"
+                  name="state"
+                  value={this.state.state}
+                  onChange={this.handleChange}
+                  placeholder="Georgia"
+                />
+              </div>
+              {/* zip */}
+              <div className="form-group col-md-2">
+                <label htmlFor="inputZip">Zip</label>
+                <input type="text" className="form-control form-style" id="inputZip" />
+              </div>
+            </div>
 
 {/* ***** checkbox not working when tied to state */}
           <div className="custom-control custom-checkbox">
@@ -208,13 +211,15 @@ class Signup extends Component {
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-          <Link className="login-link" to="/login">
-            <button type="button" className="btn btn-warning">
-              Or Login
+            <Link className="login-link" to="/login">
+              <button type="button" className="btn btn-outline-dark">
+                Or Login
             </button>
-          </Link>
-        </form>
-      </Container>
+            </Link>
+          </form>
+        </div>
+        <Footer/>
+      </div>
     );
   }
 }

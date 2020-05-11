@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
+import "../addPet.css";
 
 function AddPet() {
   const [petName, setPetName] = useState("");
@@ -35,7 +36,13 @@ function AddPet() {
   };
 
   return (
-    <div>
+
+    <div className="container top">
+      <h2 className="text">Adding to the family?</h2>
+      <br/>
+      <p className="p-text">Simply add your pets information below</p>
+      <hr className="row-border"/>
+      <br/>
       <form>
         <div className="form-group">
           <label>New Pet Name</label>

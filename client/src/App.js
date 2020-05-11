@@ -12,25 +12,25 @@ import "./App.css"
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route
-            exact path={["/home"]}
-            component={userProfilePage}
-          ></Route>
-          <Route
-            exact path={["/userPetsProfile"]}
-            component={PetsProfilePage}
-          ></Route>
-          <Route exact path={["/userFeed"]} component={UserFeed}></Route>
-          <Route exact path={["/userUpdate"]} component={UserUpdate}></Route>
-          <Route exact path={["/signUp"]} component={Signup}></Route>
-          <Route exact path={["/adminPage"]} component={Admin}></Route>
-          <Route exact path={["/", "/login"]} component={Login}></Route>
-        </Switch>
-      </div>
-    </Router>
+    <div className="main">
+      <Router>
+          <Switch>
+            <Route
+              exact path={["/home"]}
+              component={userProfilePage}
+            ></Route>
+            <Route
+              exact path={["/userPetsProfile"]}
+              component={PetsProfilePage}
+            ></Route>
+            <Route exact path={["/userFeed"]} component={UserFeed}></Route>
+            <Route exact path={["/userUpdate"]} component={UserUpdate}></Route>
+            <Route exact path={["/signUp"]} component={Signup}></Route>
+            <Route exact path={["/adminPage"]} component={Admin}></Route>
+            <Route exact path={["/", "/login"]} component={Login}></Route>
+          </Switch>
+      </Router>
+    </div>
 
   );
 }
