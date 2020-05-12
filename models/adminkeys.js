@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // const passportLocalMongoose = require('passport-local-mongoose');
 
-const AdminKey = new Schema({
+const adminkeys = new Schema({
   key: {
     type: String,
     required: false,
@@ -19,4 +19,4 @@ const AdminKey = new Schema({
 // User.plugin(passportLocalMongoose);
 
 
-module.exports = mongoose.model("AdminKey", AdminKey);
+module.exports = mongoose.model("adminkeys", adminkeys);

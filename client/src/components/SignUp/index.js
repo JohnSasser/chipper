@@ -3,9 +3,9 @@ import Axios from "axios";
 
 import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 import { Jumbotron, Col, Row, Container } from "../Grid";
-import chip from "../../images/chipper/chipperOne.png"
+import chip from "../../images/chipper/chipperOne.png";
 import Footer from "../footer";
-import "../../signup.css"
+import "../../signup.css";
 
 class Signup extends Component {
   state = {
@@ -41,11 +41,12 @@ class Signup extends Component {
 
     if (this.state.isAdmin === true) {
       const response = await Axios.post("/api/admin-sign-up", {
-        key: this.state.key
+        key: this.state.key,
       })
+      console.log(response.status)
       if (response.status === 401) {
-        console.log(response.status)
-        return
+        console.log(response.status);
+        return;
       }
     }
 
@@ -59,6 +60,7 @@ class Signup extends Component {
       city: this.state.city,
       state: this.state.state,
       zip: this.state.zip,
+      isAdmin: this.state.isAdmin
     })
       .then((res) => {
         console.log(res);
@@ -98,7 +100,7 @@ class Signup extends Component {
     return (
       <div className="background">
         <div className="container main-content">
-          <img src={chip} alt="logo" className="center" ></img>
+          <img src={chip} alt="logo" className="center"></img>
           <form className="" onSubmit={this.handleSubmit}>
             {/* username */}
             <div className="form-group">
@@ -187,38 +189,42 @@ class Signup extends Component {
               {/* zip */}
               <div className="form-group col-md-2">
                 <label htmlFor="inputZip">Zip</label>
-                <input type="text" className="form-control form-style" id="inputZip" />
+                <input
+                  type="text"
+                  className="form-control form-style"
+                  id="inputZip"
+                />
               </div>
             </div>
 
-{/* ***** checkbox not working when tied to state */}
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customSwitch1"
-              name="is-admin"
-              checked={this.state.isAdmin}
-              onChange={this.handleChange}
-            />
-            <label className="custom-control-label" htmlFor="customSwitch1">
-              Check if Admin
-            </label>
-          </div>
+            {/* ***** checkbox not working when tied to state */}
+            <div className="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                className="custom-control-input"
+                id="customSwitch1"
+                name="is-admin"
+                checked={this.state.isAdmin}
+                onChange={this.handleChange}
+              />
+              <label className="custom-control-label" htmlFor="customSwitch1">
+                Check if Admin
+              </label>
+            </div>
 
-          {adminKeyInput}
+            {adminKeyInput}
 
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
             <Link className="login-link" to="/login">
               <button type="button" className="btn btn-outline-dark">
                 Or Login
-            </button>
+              </button>
             </Link>
           </form>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

@@ -4,17 +4,25 @@ const passport = require("passport");
 
 // password encryption
 
-router.post("/api/admin-sign-up", function(req, res) {
-  console.log(req.body, "line 8 apiRoutes.js")
-  db.Admin.findOne({
-    key: req.body.key
-  }).then(result => {
-    console.log(`api route admin-sign-up ROUTES ${key}`)
-    res.status(200).send()
-  }).catch(err => {
-    res.status(401).send()
-  })
-})
+router.post("/api/admin-sign-up", function (req, res) {
+  console.log(req.body, "line 8 apiRoutes.js");
+  db.adminkeys
+    .findOne({
+      key: req.body.key,
+    })
+    .then((result) => {
+      if (result === null || result.expired == true) {
+        res.status(401).send(result);
+      }
+      console.log(result, "result line 12 apiRoutes.js");
+      db.adminkeys
+        .updateOne({ key: result.key }, { expired: true })
+        .then(res.status(200).send(result));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 // respond with "hello world" when a GET request is made to the homepage;
 router.post("/api/signup", function (req, res) {
