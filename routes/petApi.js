@@ -26,6 +26,16 @@ router.post("/api/add", function (req, res) {
     species: req.body.species,
     ownerId: req.user._id,
   };
+
+  db.Pets.insertMany(newPet, (err, result) => {
+    console.log("reached inside model");
+    if (err) {
+      res.send(err);
+    } else {
+      console.log(result);
+      res.send(result);
+    }
+  });
 });
 
 module.exports = router;
