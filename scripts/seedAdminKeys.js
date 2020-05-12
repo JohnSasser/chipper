@@ -6,35 +6,35 @@ mongoose.connect("mongodb://localhost/chipperdb", {
     useFindAndModify: false
 });
 
-let petSeed = [
+let adminkeys = [
     {
-        petName: "Woofy",
-        microNum: 123,
+        key: "asdffdsa",
+        expired: false,
     },
     {
-        petName: "Barky",
-        microNum: 124,
+        key: "zxcvvcxz",
+        expired: false,
     },
     {
-        petName: "Crazyeyes",
-        microNum: 321,
+        key: "qwerrewq",
+        expired: false,
     },
     {
-        petName: "Smellyface",
-        microNum: 524,
+        key: "lkjhhjkl",
+        expired: false,
     },
     {
-        petName: "Goatlord",
-        microNum: 235,
+        key: "poiuuiop",
+        expired: false,
     },
     {
-        petName: "Chippy",
-        microNum: 132,
+        key: "mnbvvbnm",
+        expired: false,
     }
 ];
 
-db.Pets.deleteMany({})
-    .then(() => db.Pets.collection.insertMany(petSeed))
+db.adminkeys.deleteMany({})
+    .then(() => db.adminkeys.collection.insertMany(adminkeys))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);

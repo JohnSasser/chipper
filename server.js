@@ -48,7 +48,7 @@ app.use(passport.session());
 
 app.use(apiRoutes);
 app.use(petRoutes);
-app.use(adminRoutes);
+// app.use(adminRoutes);
 
 // Define all API routes before this runs
 // Send every request to the React app

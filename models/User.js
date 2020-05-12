@@ -17,6 +17,10 @@ const User = new Schema({
     type: Boolean,
     required: false,
   },
+  key: {
+    type: String,
+    required: false
+  },
   petIds: {
     type: [Number],
     required: false,

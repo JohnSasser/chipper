@@ -7,17 +7,17 @@ Admin key generation:
 3. Any user that needs a key will need to have it sent to them via email/slack/whatever
 
 Signup form
-1. Add a checkbox to singup that says "Sign up as admin"
+1. Add a checkbox to signup that says "Sign up as admin"
 2. When checked, display an extra form field that says "Admin key"
 3. they will need to enter the key that was given to them
 
 POST "/api/signup"
 1. IF an admin key was sent in the request body, we check our admin keys collection to see if it exists, and is not expired
      -If it exists, and is not expired, allow user creation AND set isAdmin to true
-     -IF user creation is succesful, expire the key 
+     -IF user creation is succesful, expire the key, nether api call to update  
 
 
 ADMIN PAGE 
 on componentDidMount / useEffect, check user authentication against some sort of /auth route 
     -IF user.isAdmin is false, redirect to homepage 
-    -Otherwise just render the page as if nothing happend 
+    -Otherwise just render the page as if nothing happened 
