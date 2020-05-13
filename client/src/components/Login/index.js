@@ -11,6 +11,7 @@ class Login extends Component {
     username: "",
     password: "",
     redirect: false,
+    isAdmin: false,
     redirectRoute: ""
   };
 
@@ -26,14 +27,17 @@ class Login extends Component {
     });
   };
 
-  //   handleSubmit to send the axios req to DB for username: & password:
-  //   If successful, will redirect to Login page.
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
 
     console.log(
       `handleFormSubmit username: ${this.state.username}, password: ${this.state.password}`
     );
+    // const adminCheck = await Axios.post("/api/admin-check", {
+    //   username: this.state.username,
+    //   password: this.state.password
+    // })
+    // console.log(adminCheck)
 
     Axios.post("/api/login", {
       username: this.state.username,
@@ -44,7 +48,7 @@ class Login extends Component {
         if (res.data) {
           console.log(`Login-in Successful`);
           //ASSUMING res.data is a user object that has the isAdmin flag:
-          let redirectRoute = res.data.isAdmin ? "/admin" : "/home";
+          let redirectRoute = res.data.isAdmin ? "/adminPage" : "/home";
           console.log(redirectRoute);
           this.setState({
             redirect: true,
@@ -59,6 +63,9 @@ class Login extends Component {
 
   //   Bootstrap Login Form;
   render() {
+    // if (this.state.adminRedirect) {
+    //   return <Redirect to="/AdminPetInformation"></Redirect>
+    // }
     if (this.state.redirect) {
       return <Redirect to={this.state.redirectRoute}></Redirect>;
     }

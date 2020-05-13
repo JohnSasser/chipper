@@ -7,8 +7,7 @@ function AddPet() {
   const [petName, setPetName] = useState("");
   const [petMicrochipNumber, setPetMicrochipNumber] = useState("");
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
     axios
       .post("/api/add", {
         petName: petName,

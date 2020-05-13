@@ -19,6 +19,7 @@ class Signup extends Component {
     zip: "",
     key: "",
     redirect: false,
+    adminRedirect: false,
     isAdmin: false,
   };
 
@@ -47,10 +48,17 @@ class Signup extends Component {
       if (response.status === 401) {
         console.log(response.status);
         return;
+      } 
+      if (response.status === 200) {
+        console.log(response.status)
+        this.setState({
+          adminRedirect: true,
+        });
       }
     }
 
     console.log(`handleFormSubmit ${this.state}`);
+
     Axios.post("/api/signup", {
       username: this.state.username,
       password: this.state.password,
@@ -78,9 +86,13 @@ class Signup extends Component {
 
   //   Bootstrap Login Form;
   render() {
+    if (this.state.adminRedirect) {
+      return <Redirect to="/adminPage"></Redirect>;
+    }
     if (this.state.redirect) {
       return <Redirect to="/login"></Redirect>;
-    }
+    } 
+   
     const adminKeyInput = this.state.isAdmin ? (
       <div className="col-auto">
         <label className="sr-only" htmlFor="inlineFormInput">

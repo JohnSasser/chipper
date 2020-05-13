@@ -2,29 +2,7 @@ const router = require("express").Router();
 const db = require("../models");
 const passport = require("passport");
 
-// password encryption
-
-router.post("/api/admin-sign-up", function (req, res) {
-  console.log(req.body, "line 8 apiRoutes.js");
-  db.adminkeys
-    .findOne({
-      key: req.body.key,
-    })
-    .then((result) => {
-      if (result === null || result.expired == true) {
-        res.status(401).send(result);
-      }
-      console.log(result, "result line 12 apiRoutes.js");
-      db.adminkeys
-        .updateOne({ key: result.key }, { expired: true })
-        .then(res.status(200).send(result));
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-// respond with "hello world" when a GET request is made to the homepage;
+// USER SIGN-UP ROUTE
 router.post("/api/signup", function (req, res) {
   console.log(req.body);
   // const encryptedPass = bcrypt(req.body.password)
@@ -50,14 +28,13 @@ router.post("/api/signup", function (req, res) {
     });
 });
 
-// router.post('/url', someFunction, callback)
-// authentication for passport route
-
+// PASSPORT AUTHENTICATION ROUTE
 router.post("/api/login", passport.authenticate("local"), function (req, res) {
   console.log(req.user);
   res.json({
     username: req.user.username,
     id: req.user.id,
+    isAdmin: req.user.isAdmin
   });
 });
 
