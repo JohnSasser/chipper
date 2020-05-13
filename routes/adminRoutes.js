@@ -1,47 +1,52 @@
-// const router = require("express").Router();
-// const db = require("../models");
-// const passport = require("passport");
+const router = require("express").Router();
+const db = require("../models");
+const passport = require("passport");
 
-// // respond with "hello world" when a GET request is made to the homepage;
-// router.post("/api/signup", function (req, res) {
-//   console.log(req.body);
-//   db.Admin.findOne({
-//     username: "Admin",
-//     password: "Admin",
-//   })
-//     .then(function (result) {
-//       console.log("pushing ", result, " to database");
-//       res.status(200).json(result);
-//     })
-//     .catch(function (err) {
-//       console.log(err);
-//       res.json(err);
-//     });
+// ADMIN SIGN-UP ROUTE
+router.post("/api/admin-sign-up", function (req, res) {
+    console.log(req.body, "line 8 apiRoutes.js");
+    db.adminkeys
+      .findOne({
+        key: req.body.key,
+      })
+      .then((result) => {
+        if (result === null || result.expired == true) {
+          res.status(401).send(result);
+        }
+        console.log(result, "result line 12 apiRoutes.js");
+        db.adminkeys
+          .updateOne({ key: result.key }, { expired: true })
+          .then(
+            // res.redirect("/adminPage"));
+            res.status(200).send(result));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+});
+
+// LOGIN ADMIN-CHECK GET ROUTE
+// router.post("/api/admin-check", (req, res) => {
+//     console.log("req", req.body)
+//     db.User.findOne({
+//         username: req.body.username,
+//     }).then((result) => {
+//         console.log("admin-check admRoutes.js line: 34", result)
+//         if (result.isAdmin === true) {
+//           res.status(200).send(result)
+//         } else res.status(401).send(result)
+//     }).catch(err => console.log(err))
 // });
 
-// router.post("/api/login", passport.authenticate("local"), function (req, res) {
-//   console.log(req.user);
-//   if (req.user === "Admin") {
-//     // Figure out how to use admin model
-//     res.json({
-//       username: "Admin"
-//     })
-//   } else
-//     // Use User Database
-//     res.json({
-//       username: req.user.username,
-//       id: req.user.id,
-//     });
-// });
+// 
+router.post("/api/search", function (req, res) {
+  console.log("REACHED API/adminpets");
+  db.Pets.findOne({ microNum: req.body.microNum })
+    .then(pet => {
+      console.log(pet)
+      res.status(200).json(pet);
+    })
+    .catch(err => console.log(err));
+})
 
-// router.post("/api/search", function (req, res) {
-//   console.log("REACHED API/adminpets");
-//   db.Pets.findOne({ microNum: req.body.microNum })
-//     .then(pet => {
-//       console.log(pet)
-//       res.status(200).json(pet);
-//     })
-//     .catch(err => console.log(err));
-// })
-
-// module.exports = router;
+module.exports = router;
