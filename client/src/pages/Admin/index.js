@@ -34,9 +34,9 @@ function Admin (){
 
      
     return (
-        <div class="container">
-            <input name="search" id="" class="" type="input" value={search} on onChange={onChange}></input>
-            <button type="submit" class="btn btn-primary" onClick={onSubmit}>Submit</button>
+        <div className="container">
+            <input name="search" id="" className="" type="input" value={search} onChange={onChange}></input>
+            <button type="submit" className="btn btn-primary" onClick={onSubmit}>Submit</button>
             <AdminPetInformation 
             petName={pet.petName}  
             microNum={pet.microNum}
