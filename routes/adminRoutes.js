@@ -43,8 +43,13 @@ router.post("/api/search", function (req, res) {
   console.log("REACHED API/adminpets");
   db.Pets.findOne({ microNum: req.body.microNum })
     .then(pet => {
-      console.log(pet)
-      res.status(200).json(pet);
+      db.User.findById(pet.ownerId).then( user =>{
+        console.log(pet)
+      res.status(200).json({user,pet});
+      }
+      ).catch(err =>{
+        console.log(err);
+      })
     })
     .catch(err => console.log(err));
 })
