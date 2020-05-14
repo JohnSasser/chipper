@@ -20,7 +20,7 @@ function Update() {
   // check if current user exists,
   // if not; redirect to "/Login";
   useEffect(() => {
-    console.log("current user", currentUser, isEmptyObject(currentUser));
+    console.log("current user Update.index.js", currentUser, isEmptyObject(currentUser));
   });
 
   const onChange = (e) => {
@@ -89,10 +89,6 @@ function Update() {
           Submit
         </button>
       </form>
-
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
     </div>
   );
 }
