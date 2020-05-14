@@ -1,14 +1,17 @@
 import React from "react"
+import "./style.css"
 
 function Footer() {
     return (
-      <div>
-        <footer className="footer">
-      <div className="container">
-        <span className="text-muted">Place sticky footer content here.</span>
-      </div>
-    </footer>
-      </div>
+      <footer class="footer">
+            <div class="main-content">
+                <div class="content-header">
+                </div>
+                <div id="footer" class="container-fluid">
+                    copyright© CHIPPER
+                </div>
+            </div>
+        </footer>
     )
 }
 
