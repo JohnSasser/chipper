@@ -18,7 +18,14 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react-router-dom": "^5.1.2",
-    "rxjs": "^6.5.5"
+    "rxjs": "^6.5.5",
+    "aws-sdk": "^2.329.0",
+    "concurrently": "^4.0.1",
+    "multer": "^1.4.0",
+    "multer-s3": "^2.7.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0",
+    "validator": "^10.8.0"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -30,7 +37,10 @@
     "seedKeys": "node scripts/seedAdminKeys.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "alanserver": "nodemon server.js",
+    "alanclient": "npm start --prefix client",
+    "alanaws": "concurrently \"npm run server\" \"npm run alanclient\""
   },
   "author": "Alan Margolies, Austin Atkinson, John Sasser, Rami Forde",
   "license": "ISC",
