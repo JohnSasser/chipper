@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
@@ -43,7 +43,7 @@ function Login() {
       `handleFormSubmit username: ${loginState.username}, password: ${loginState.password}`
     );
 
-    Axios.post("/api/login", {
+    axios.post("/api/login", {
       username: loginState.username,
       password: loginState.password,
     })

@@ -13,7 +13,7 @@ function UserDirectory() {
   return (
     <div className="main-directory">
       <ul className="list-group directory">
-        <img className="img" src={chip} width="150px"></img>
+        <img className="img" alt="chipper logo" src={chip} width="150px"></img>
         <div id="box">
           <Link className="nav-link rounded-pill" to="/userFeed">
             Feed

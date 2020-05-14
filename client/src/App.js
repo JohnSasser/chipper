@@ -10,12 +10,7 @@ import UserFeed from "./pages/UserFeed";
 import UserUpdate from "./pages/UserUpdate";
 import "./App.css"
 import UserContext from "./components/CurrentUserContext"
-<<<<<<< HEAD
-
-=======
-import User from './components/CurrentUserContext';
 import Footer from './components/Footer';
->>>>>>> af7bbc149d6ab95d8cea033671513b000a5d2f19
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});

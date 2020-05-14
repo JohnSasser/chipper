@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import UserDirectory from "../../components/UserDirectory"
 import PetInformation from "../../components/PetInformation"
 import AddPet from "../../components/AddPet"
