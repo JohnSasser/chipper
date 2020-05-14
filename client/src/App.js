@@ -11,6 +11,7 @@ import UserUpdate from "./pages/UserUpdate";
 import "./App.css"
 import UserContext from "./components/CurrentUserContext"
 import User from './components/CurrentUserContext';
+import Footer from './components/Footer';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -36,6 +37,7 @@ function App() {
           </Switch>
         </Router>
       </div>
+      <Footer/>
     </UserContext.Provider>
 
   );
