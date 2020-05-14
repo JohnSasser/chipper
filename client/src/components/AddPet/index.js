@@ -35,13 +35,12 @@ function AddPet() {
   };
 
   return (
-
     <div className="container top">
       <h2 className="text">Adding to the family?</h2>
-      <br/>
+      <br />
       <p className="p-text">Simply add your pets information below</p>
-      <hr className="row-border"/>
-      <br/>
+      <hr className="row-border" />
+      <br />
       <form>
         <div className="form-group">
           <label>New Pet Name</label>
