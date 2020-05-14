@@ -40,7 +40,7 @@
     "heroku-postbuild": "npm run build",
     "alanserver": "nodemon server.js",
     "alanclient": "npm start --prefix client",
-    "alanaws": "concurrently \"npm run server\" \"npm run alanclient\""
+    "alanaws": "concurrently \"npm run alanserver\" \"npm run alanclient\""
   },
   "author": "Alan Margolies, Austin Atkinson, John Sasser, Rami Forde",
   "license": "ISC",
