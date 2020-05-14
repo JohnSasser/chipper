@@ -1,0 +1,36 @@
+/* Class Selectors  */
+/* Main H1 */
+.header-1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+/* container */
+.main-content {
+  text-align: center;
+}
+/* Div abouve container */
+.background {
+  font-family: Sriracha;
+}
+/* Image Style */
+.center {
+  border-bottom: solid black 5px;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+/* Given margin to both forms */
+.form-style {
+  margin-bottom: 20px;
+}
+
+.link {
+  padding-left: 10px;
+}
+/* Styling the button to have margins-right */
+.sign-up-link {
+  margin-left: 15px;
+}
+
+.sign-up-link:hover {
+  box-shadow: 5px 5px 5px 5px slategray;
+}

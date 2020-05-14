@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../userInformation.css";
+import "./style.css";
 import { Redirect, Link } from "react-router-dom";
 import UserContext from "../components/CurrentUserContext"
 // import img from "../images/chipper/pets.png"
@@ -22,7 +22,7 @@ function UserInformation() {
                     <h3 class="card-text">Email Address:</h3>
                     <p>{User.email}</p>
                     <h3 class="card-text">Phone Number:</h3>
-                    <p>404-345-4673</p>
+                    <p>{User.phone}</p>
                     <a href="#" class="btn btn-warning"><Link className="navlink"  to="/userUpdate">Update Information</Link></a>
                 </div>
             </div>
