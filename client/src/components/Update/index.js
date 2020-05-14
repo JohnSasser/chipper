@@ -1,41 +1,98 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import UserContext from "../CurrentUserContext";
+import axios from "axios";
+
+function isEmptyObject(obj) {
+  return JSON.stringify(obj) === "{}";
+}
 
 function Update() {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const history = useHistory();
+
+  const [newInfo, setNewInfo] = useState({
+    newEmail: "",
+    newPhone: "",
+  });
+
+  // check if current user exists,
+  // if not; redirect to "/Login";
+  useEffect(() => {
+    console.log("current user", currentUser, isEmptyObject(currentUser));
+  });
+
+  const onChange = (e) => {
+    setNewInfo({
+      ...newInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("/api/userupdate", {
+        newInfo: newInfo,
+        user: currentUser._id,
+      })
+      .then((res) => {
+        console.log(res);
+        setCurrentUser({
+          ...currentUser,
+          email: res.data.email,
+          phone: res.data.phone,
+        });
+        history.push("/userUpdate");
+      });
+  };
+
   return (
     <div>
       <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">
-            Current Email:(olduseremailhere)
+        <div className="form-group">
+          <label htmlFor="exampleInputEmail1">
+            Current Email: {currentUser.email}
           </label>
           <br></br>
-          <label for="exampleInputEmail1">New Email address:</label>
+          <label htmlFor="exampleInputEmail1">New Email address:</label>
           <input
             type="email"
-            class="form-control"
+            name="newEmail"
+            value={newInfo.newEmail}
+            onChange={onChange}
+            className="form-control"
             id="exampleInputEmail1"
-            aria-describedby="emailHelp"
             placeholder="Enter New Email Here"
           ></input>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">
-            Current Phone Number: 555555555{" "}
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">
+            Current Phone Number: {currentUser.phone}
           </label>
           <br></br>
-          <label for="exampleInputPassword1">New Phone Number Here</label>
+          <label htmlFor="exampleInputPassword1">New Phone Number Here</label>
           <input
             type="phone"
-            class="form-control"
+            name="newPhone"
+            value={newInfo.newPhone}
+            onChange={onChange}
+            className="form-control"
             id="exampleInputPassword1"
             placeholder="Enter New Phone Number Here"
           ></input>
         </div>
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" onClick={onSubmit} className="btn btn-primary">
           Submit
         </button>
       </form>
+
+      <button type="submit" className="btn btn-primary">
+        Submit
+      </button>
     </div>
   );
 }

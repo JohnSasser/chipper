@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
 import Footer from "../Footer";
+import UserContext from "../CurrentUserContext";
 
 function Login() {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
   const [loginState, setLoginState] = useState({
     username: "",
     password: "",
     redirect: false,
     isAdmin: false,
     redirectRoute: "",
+    user: {},
   });
+
+  useEffect(() => {
+    setCurrentUser(loginState.user);
+  }, [loginState.user]);
 
   const onChange = (e) => {
     setLoginState({
@@ -45,10 +53,11 @@ function Login() {
           console.log(`Login-in Successful`);
           //ASSUMING res.data is a user object that has the isAdmin flag:
           let redirectRoute = res.data.isAdmin ? "/adminPage" : "/home";
-          console.log(redirectRoute);
+          console.log(res.data.user._doc);
           setLoginState({
             ...loginState,
             redirect: true,
+            user: res.data.user,
             redirectRoute,
           });
         }
@@ -59,7 +68,11 @@ function Login() {
   };
 
   if (loginState.redirect) {
-    return <Redirect to={loginState.redirectRoute}></Redirect>;
+    return (
+      <Redirect to={loginState.redirectRoute}>
+        <UserContext.Provider value={loginState.user}></UserContext.Provider>
+      </Redirect>
+    );
   }
 
   return (
