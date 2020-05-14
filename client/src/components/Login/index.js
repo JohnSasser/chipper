@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
-import Footer from "../footer";
+import Footer from "../Footer";
 import UserContext from "../CurrentUserContext"
 
 function Login() {

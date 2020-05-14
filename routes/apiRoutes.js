@@ -30,10 +30,10 @@ router.post("/api/signup", function (req, res) {
 
 // PASSPORT AUTHENTICATION ROUTE
 router.post("/api/login", passport.authenticate("local"), function (req, res) {
-  console.log("1",req.user);
+  console.log("1", req.user);
   res.json({
     user: {
-      ...req.user._doc, 
+      ...req.user._doc,
       password: null
     },
     username: req.user.username,
@@ -42,4 +42,18 @@ router.post("/api/login", passport.authenticate("local"), function (req, res) {
   });
 });
 
+router.post("/api/userupdate", function (req, res) {
+  db.User.findByIdAndUpdate({ _id: req.body.user },
+    {
+      email: req.body.newInfo.newEmail,
+      phone: req.body.newInfo.newPhone
+    })
+    .then(result => {
+      console.log(res)
+      res.status(200).json(result)
+    }).catch(function (err) {
+      console.log(err);
+      res.json(err);
+    });
+})
 module.exports = router;
