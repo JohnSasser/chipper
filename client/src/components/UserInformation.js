@@ -16,11 +16,11 @@ function UserInformation() {
                 <div class="card-body">
                     <br/>
                     <h3 class="card-text">Full Name:</h3>
-                    <p> Main Person</p>
+                    <p>{User.username}</p>
                     <h3 class="card-text"></h3>
                     <p></p>
                     <h3 class="card-text">Email Address:</h3>
-                    <p>main@main.com</p>
+                    <p>{User.email}</p>
                     <h3 class="card-text">Phone Number:</h3>
                     <p>404-345-4673</p>
                     <a href="#" class="btn btn-warning"><Link className="navlink"  to="/userUpdate">Update Information</Link></a>
