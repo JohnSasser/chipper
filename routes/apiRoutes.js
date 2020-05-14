@@ -30,8 +30,12 @@ router.post("/api/signup", function (req, res) {
 
 // PASSPORT AUTHENTICATION ROUTE
 router.post("/api/login", passport.authenticate("local"), function (req, res) {
-  console.log(req.user);
+  console.log("1",req.user);
   res.json({
+    user: {
+      ...req.user._doc, 
+      password: null
+    },
     username: req.user.username,
     id: req.user.id,
     isAdmin: req.user.isAdmin

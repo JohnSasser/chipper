@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../userInformation.css";
 import { Redirect, Link } from "react-router-dom";
+import UserContext from "../components/CurrentUserContext"
 // import img from "../images/chipper/pets.png"
 
 function UserInformation() {
+    const User = useContext(UserContext)
     return (
         <div className="userInformation">
             {/* <img src={img} alt="line-of-pets"/> */}
