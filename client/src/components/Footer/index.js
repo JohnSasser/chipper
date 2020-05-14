@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 function Footer() {
@@ -10,6 +11,23 @@ function Footer() {
       </footer>
     </div>
   );
+=======
+import React from "react"
+import "./style.css"
+
+function Footer() {
+    return (
+      <footer class="footer">
+            <div class="main-content">
+                <div class="content-header">
+                </div>
+                <div id="footer" class="container-fluid">
+                    copyright© CHIPPER
+                </div>
+            </div>
+        </footer>
+    )
+>>>>>>> af7bbc149d6ab95d8cea033671513b000a5d2f19
 }
 
 export default Footer;
