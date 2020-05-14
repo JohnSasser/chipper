@@ -1,5 +1,5 @@
 import React from "react";
-import "../userInformation.css";
+import "./style.css";
 import { Redirect, Link } from "react-router-dom";
 // import img from "../images/chipper/pets.png"
 
