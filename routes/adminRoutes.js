@@ -25,20 +25,8 @@ router.post("/api/admin-sign-up", function (req, res) {
       });
 });
 
-// LOGIN ADMIN-CHECK GET ROUTE
-// router.post("/api/admin-check", (req, res) => {
-//     console.log("req", req.body)
-//     db.User.findOne({
-//         username: req.body.username,
-//     }).then((result) => {
-//         console.log("admin-check admRoutes.js line: 34", result)
-//         if (result.isAdmin === true) {
-//           res.status(200).send(result)
-//         } else res.status(401).send(result)
-//     }).catch(err => console.log(err))
-// });
 
-// 
+// FIND PET BY MICROCHIP API ROUTE
 router.post("/api/search", function (req, res) {
   console.log("REACHED API/adminpets");
   db.Pets.findOne({ microNum: req.body.microNum })

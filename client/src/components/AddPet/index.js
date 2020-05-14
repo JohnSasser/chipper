@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import "../addPet.css";
+import "./style.css";
 
 function AddPet() {
   const [petName, setPetName] = useState("");

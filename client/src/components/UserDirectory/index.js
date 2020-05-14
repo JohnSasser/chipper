@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import chip from "../images/chipper/chipperOne.png"
-import "../directory.css";
+import chip from "../../images/chipper/chipperOne.png"
+import "./style.css";
 
 function UserDirectory() {
 

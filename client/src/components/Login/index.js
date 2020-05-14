@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import { Jumbotron, Col, Row, Container } from "../Grid";
 import { Redirect, Link } from "react-router-dom";
-import "../../login.css";
+import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
-import Footer from "../footer";
+import Footer from "../Footer";
 
 function Login() {
   const [loginState, setLoginState] = useState({

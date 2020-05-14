@@ -4,8 +4,8 @@ import Axios from "axios";
 import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 import { Jumbotron, Col, Row, Container } from "../Grid";
 import chip from "../../images/chipper/chipperOne.png";
-import Footer from "../footer";
-import "../../signup.css";
+import Footer from "../Footer";
+import "./style.css";
 
 function Signup() {
   const [signupState, setSignupState] = useState({
