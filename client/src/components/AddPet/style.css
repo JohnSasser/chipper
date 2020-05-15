@@ -16,3 +16,27 @@
     border:2px solid black;
     border-radius: 25px;
 }
+
+.submit-btn{
+    min-height: 50px;
+    min-width: 500px;
+    margin-left: 300px;
+    margin-right: auto;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .submit-btn {
+        min-height: 50px;
+        min-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        justify-content: center;
+      }
+    }

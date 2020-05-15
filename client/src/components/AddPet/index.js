@@ -70,7 +70,7 @@ function AddPet() {
         </div>
         <AwsUploadImage />
         <div>
-          <button type="submit" className="btn btn-primary" onClick={onSubmit}>
+        <button type="submit" className="btn btn-warning submit-btn" onClick={onSubmit}>
             Submit
         </button>
         </div>

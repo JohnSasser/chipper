@@ -223,17 +223,16 @@ function Signup() {
 
           {adminKeyInput}
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-outline-dark">
             Submit
           </button>
           <Link className="login-link" to="/login">
-            <button type="button" className="btn btn-outline-dark">
+            <button type="button" className="btn btn-outline-warning">
               Or Login
             </button>
           </Link>
         </form>
       </div>
-      <Footer />
     </div>
   );
 }

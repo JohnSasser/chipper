@@ -1,13 +1,13 @@
 .userInformation{
     margin-top:70px;
-    background-color:rgb(255, 206, 73);
     font-family: Sriracha;
-    padding-bottom:400px;
+    
     
 }
 #center-h1{
     text-align: center;
     margin-bottom:10px;
+    margin-top:-20px;
 }
 .hr-row{
         border:2px solid black;
@@ -18,6 +18,6 @@
 }
 
 .card-background{
-    background-color: slategray;
+    background-color:lightgoldenrodyellow; ;
 }
 

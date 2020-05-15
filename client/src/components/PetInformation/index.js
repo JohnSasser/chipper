@@ -33,12 +33,11 @@ function PetInformation() {
                     }
 
                     return (
-                        <div key={index} className="card" style={{ width: 18 + 'rem' }}>
-                            <img src={petImg} className="card-img-top" alt="..."></img>
+                        <div key={index} className=" row card" style={{ width: 18 + 'rem' }}>
                             <div className="card-body">
-                                <h5 className="card-title">{pet.petName}</h5>
+                            <img src={petImg} style={{height: 6 + 'rem', marginBottom: 2 + 'rem', marginLeft: 2 + 'rem', border: 'solid black' + 5 +'px'}}  alt="..."></img>
+                                <h5 className="pet-name">{pet.petName}</h5>
                                 <p className="card-text">Microchip Number: {pet.microNum}</p>
-                                <a href="#" className="btn btn-primary">Possible Link to Records</a>
                             </div>
                         </div>
                     )

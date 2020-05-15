@@ -1,23 +1,36 @@
-.main-directory{
-    font-size:20px;
+.border-row{
+    border:2px solid black;
+    width: 50px;
+}
+
+.directory{
     text-align: center;
+    justify-content: center;
 }
+
+
+.space{
+   justify-content: center;
+   text-align: center;
+   margin:10px;
+   
+}
+
+.space:hover{
+    text-shadow: 5px 5px 5px black;
+}
+
 .img{
-    margin-top:20px;
+    min-height: 150px;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle
 }
 
-#box{
-    margin-top:30px;
-    padding:5px;
-
-}
-
-.nav-link{
-    margin-bottom:15px;
-    border:solid 3px black;
-}
-
-.nav-link:hover{
-    border:solid 3px black;
-    background-color: slategray;
+.head{
+    border-bottom:10px solid black;
+    background-color: rgb(236, 177, 49);
 }

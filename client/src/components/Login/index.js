@@ -76,41 +76,59 @@ function Login() {
   }
 
   return (
+
     <div className="background">
+      <div class="jumbotron jumbotron-fluid size shadow">
+        <div class="container">
+          <h1 class="display-4 shadow-head">Welcome to CHIPPER!</h1>
+          <h3 class="lead">Does your pet have a mircrochip?</h3>
+          <hr className="border-hr"/>
+          <p className="col-md-3 intro-p">If so then join our community! This platform allows owners to keep track of their pets mircrochip information and notify others if 
+            their pet is lost. It also gives veterinarian or rescues to check and see our database to help him/her make it home. Join us in the 
+            effort to keep all of your beloved little family members stay safe.  
+          </p>
+          <div id="down-arrow">
+            <span><a href="#about"><i class="fa fa-chevron-down down-arrow" aria-hidden="true"></i></a></span>
+        </div>
+        </div>
+      </div>
       <div className=" container main-content">
         <img src={chip} alt="logo" className="center"></img>
-        <h1 className="header-1">Welcome Back!</h1>
-
+        <h1 id="about"className="header-1">Welcome Back!</h1>
+        <br/>
         <form className="" onSubmit={onSubmit}>
           <div className="form-group">
-            <label htmlFor="">User Name</label>
+            <label className="form-margin" htmlFor="">User Name</label>
             <input
               type="text"
-              className="form-control form-style"
+              className="form-group form-style"
               name="username"
               value={loginState.username}
               onChange={onChange}
+              maxlength="25"
             />
           </div>
-          <label htmlFor="exampleInputPassword1">Password</label>
+          <label className="form-margin" htmlFor="exampleInputPassword1">Password</label>
           <input
             type="password"
-            className="form-control form-style"
+            className="form-group form-style"
             name="password"
             value={loginState.password}
             onChange={onChange}
+            maxlength="15"
           />
-          <button type="submit" className="btn btn-primary">
+          <br/>
+          <button type="submit" className="btn btn-outline-dark">
             Submit
           </button>
           <Link className="link" to="/signUp">
-            <button type="button" className="btn btn-outline-dark sign-up-link">
+            <button type="button" className="btn btn-outline-warning sign-up-link">
               Sign Up Here
             </button>
           </Link>
         </form>
       </div>
-      <Footer />
+     
     </div>
   );
 }

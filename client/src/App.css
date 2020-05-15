@@ -1,8 +1,12 @@
 html, body, #root {
     height: 100vh;
-    background-color:rgb(255, 206, 73);
+}
+/* Background-color */
+.main{
+    background-color:#FFF;
     font-family: Sriracha;
-    padding-bottom:400px;
+    padding-bottom:200px;
+    ;
 }
 /* Background-color */
 

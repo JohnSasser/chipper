@@ -24,14 +24,15 @@ function UserUpdate() {
   return redirect ? (
     <Redirect to="/login" />
   ) : (
-    <div className="container">
-      <div className="row">
-        <div className="col-2">
-          <UserDirectory />
-        </div>
+    <div>
+      <UserDirectory />
+      <div className="container">
+        <div className="row">
         <div className="col-10 userInformation">
           <Update />
         </div>
+        </div>
+        
       </div>
     </div>
   );

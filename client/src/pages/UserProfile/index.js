@@ -26,14 +26,15 @@ function UserProfile() {
   return redirect ? (
     <Redirect to="/login" />
   ) : (
-    <div className="container">
-      <div className="row">
-        <div className="col-2">
-          <UserDirectory />
-        </div>
-        <div className="col-10 userInformation">
+    <div>
+      <UserDirectory />
+      <div className="container">
+        <div className="row">
+        <div className="col-12 userInformation">
           <UserInformation />
         </div>
+        </div>
+        
       </div>
     </div>
   );
