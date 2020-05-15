@@ -3,13 +3,7 @@ import { Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
 
-
 function UserDirectory() {
-  const Logout = function () {
-    // Logout functionallity goes here maybe to be used to logout user if
-    // passport doesnt do it already.
-  };
-
   return (
     <div className="main-directory">
       <ul className="list-group directory">
