@@ -2,7 +2,7 @@
 /* Main H1 */
 .header-1 {
   font-size: 35px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 /* container */
 .main-content {
@@ -21,6 +21,10 @@
 /* Given margin to both forms */
 .form-style {
   margin-bottom: 20px;
+
+}
+.form-margin{
+  margin-right:5px;
 }
 
 .link {
@@ -32,5 +36,30 @@
 }
 
 .sign-up-link:hover {
-  box-shadow: 5px 5px 5px 5px slategray;
+  box-shadow: 5px 5px 5px 5px rgb(255, 150, 29);
+  cursor: pointer;
 }
+/* Size of jumbotron */
+.size{
+  height: 100vh;
+  background-image: url("../../images/chipper/happydog.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  border-bottom: 20px black solid;
+  
+}
+
+.shadow-head{
+ text-shadow: black 2px 2px;
+}
+
+#down-arrow{
+  margin-top: auto;
+  text-align:center ;
+  margin-bottom: 50px;
+  position: absolute;
+  left: 500px;
+  top: 150px;
+}
+

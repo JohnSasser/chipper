@@ -16,14 +16,12 @@ function UserInformation() {
             <div className="card card-background">
                 <div className="card-body">
                     <br/>
-                    <h3 className="card-text">Full Name:</h3>
-                    <p>{currentUser.username}</p>
-                    <h3 className="card-text"></h3>
-                    <p></p>
-                    <h3 className="card-text">Email Address:</h3>
-                    <p>{currentUser.email}</p>
-                    <h3 className="card-text">Phone Number:</h3>
-                    <p>{currentUser.phone}</p>
+                    <h3 className="card-text">Full Name:{currentUser.username}</h3>
+                    <br/>
+                    <h3 className="card-text">Email Address:{currentUser.email}</h3>
+                    <br/>
+                    <h3 className="card-text">Phone Number:{currentUser.phone}</h3>
+                    <br/>
                     <Link className="navlink btn btn-warning"  to="/userUpdate">Update Information</Link>
                 </div>
             </div>
