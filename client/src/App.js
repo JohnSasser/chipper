@@ -10,7 +10,6 @@ import UserFeed from "./pages/UserFeed";
 import UserUpdate from "./pages/UserUpdate";
 import "./App.css"
 import UserContext from "./components/CurrentUserContext"
-import User from './components/CurrentUserContext';
 import AwsUploadContext from "./components/AwsUploadContext";
 import Footer from './components/Footer';
 

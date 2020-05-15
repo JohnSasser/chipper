@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Axios from "axios";
-
+import axios from "axios";
 import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
-import { Jumbotron, Col, Row, Container } from "../Grid";
 import chip from "../../images/chipper/chipperOne.png";
 import Footer from "../Footer";
 import "./style.css";
@@ -41,7 +39,7 @@ function Signup() {
     e.preventDefault();
 
     if (signupState.isAdmin === true) {
-      const response = await Axios.post("/api/admin-sign-up", {
+      const response = await axios.post("/api/admin-sign-up", {
         key: signupState.key,
       });
       console.log(response.status);
@@ -60,7 +58,7 @@ function Signup() {
 
     console.log(`handleFormSubmit ${signupState}`);
 
-    Axios.post("/api/signup", {
+    axios.post("/api/signup", {
       username: signupState.username,
       password: signupState.password,
       phone: signupState.phone,
@@ -190,7 +188,7 @@ function Signup() {
               <input
                 type="text"
                 className="form-control form-style"
-                id="inputCity"
+                id="inputState"
                 name="state"
                 value={signupState.state}
                 onChange={onChange}

@@ -1,15 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
 import Footer from "../Footer";
-import UserContext from "../CurrentUserContext"
+import UserContext from "../CurrentUserContext";
 
 function Login() {
-
-
-  const { currentUser, setCurrentUser } = useContext(UserContext)
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const [loginState, setLoginState] = useState({
     username: "",
@@ -21,8 +19,8 @@ function Login() {
   });
 
   useEffect(() => {
-    setCurrentUser(loginState.user)
-  }, [loginState.user])
+    setCurrentUser(loginState.user);
+  }, [loginState.user]);
 
   const onChange = (e) => {
     setLoginState({
@@ -45,7 +43,7 @@ function Login() {
       `handleFormSubmit username: ${loginState.username}, password: ${loginState.password}`
     );
 
-    Axios.post("/api/login", {
+    axios.post("/api/login", {
       username: loginState.username,
       password: loginState.password,
     })
@@ -62,7 +60,6 @@ function Login() {
             user: res.data.user,
             redirectRoute,
           });
-
         }
       })
       .catch((err) => {
@@ -71,7 +68,11 @@ function Login() {
   };
 
   if (loginState.redirect) {
-    return <Redirect to={loginState.redirectRoute}><UserContext.Provider value={loginState.user}></UserContext.Provider></Redirect>;
+    return (
+      <Redirect to={loginState.redirectRoute}>
+        <UserContext.Provider value={loginState.user}></UserContext.Provider>
+      </Redirect>
+    );
   }
 
   return (

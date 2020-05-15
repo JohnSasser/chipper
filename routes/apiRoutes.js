@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const db = require("../models");
 const passport = require("passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // USER SIGN-UP ROUTE
 router.post("/api/signup", function (req, res) {
@@ -42,7 +43,8 @@ router.post("/api/login", passport.authenticate("local"), function (req, res) {
   });
 });
 
-router.post("/api/userupdate", function (req, res) {
+router.post("/api/userupdate", passport.authenticate("local"), function (req, res) {
+  console.log(req.body.user)
   db.User.findByIdAndUpdate({ _id: req.body.user },
     {
       email: req.body.newInfo.newEmail,
@@ -56,4 +58,13 @@ router.post("/api/userupdate", function (req, res) {
       res.json(err);
     });
 })
+
+router.get("/api/authenticate", function (req, res) {
+    if (req.user) 
+      res.json(true);
+    else
+      res.json(false);
+})
+
+
 module.exports = router;

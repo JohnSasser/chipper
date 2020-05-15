@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import "./style.css";
 import { Redirect, Link } from "react-router-dom";
-import UserContext from "../CurrentUserContext"
+import UserContext from "../CurrentUserContext";
 // import img from "../images/chipper/pets.png"
 
 function UserInformation() {
-    const { currentUser } = useContext(UserContext)
+  const { currentUser } = useContext(UserContext);
 
     return (
         <div className="userInformation">
@@ -31,4 +31,4 @@ function UserInformation() {
     )
 }
 
-export default UserInformation
+export default UserInformation;

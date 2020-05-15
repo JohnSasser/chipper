@@ -39,7 +39,6 @@ function AddPet() {
   };
 
   return (
-
     <div className="container top">
       <h2 className="text">Adding to the family?</h2>
       <br />
