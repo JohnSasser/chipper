@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
@@ -51,8 +51,8 @@ function checkFileType(file, cb) {
 
 router.post('/profile-img-upload', (req, res) => {
     profileImgUpload(req, res, (error) => {
-        console.log( 'requestOkokok', req.file );
-        console.log( 'error', error );
+        console.log('requestOkokok', req.file);
+        console.log('error', error);
         if (error) {
             console.log('errors', error);
             res.json({ error: error });
@@ -72,6 +72,7 @@ router.post('/profile-img-upload', (req, res) => {
             }
         }
     });
-});// End of single profile upload/*
+});
+// End of single profile upload/*
 
 module.exports = router;

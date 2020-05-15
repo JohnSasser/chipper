@@ -3,11 +3,11 @@ import "./style.css"
 
 function Footer() {
     return (
-      <footer class="footer">
-            <div class="main-content">
-                <div class="content-header">
+      <footer className="footer">
+            <div className="main-content">
+                <div className="content-header">
                 </div>
-                <div id="footer" class="container-fluid">
+                <div id="footer" className="container-fluid">
                     copyright© CHIPPER
                 </div>
             </div>

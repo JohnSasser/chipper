@@ -39,6 +39,7 @@ function App() {
               <Route exact path={["/", "/login"]} component={Login}></Route>
             </Switch>
           </Router>
+          <Footer />
         </div>
       </UserContext.Provider>
     </AwsUploadContext.Provider>

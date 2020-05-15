@@ -23,6 +23,10 @@ const petSchema = new Schema({
   ownerId: {
     type: String,
     required: true
+  },
+  petImageURL: {
+    type: String,
+    required: false
   }
 });
 
