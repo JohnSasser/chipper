@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
 
-
 function UserDirectory() {
+
   const Logout = function () {
     // Logout functionallity goes here maybe to be used to logout user if
     // passport doesnt do it already.
@@ -12,6 +12,10 @@ function UserDirectory() {
 
   return ( 
     <div className="jumbotron jumbotron-fluid head">
+=======
+  return (
+    <div className="main-directory">
+      <ul className="list-group directory">
         <img className="img" alt="chipper logo" src={chip} width="150px"></img>
         <div id="nav" className="space">
           <Link className="nav-item space" to="/home">

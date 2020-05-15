@@ -1,33 +1,28 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import UserContext from "../CurrentUserContext";
 import axios from "axios";
 
-function isEmptyObject(obj) {
-  return JSON.stringify(obj) === "{}";
-}
-
 function Update() {
+  // current user for the user check;
   const { currentUser, setCurrentUser } = useContext(UserContext);
-
-  const history = useHistory();
 
   const [newInfo, setNewInfo] = useState({
     newEmail: "",
     newPhone: "",
   });
 
+  // set redirect for home route ****
   const [redirect, setRedirect] = useState(false);
 
-  // check if current user exists,
-  // if not; redirect to "/Login";
+  // use effect for res.data === user from /api/authenticate ****
   useEffect(() => {
-    console.log("current user Update.index.js", currentUser, isEmptyObject(currentUser));
-    axios.get("/api/authenticate").then(res => {
-      if (!res)
-        setRedirect(true);
-    })
-  });
+    console.log("current user Update.index.js", currentUser);
+    axios.get("/api/authenticate").then((res) => {
+      if (!res.data) setRedirect(true);
+      console.log(res);
+    });
+  }, []);
 
   const onChange = (e) => {
     setNewInfo({
@@ -51,11 +46,13 @@ function Update() {
           email: res.data.email,
           phone: res.data.phone,
         });
-        history.push("/userUpdate");
       });
   };
 
-  return redirect ? <Redirect to="/login"/> : (
+  // add the login redirect to all primary components; ****
+  return redirect ? (
+    <Redirect to="/login" />
+  ) : (
     <div>
       <form>
         <div className="form-group">

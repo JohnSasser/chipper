@@ -1,5 +1,6 @@
 html, body, #root {
     height: 100vh;
+
 }
 /* Background-color */
 .main{
@@ -7,5 +8,12 @@ html, body, #root {
     font-family: Sriracha;
     padding-bottom:200px;
     ;
+=======
+    background-color:rgb(255, 206, 73);
+    font-family: Sriracha;
+    padding-bottom:400px;
+
 }
+/* Background-color */
+
 

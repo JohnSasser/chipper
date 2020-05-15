@@ -59,6 +59,7 @@ router.post("/api/userupdate", passport.authenticate("local"), function (req, re
     });
 })
 
+// custom authentication route
 router.get("/api/authenticate", function (req, res) {
     if (req.user) 
       res.json(true);

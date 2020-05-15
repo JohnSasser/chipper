@@ -58,6 +58,8 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/index.html"));
 });
 
+// additional user on the mLab db for heroku;
+//  mongodb://<dbuser>:<dbpassword>@ds157493.mlab.com:57493/heroku_f6qg5272
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chipperdb", {
   useNewUrlParser: true,
 });
