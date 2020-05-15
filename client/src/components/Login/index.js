@@ -53,7 +53,7 @@ function Login() {
           console.log(`Login-in Successful`);
           //ASSUMING res.data is a user object that has the isAdmin flag:
           let redirectRoute = res.data.isAdmin ? "/adminPage" : "/home";
-          console.log(res.data.user._doc);
+
           setLoginState({
             ...loginState,
             redirect: true,

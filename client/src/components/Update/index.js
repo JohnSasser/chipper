@@ -17,9 +17,8 @@ function Update() {
 
   // use effect for res.data === user from /api/authenticate ****
   useEffect(() => {
-    console.log("current user Update.index.js", currentUser);
     axios.get("/api/authenticate").then((res) => {
-      if (!res.data) setRedirect(true);
+      if (!res.data) setRedirect("/Login");
       console.log(res);
     });
   }, []);
@@ -46,12 +45,16 @@ function Update() {
           email: res.data.email,
           phone: res.data.phone,
         });
+
+        if (res.status === 200) {
+          setRedirect("/Home");
+        }
       });
   };
 
   // add the login redirect to all primary components; ****
   return redirect ? (
-    <Redirect to="/login" />
+    <Redirect to={redirect} />
   ) : (
     <div>
       <form>
@@ -86,7 +89,6 @@ function Update() {
             id="exampleInputPassword1"
             placeholder="Enter New Phone Number Here"
           ></input>
-          
         </div>
 
         <button type="submit" onClick={onSubmit} className="btn btn-primary">
