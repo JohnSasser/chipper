@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import UserContext from "../CurrentUserContext";
 import axios from "axios";
 
@@ -17,10 +17,16 @@ function Update() {
     newPhone: "",
   });
 
+  const [redirect, setRedirect] = useState(false);
+
   // check if current user exists,
   // if not; redirect to "/Login";
   useEffect(() => {
     console.log("current user Update.index.js", currentUser, isEmptyObject(currentUser));
+    axios.get("/api/authenticate").then(res => {
+      if (!res)
+        setRedirect(true);
+    })
   });
 
   const onChange = (e) => {
@@ -49,7 +55,7 @@ function Update() {
       });
   };
 
-  return (
+  return redirect ? <Redirect to="/login"/> : (
     <div>
       <form>
         <div className="form-group">

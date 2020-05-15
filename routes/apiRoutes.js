@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const db = require("../models");
 const passport = require("passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // USER SIGN-UP ROUTE
 router.post("/api/signup", function (req, res) {
@@ -57,4 +58,13 @@ router.post("/api/userupdate", passport.authenticate("local"), function (req, re
       res.json(err);
     });
 })
+
+router.get("/api/authenticate", function (req, res) {
+    if (req.user) 
+      res.json(true);
+    else
+      res.json(false);
+})
+
+
 module.exports = router;
