@@ -17,6 +17,7 @@ router.post("/api/add", function (req, res) {
     microNum: req.body.microNum,
     species: req.body.species,
     ownerId: req.user._id,
+    petImageURL: req.body.petImageURL
   };
 
   db.Pets.insertMany(newPet, (err, result) => {
