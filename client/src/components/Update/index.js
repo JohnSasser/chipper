@@ -35,7 +35,7 @@ function Update() {
     e.preventDefault();
 
     axios
-      .post("/api/userupdate", {
+      .post("/api/userUpdate", {
         newInfo: newInfo,
         user: currentUser._id,
       })
@@ -86,6 +86,7 @@ function Update() {
             id="exampleInputPassword1"
             placeholder="Enter New Phone Number Here"
           ></input>
+          
         </div>
 
         <button type="submit" onClick={onSubmit} className="btn btn-primary">

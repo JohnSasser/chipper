@@ -78,17 +78,17 @@ function Login() {
   return (
 
     <div className="background">
-      <div class="jumbotron jumbotron-fluid size shadow">
-        <div class="container">
-          <h1 class="display-4 shadow-head">Welcome to CHIPPER!</h1>
-          <h3 class="lead">Does your pet have a mircrochip?</h3>
+      <div className="jumbotron jumbotron-fluid size shadow">
+        <div className="container">
+          <h1 className="display-4 shadow-head">Welcome to CHIPPER!</h1>
+          <h3 className="lead">Does your pet have a mircrochip?</h3>
           <hr className="border-hr"/>
           <p className="col-md-3 intro-p">If so then join our community! This platform allows owners to keep track of their pets mircrochip information and notify others if 
             their pet is lost. It also gives veterinarian or rescues to check and see our database to help him/her make it home. Join us in the 
             effort to keep all of your beloved little family members stay safe.  
           </p>
           <div id="down-arrow">
-            <span><a href="#about"><i class="fa fa-chevron-down down-arrow" aria-hidden="true"></i></a></span>
+            <span><a href="#about"><i className="fa fa-chevron-down down-arrow" aria-hidden="true"></i></a></span>
         </div>
         </div>
       </div>
@@ -105,7 +105,7 @@ function Login() {
               name="username"
               value={loginState.username}
               onChange={onChange}
-              maxlength="25"
+              maxLength="25"
             />
           </div>
           <label className="form-margin" htmlFor="exampleInputPassword1">Password</label>
@@ -115,7 +115,7 @@ function Login() {
             name="password"
             value={loginState.password}
             onChange={onChange}
-            maxlength="15"
+            maxLength="15"
           />
           <br/>
           <button type="submit" className="btn btn-outline-dark">
