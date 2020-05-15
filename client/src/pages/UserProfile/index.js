@@ -7,13 +7,14 @@ import "./UserProfile.css"
 
 function UserProfile() {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-2">
-                    <UserDirectory/>
-                </div>
-                <div className="col-10 userInformation">
-                    <UserInformation/>
+        <div>
+
+            <UserDirectory />
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 userInformation">
+                        <UserInformation />
+                    </div>
                 </div>
             </div>
         </div>

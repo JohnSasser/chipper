@@ -4,15 +4,16 @@ import Update from "../../components/Update"
 
 function UserUpdate() {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-2">
+        <div>
                     <UserDirectory />
-                </div>
-                <div className="col-10 userInformation">
+                    <div className="container">
+                    <div className="row">
+                <div className="col-12 userInformation">
                     <Update/>
                 </div>
-            </div>
+                </div>
+           
+           </div>
         </div>
         
     )
