@@ -4,9 +4,11 @@
   "description": "Pet Finder Databasing between vets and pet owners",
   "main": "server.js",
   "dependencies": {
+    "aws-sdk": "^2.329.0",
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
+    "concurrently": "^4.0.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
@@ -15,10 +17,15 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.9.10",
     "morgan": "^1.10.0",
+    "multer": "^1.4.0",
+    "multer-s3": "^2.7.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "react-router-dom": "^5.1.2",
-    "rxjs": "^6.5.5"
+    "rxjs": "^6.5.5",
+    "url": "^0.11.0",
+    "validator": "^10.8.0"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -30,7 +37,10 @@
     "seedKeys": "node scripts/seedAdminKeys.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "alanserver": "nodemon server.js",
+    "alanclient": "npm start --prefix client",
+    "alanaws": "concurrently \"npm run alanserver\" \"npm run alanclient\""
   },
   "author": "Alan Margolies, Austin Atkinson, John Sasser, Rami Forde",
   "license": "ISC",

@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from 'react';
 import axios from "axios";
-import { useState } from "react";
 import "./style.css";
+import $ from 'jquery';
+import AwsUploadImage from '../AwsUploadImage';
+import AwsUploadContext from '../AwsUploadContext';
 
 function AddPet() {
   const [petName, setPetName] = useState("");
   const [petMicrochipNumber, setPetMicrochipNumber] = useState("");
+  const { fileState, setFileState } = useContext(AwsUploadContext);
 
   const onSubmit = () => {
     axios
@@ -13,6 +16,7 @@ function AddPet() {
         petName: petName,
         microNum: petMicrochipNumber,
         species: "dog",
+        petImageURL: fileState.recentImageURL
       })
       .then((res) => {
         console.log(res);
@@ -38,10 +42,10 @@ function AddPet() {
 
     <div className="container top">
       <h2 className="text">Adding to the family?</h2>
-      <br/>
+      <br />
       <p className="p-text">Simply add your pets information below</p>
-      <hr className="row-border"/>
-      <br/>
+      <hr className="row-border" />
+      <br />
       <form>
         <div className="form-group">
           <label>New Pet Name</label>
@@ -65,9 +69,12 @@ function AddPet() {
             placeholder="55555555555"
           ></input>
         </div>
-        <button type="submit" className="btn btn-primary" onClick={onSubmit}>
-          Submit
+        <AwsUploadImage />
+        <div>
+          <button type="submit" className="btn btn-primary" onClick={onSubmit}>
+            Submit
         </button>
+        </div>
       </form>
     </div>
   );
