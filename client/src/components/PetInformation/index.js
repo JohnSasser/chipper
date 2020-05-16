@@ -1,19 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import AwsUploadContext from "../AwsUploadContext";
 
 function PetInformation() {
   const [state, setState] = useState({
     pets: [],
   });
 
-  const { fileState, setFileState } = useContext(AwsUploadContext);
-
   useEffect(() => {
     Axios.get("/api/pets")
       .then((res) => {
         setState({ pets: res.data });
-        console.log(state.pets);
       })
       .catch((err) => console.log(err));
   }, []);

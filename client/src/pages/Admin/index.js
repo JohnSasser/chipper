@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-import UserContext from "../../components/CurrentUserContext";
+import React, { useState, useEffect } from "react";
 import AdminPetInformation from "../../components/AdminPetInformation";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
@@ -7,18 +6,13 @@ import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
 
 function Admin() {
-  // current user for the user check;
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-
   // set redirect for home route ****
   const [redirect, setRedirect] = useState(false);
 
   // use effect for res.data === user from /api/authenticate ****
   useEffect(() => {
-    console.log("current user Update.index.js", currentUser);
     axios.get("/api/authenticate").then((res) => {
       if (!res.data) setRedirect(true);
-      console.log(res);
     });
   }, []);
 

@@ -1,3 +1,3 @@
-import React, {createContext} from "react";
+import { createContext } from "react";
 const AwsUploadContext = createContext({})
 export default AwsUploadContext;

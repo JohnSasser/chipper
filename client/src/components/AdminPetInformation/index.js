@@ -8,7 +8,7 @@ function AdminPetInformation(props) {
       <img
         src={props.pupImage}
         className="card-img-top background-img"
-        alt="dog image"
+        alt=""
       ></img>
       <div className="card-body">
         <h5 className="card-title">{props.petName}</h5>
