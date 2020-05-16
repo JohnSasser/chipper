@@ -28,7 +28,7 @@ function UserPetsProfile() {
     <div>
       <UserDirectory />
       <div className="container">
-        <div className="row">
+        <div className="row pup-row">
         <div className="col-12 userInformation">
           <PetInformation />
           <AddPet></AddPet>
