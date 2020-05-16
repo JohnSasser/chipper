@@ -40,12 +40,13 @@ function Update() {
       })
       .then((res) => {
         console.log(res);
+        let newStuffs = {};
+        if (newInfo.newEmail) newStuffs.email = newInfo.newEmail;
+        if (newInfo.newPhone) newStuffs.phone = newInfo.newPhone;
         setCurrentUser({
           ...currentUser,
-          email: newInfo.newEmail,
-          phone: newInfo.newPhone,
+          ...newStuffs
         });
-
         if (res.status === 200) {
           setRedirect("/Home");
         }
@@ -56,47 +57,47 @@ function Update() {
   return redirect ? (
     <Redirect to={redirect} />
   ) : (
-    <div>
-      <form>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">
-            Current Email: {currentUser.email}
-          </label>
-          <br></br>
-          <label htmlFor="exampleInputEmail1">New Email address:</label>
-          <input
-            type="email"
-            name="newEmail"
-            value={newInfo.newEmail}
-            onChange={onChange}
-            className="form-control"
-            id="exampleInputEmail1"
-            placeholder="Enter New Email Here"
-          ></input>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputPassword1">
-            Current Phone Number: {currentUser.phone}
-          </label>
-          <br></br>
-          <label htmlFor="exampleInputPassword1">New Phone Number Here</label>
-          <input
-            type="phone"
-            name="newPhone"
-            value={newInfo.newPhone}
-            onChange={onChange}
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Enter New Phone Number Here"
-          ></input>
-        </div>
+      <div>
+        <form>
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">
+              Current Email: {currentUser.email}
+            </label>
+            <br></br>
+            <label htmlFor="exampleInputEmail1">New Email address:</label>
+            <input
+              type="email"
+              name="newEmail"
+              value={newInfo.newEmail}
+              onChange={onChange}
+              className="form-control"
+              id="exampleInputEmail1"
+              placeholder="Enter New Email Here"
+            ></input>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">
+              Current Phone Number: {currentUser.phone}
+            </label>
+            <br></br>
+            <label htmlFor="exampleInputPassword1">New Phone Number Here</label>
+            <input
+              type="phone"
+              name="newPhone"
+              value={newInfo.newPhone}
+              onChange={onChange}
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Enter New Phone Number Here"
+            ></input>
+          </div>
 
-        <button type="submit" onClick={onSubmit} className="btn btn-primary">
-          Submit
+          <button type="submit" onClick={onSubmit} className="btn btn-primary">
+            Submit
         </button>
-      </form>
-    </div>
-  );
+        </form>
+      </div>
+    );
 }
 
 export default Update;
