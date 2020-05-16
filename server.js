@@ -13,6 +13,7 @@ const apiRoutes = require("./routes/apiRoutes");
 const petRoutes = require("./routes/petApi");
 const adminRoutes = require("./routes/adminRoutes");
 const awsRoutes = require("./routes/awsRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 const PORT = process.env.PORT || 3001;
 
@@ -51,6 +52,7 @@ app.use(apiRoutes);
 app.use(petRoutes);
 app.use(adminRoutes);
 app.use(awsRoutes);
+app.use(postRoutes);
 
 // Define all API routes before this runs
 // Send every request to the React app
