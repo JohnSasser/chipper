@@ -23,7 +23,7 @@ function UserInformation() {
   return redirect ? (
     <Redirect to="/login" />
   ) : (
-    <div className="userInformation">
+    <div className="userInformation justify-content-center">
       {/* <img src={img} alt="line-of-pets"/> */}
       <h2 id="center-h1">Owner Information:</h2>
       <hr className="hr-row" />

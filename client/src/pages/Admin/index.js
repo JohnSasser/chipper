@@ -56,7 +56,6 @@ function Admin() {
     <div className="container">
       <input
         name="search"
-        id=""
         className=""
         type="input"
         value={search}
