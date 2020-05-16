@@ -213,7 +213,7 @@ function Signup() {
               className="custom-control-input"
               id="customSwitch1"
               name="is-admin"
-              checked={signupState.isAdmin}
+              checked={setSignupState({...signupState, isAdmin})}
               onChange={onChange}
             />
             <label className="custom-control-label" htmlFor="customSwitch1">
