@@ -23,7 +23,8 @@ function Signup() {
 
   const onChange = (e) => {
     console.log(e.target, e.target.name, e.target.value);
-    if (e.target.type === "checkbox") {
+    if (e.target.name === "is-admin") {
+      console.log(signupState.isAdmin)
       setSignupState({
         ...signupState,
         isAdmin: !signupState.isAdmin,
@@ -213,7 +214,7 @@ function Signup() {
               className="custom-control-input"
               id="customSwitch1"
               name="is-admin"
-              checked={setSignupState({...signupState, isAdmin})}
+              // checked={signupState.isAdmin}
               onChange={onChange}
             />
             <label className="custom-control-label" htmlFor="customSwitch1">
