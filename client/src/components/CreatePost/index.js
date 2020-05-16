@@ -42,7 +42,7 @@ function CreatePost() {
       <h3 className="text-center">Let us know you have lost or found a pet</h3>
       <br />
       <div className="form-group">
-        <label htmlFor="exampleFormControlTextarea1">title:</label>
+        <label htmlFor="exampleFormControlTextarea1">Title:</label>
         <input
           className="form-control"
           name="title"
