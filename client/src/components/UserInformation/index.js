@@ -18,32 +18,43 @@ function UserInformation() {
       console.log(res);
       // UserInformation.forceUpdate();
     });
+    console.log('currentUser in Userinformation:', currentUser);
   }, []);
 
   return redirect ? (
     <Redirect to="/login" />
   ) : (
-    <div className="userInformation">
-      {/* <img src={img} alt="line-of-pets"/> */}
-      <h2 id="center-h1">Owner Information:</h2>
-      <hr className="hr-row" />
-      <br />
-      <div className="card card-background">
-        <div className="card-body">
-          <br />
-          <h3 className="card-text">User Name:{currentUser.username}</h3>
-          <br />
-          <h3 className="card-text">Email Address:{currentUser.email}</h3>
-          <br />
-          <h3 className="card-text">Phone Number:{currentUser.phone}</h3>
-          <br />
-          <Link className="navlink btn btn-warning" to="/userUpdate">
-            Update Information
+      <div className="userInformation">
+        {/* <img src={img} alt="line-of-pets"/> */}
+        <h2 id="center-h1">Owner Information:</h2>
+        <hr className="hr-row" />
+        <br />
+        <div className="card card-background">
+          <div className="card-body">
+            <br />
+            <h3 className="card-text">User Name:{currentUser.username}</h3>
+            <br />
+            <h3 className="card-text">Email Address:{currentUser.email}</h3>
+            <br />
+            <h3 className="card-text">Phone Number:{currentUser.phone}</h3>
+            <br />
+            <h3 className="card-text">Address:</h3>
+            {currentUser.street}
+            <br />
+            {currentUser.city}
+            <br />
+            {currentUser.state}
+            <br />
+            {currentUser.zip}
+            <br />
+
+            <Link className="navlink btn btn-warning" to="/userUpdate">
+              Update Information
           </Link>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default UserInformation;
