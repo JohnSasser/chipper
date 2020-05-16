@@ -1,6 +1,7 @@
 # CHIPPER
-<div align="center" style="font-size: 28px">
-Keeping Pet-Owner and pet reunification possible.
+
+<div align="center" style="font-size: 38px">
+Making pet and owner reunification possible.
 </div>
 
 # Description
@@ -79,6 +80,7 @@ Reverse Geo-location: https://rapidapi.com/Noggle/api/reverse-geocoding-and-geol
   [LinkedIn](https://www.linkedin.com/in/rami-forde-6010a0197/)
 
 # Project Group Banter
+
 ![BOOM BABY, via GIPHY](https://media.giphy.com/media/3o6Zt6CTfK9xuU7XEs/giphy.gif)
 
     -   ALGORITHM OF SUCCESS
