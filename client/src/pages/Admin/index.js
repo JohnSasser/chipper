@@ -3,6 +3,8 @@ import UserContext from "../../components/CurrentUserContext";
 import AdminPetInformation from "../../components/AdminPetInformation";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import chip from "../../images/chipper/chipperOne.png";
+import "./style.css";
 
 function Admin() {
   // current user for the user check;
@@ -25,19 +27,22 @@ function Admin() {
   const [pet, setPet] = useState({
     petName: "",
     microNum: "",
+    pupPicture: ""
   });
 
   const onSubmit = (e) => {
-    const searchterm = search;
+    const searchTerm = search;
     axios
       .post("/api/search", {
-        microNum: searchterm,
+        microNum: searchTerm,
       })
       .then((returnedSearch) => {
+        console.log(returnedSearch);
         if (returnedSearch.data) {
           setPet({
-            petName: returnedSearch.data.petName,
-            microNum: returnedSearch.data.microNum,
+            petName: returnedSearch.data.pet.petName,
+            microNum: returnedSearch.data.pet.microNum,
+            pupPicture: returnedSearch.data.pet.petImageURL,
           });
         }
       })
@@ -53,22 +58,30 @@ function Admin() {
   return redirect ? (
     <Redirect to="/login" />
   ) : (
-    <div className="container">
-      <input
-        name="search"
-        id=""
-        className=""
-        type="input"
-        value={search}
-        onChange={onChange}
-      ></input>
-      <button type="submit" className="btn btn-primary" onClick={onSubmit}>
-        Submit
-      </button>
-      <AdminPetInformation
-        petName={pet.petName}
-        microNum={pet.microNum}
-      ></AdminPetInformation>
+    <div className="justify-content-center">
+      <div className="container ">
+        <img src={chip} alt="logo" className="center"></img>
+        <br />
+        <input
+          name="search"
+          className=""
+          type="input"
+          value={search}
+          onChange={onChange}
+        ></input>
+        <br />
+        <button type="submit" className="btn btn-primary" onClick={onSubmit}>
+          Submit
+        </button>
+        <br />
+        <br />
+
+        <AdminPetInformation
+          petName={pet.petName}
+          microNum={pet.microNum}
+          pupImage={pet.pupPicture}
+        ></AdminPetInformation>
+      </div>
     </div>
   );
 }

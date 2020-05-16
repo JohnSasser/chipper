@@ -1,0 +1,9 @@
+.pup-row {
+  display: flex;
+  flex-wrap: wrap;
+  color: #fff;
+  justify-content: space-around;
+}
+.container {
+    display: flex;
+}
