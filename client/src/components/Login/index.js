@@ -85,7 +85,7 @@ function Login() {
           <hr className="border-hr"/>
           <p className="col-md-3 intro-p">If so then join our community! This platform allows owners to keep track of their pets mircrochip information and notify others if 
             their pet is lost. It also gives veterinarian or rescues to check and see our database to help him/her make it home. Join us in the 
-            effort to keep all of your beloved little family members stay safe.  
+            effort to keep all of your beloved little family members safe.  
           </p>
           <div id="down-arrow">
             <span><a href="#about"><i className="fa fa-chevron-down down-arrow" aria-hidden="true"></i></a></span>
