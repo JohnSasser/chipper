@@ -22,17 +22,26 @@ function Signup() {
   });
 
   const onChange = (e) => {
-    console.log(e.target, e.target.name, e.target.value);
+    console.log("working")
+    console.log(typeof e.target.type)
     if (e.target.type === "checkbox") {
+      if (signupState.isAdmin === false) {
+        setSignupState({
+          ...signupState,
+          isAdmin: true,
+        })
+      } else {
+        setSignupState({
+          ...signupState,
+          isAdmin: false,
+        });
+      }
+    } else {
       setSignupState({
         ...signupState,
-        isAdmin: !signupState.isAdmin,
+        [e.target.name]: e.target.value,
       });
     }
-    setSignupState({
-      ...signupState,
-      [e.target.name]: e.target.value,
-    });
   };
 
   const onSubmit = async (e) => {
@@ -207,10 +216,10 @@ function Signup() {
           </div>
 
           {/* ***** checkbox not working when tied to state */}
-          <div className="custom-control custom-checkbox">
+          <div className="custom-control custom-checkbox form-check">
             <input
               type="checkbox"
-              className="custom-control-input"
+              className="custom-control-input form-check-input"
               id="customSwitch1"
               name="is-admin"
               checked={signupState.isAdmin}
