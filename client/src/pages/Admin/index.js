@@ -58,32 +58,32 @@ function Admin() {
   return redirect ? (
     <Redirect to="/login" />
   ) : (
-    <div className="justify-content-center">
-      <div className="container ">
-        <img src={chip} alt="logo" className="center"></img>
-        <br />
-        <input
-          name="search"
-          className=""
-          type="input"
-          value={search}
-          onChange={onChange}
-        ></input>
-        <br />
-        <button type="submit" className="btn btn-primary" onClick={onSubmit}>
-          Submit
+      <div className="justify-content-center">
+        <div className="admin-container">
+          <img src={chip} alt="logo" className="center"></img>
+          <br />
+          <input
+            name="search"
+            className=""
+            type="input"
+            value={search}
+            onChange={onChange}
+          ></input>
+          <br />
+          <button type="submit" className="btn btn-primary" onClick={onSubmit}>
+            Submit
         </button>
-        <br />
-        <br />
+          <br />
+          <br />
 
-        <AdminPetInformation
-          petName={pet.petName}
-          microNum={pet.microNum}
-          pupImage={pet.pupPicture}
-        ></AdminPetInformation>
+          <AdminPetInformation
+            petName={pet.petName}
+            microNum={pet.microNum}
+            pupImage={pet.pupPicture}
+          ></AdminPetInformation>
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default Admin;
