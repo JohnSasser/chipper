@@ -10,16 +10,16 @@ function UserDirectory() {
         <img className="img" alt="chipper logo" src={chip} width="150px"></img>
         <div id="nav" className="space">
           <Link className="nav-item space" to="/home">
-          <button type="button" class="btn btn-dark btn-lg">Home</button>
+          <button type="button" className="btn btn-dark btn-lg">Home</button>
           </Link>
           <Link className="nav-item space" to="/userFeed">
-          <button type="button"  class="btn btn-dark btn-lg">Feed</button>
+          <button type="button"  className="btn btn-dark btn-lg">Feed</button>
           </Link>
           <Link className="nav-item space" to="/userPetsProfile">
-          <button type="button" class="btn btn-dark btn-lg">Pets</button>
+          <button type="button" className="btn btn-dark btn-lg">Pets</button>
           </Link>
           <Link className="nav-item space" to="/">
-          <button type="button" class="btn btn-outline-dark btn-lg">Logout</button>
+          <button type="button" className="btn btn-outline-dark btn-lg">Logout</button>
           </Link>
         </div>
         </div>

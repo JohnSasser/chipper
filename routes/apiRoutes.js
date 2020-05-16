@@ -43,7 +43,7 @@ router.post("/api/login", passport.authenticate("local"), function (req, res) {
   });
 });
 
-router.post("/api/userupdate", passport.authenticate("local"), function (req, res) {
+router.post("/api/userUpdate", function (req, res) {
   console.log(req.body.user)
   db.User.findByIdAndUpdate({ _id: req.body.user },
     {
