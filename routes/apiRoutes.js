@@ -59,12 +59,6 @@ router.post("/api/userupdate", passport.authenticate("local"), function (req, re
     });
 })
 
-// Post and Reply Routes
-router.post("/api/posts", (req, res) => {
-  db.Post.create(req.body).then(results => {
-    res.json(results);
-  });
-});
 
 // router.post("/api/replies/", (req, res) => {
 //   db.Reply.create(req.body).then(results => {
