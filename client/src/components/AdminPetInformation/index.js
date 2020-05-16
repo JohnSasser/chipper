@@ -1,4 +1,5 @@
 import React from "react";
+import chip from "../../images/chipper/chipper2.png"
 
 function AdminPetInformation(props) {
   return (
@@ -6,7 +7,7 @@ function AdminPetInformation(props) {
       <div className="row">
         <div className="card" style={{ width: 18 + "rem" }}>
           <img
-            src="https://placedog.net/70/40"
+            src={chip}
             className="card-img-top"
             alt="..."
           ></img>
