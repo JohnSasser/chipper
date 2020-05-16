@@ -3,7 +3,8 @@ import { Redirect } from "react-router-dom";
 import UserContext from "../../components/CurrentUserContext";
 import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
-import Feed from "../../components/Feed";
+import Feed from "../../components/CreatePost";
+import CreatePost from "../../components/CreatePost";
 
 function UserFeed() {
   // current user for the user check;
@@ -24,7 +25,7 @@ function UserFeed() {
         <div className="container">
             <div className="row">
                 <div className="col-12 userInformation">
-                    <Feed />
+                    <CreatePost/>
                 </div>
             </div>
         </div>
