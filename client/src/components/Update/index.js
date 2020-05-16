@@ -10,6 +10,10 @@ function Update() {
   const [newInfo, setNewInfo] = useState({
     newEmail: "",
     newPhone: "",
+    newStreet: "",
+    newCity: "",
+    newState: "",
+    newZip: ""
   });
 
   // set redirect for home route ****
@@ -32,19 +36,20 @@ function Update() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
+    let newStuffs = { ...currentUser };
+    if (newInfo.newEmail) newStuffs.email = newInfo.newEmail;
+    if (newInfo.newPhone) newStuffs.phone = newInfo.newPhone;
+    if (newInfo.newStreet) newStuffs.street = newInfo.newStreet;
+    if (newInfo.newCity) newStuffs.city = newInfo.newCity;
+    if (newInfo.newState) newStuffs.state = newInfo.newState;
+    if (newInfo.newZip) newStuffs.zip = newInfo.newZip;
     axios
       .post("/api/userUpdate", {
-        newInfo: newInfo,
+        newInfo: newStuffs,
         user: currentUser._id,
       })
       .then((res) => {
-        console.log(res);
-        let newStuffs = {};
-        if (newInfo.newEmail) newStuffs.email = newInfo.newEmail;
-        if (newInfo.newPhone) newStuffs.phone = newInfo.newPhone;
         setCurrentUser({
-          ...currentUser,
           ...newStuffs
         });
         if (res.status === 200) {
@@ -75,6 +80,7 @@ function Update() {
               placeholder="Enter New Email Here"
             ></input>
           </div>
+
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">
               Current Phone Number: {currentUser.phone}
@@ -89,6 +95,69 @@ function Update() {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Enter New Phone Number Here"
+            ></input>
+          </div>
+
+          <label htmlFor="exampleInputPassword1">
+            Current Address:
+            <br></br>
+            {currentUser.street}
+            <br></br>
+            {currentUser.city}
+            <br></br>
+            {currentUser.state}
+            <br></br>
+            {currentUser.zip}
+          </label>
+
+          <div className="form-group">
+
+            <br></br>
+            <label htmlFor="exampleInputPassword1">New Street Here</label>
+            <input
+              type="text"
+              name="newStreet"
+              value={newInfo.newStreet}
+              onChange={onChange}
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Enter New Street Here"
+            ></input>
+
+            <br></br>
+            <label htmlFor="exampleInputPassword1">New City</label>
+            <input
+              type="text"
+              name="newCity"
+              value={newInfo.newCity}
+              onChange={onChange}
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Enter New City"
+            ></input>
+
+            <br></br>
+            <label htmlFor="exampleInputPassword1">New State</label>
+            <input
+              type="text"
+              name="newState"
+              value={newInfo.newState}
+              onChange={onChange}
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Enter New State"
+            ></input>
+
+            <br></br>
+            <label htmlFor="exampleInputPassword1">New Zip Code</label>
+            <input
+              type="text"
+              name="newZip"
+              value={newInfo.newZip}
+              onChange={onChange}
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Enter New Zip Code"
             ></input>
           </div>
 

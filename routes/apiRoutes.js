@@ -47,8 +47,8 @@ router.post("/api/userUpdate", function (req, res) {
   console.log(req.body.user)
   db.User.findByIdAndUpdate({ _id: req.body.user },
     {
-      email: req.body.newInfo.newEmail,
-      phone: req.body.newInfo.newPhone
+      email: req.body.newInfo.email,
+      phone: req.body.newInfo.phone
     })
     .then(result => {
       console.log(res)
