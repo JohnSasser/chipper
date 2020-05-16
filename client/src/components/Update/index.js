@@ -42,8 +42,8 @@ function Update() {
         console.log(res);
         setCurrentUser({
           ...currentUser,
-          email: res.data.email,
-          phone: res.data.phone,
+          email: newInfo.newEmail,
+          phone: newInfo.newPhone,
         });
 
         if (res.status === 200) {

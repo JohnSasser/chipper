@@ -16,7 +16,7 @@ function UserInformation() {
     axios.get("/api/authenticate").then((res) => {
       if (!res.data) setRedirect(true);
       console.log(res);
-      UserInformation.forceUpdate();
+      // UserInformation.forceUpdate();
     });
   }, []);
 
