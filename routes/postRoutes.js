@@ -2,11 +2,9 @@ const router = require("express").Router();
 const db = require("../models");
 
 router.get("/api/post", function (req, res) {
-  db.Post.find({
-    title: req.body.title,
-    body: req.body.body
-  })
+  db.Post.find({})
     .then((posts) => {
+      console.log(posts)
       res.status(200).json(posts);
     })
     .catch((err) => console.log(err));
@@ -29,4 +27,6 @@ router.post("/api/create", function (req, res) {
     }
   });
 });
+
+
 module.exports = router;
