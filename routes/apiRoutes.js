@@ -48,7 +48,11 @@ router.post("/api/userUpdate", function (req, res) {
   db.User.findByIdAndUpdate({ _id: req.body.user },
     {
       email: req.body.newInfo.email,
-      phone: req.body.newInfo.phone
+      phone: req.body.newInfo.phone,
+      street: req.body.newInfo.street,
+      city: req.body.newInfo.city,
+      state: req.body.newInfo.state,
+      zip: req.body.newInfo.zip
     })
     .then(result => {
       console.log(res)
@@ -68,10 +72,10 @@ router.post("/api/userUpdate", function (req, res) {
 
 // custom authentication route
 router.get("/api/authenticate", function (req, res) {
-    if (req.user) 
-      res.json(true);
-    else
-      res.json(false);
+  if (req.user)
+    res.json(true);
+  else
+    res.json(false);
 })
 
 
