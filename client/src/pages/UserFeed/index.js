@@ -5,6 +5,7 @@ import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
 import Feed from "../../components/CreatePost";
 import CreatePost from "../../components/CreatePost";
+import ViewAllPosts from "../../components/ViewAllPosts"
 
 function UserFeed() {
   // current user for the user check;
@@ -26,6 +27,8 @@ function UserFeed() {
             <div className="row">
                 <div className="col-12 userInformation">
                     <CreatePost/>
+                    <br/>
+                    <ViewAllPosts/>
                 </div>
             </div>
         </div>
