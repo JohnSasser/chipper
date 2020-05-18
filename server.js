@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 let express = require("express");
 let session = require("express-session");
 
@@ -39,7 +39,7 @@ app.use(cors());
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET, 
+    secret: process.env.SESSION_SECRET,
     resave: false, //required
     saveUninitialized: false, //required
   })
@@ -62,9 +62,13 @@ app.get("*", function (req, res) {
 
 // additional user on the mLab db for heroku;
 //  mongodb://<dbuser>:<dbpassword>@ds157493.mlab.com:57493/heroku_f6qg5272
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/chipperdb", {
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://DBadmin:9W@mMcjUhgfna#j@ds157493.mlab.com:57493/heroku_f6qg5272",
+  {
+    useNewUrlParser: true,
+  }
+);
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
