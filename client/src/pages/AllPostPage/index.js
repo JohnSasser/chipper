@@ -1,13 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import UserContext from "../../components/CurrentUserContext";
 import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
-import Feed from "../../components/CreatePost";
-import CreatePost from "../../components/CreatePost";
 import ViewAllPosts from "../../components/ViewAllPosts"
+import Search from "../../components/SearchBar"
 
-function UserFeed() {
+function AllPosts() {
   // current user for the user check;
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
@@ -22,11 +20,12 @@ function UserFeed() {
   }, []);
     return (
         <div>
-        <UserDirectory />
+        <UserDirectory/>
         <div className="container">
             <div className="row">
-                <div className="col-12 userInformation">
-                    <CreatePost/>
+                <div className="col-md-12 col-lg-12 col-sm-12"> 
+                <Search/>
+                    <ViewAllPosts/>
                 </div>
             </div>
         </div>
@@ -34,4 +33,4 @@ function UserFeed() {
     )
 }
 
-export default UserFeed;
+export default AllPosts;
