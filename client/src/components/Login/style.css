@@ -21,10 +21,9 @@
 /* Given margin to both forms */
 .form-style {
   margin-bottom: 20px;
-
 }
-.form-margin{
-  margin-right:5px;
+.form-margin {
+  margin-right: 5px;
 }
 
 .link {
@@ -40,27 +39,34 @@
   cursor: pointer;
 }
 /* Size of jumbotron */
-.size{
+.size {
   height: 100vh;
   background-image: url("../../images/chipper/happydog.jpeg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   border-bottom: 20px black solid;
-  
 }
 
-.shadow-head{
- text-shadow: black 2px 2px;
+.shadow-head {
+  text-shadow: black 2px 2px;
 }
 
-#down-arrow{
+#down-arrow {
   margin-top: auto;
-  text-align:center ;
+  text-align: center;
   margin-bottom: 50px;
   position: absolute;
   left: 500px;
   top: 150px;
+}
+
+.super-secret-text {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  top: -10px;
 }
 
 /* .intro-p {

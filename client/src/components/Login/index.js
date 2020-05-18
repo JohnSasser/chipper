@@ -3,11 +3,10 @@ import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
-import Footer from "../Footer";
 import UserContext from "../CurrentUserContext";
 
 function Login() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { setCurrentUser } = useContext(UserContext);
 
   const [loginState, setLoginState] = useState({
     username: "",
@@ -20,19 +19,12 @@ function Login() {
 
   useEffect(() => {
     setCurrentUser(loginState.user);
-  }, [loginState.user]);
+  }, [loginState.user, setCurrentUser]);
 
   const onChange = (e) => {
     setLoginState({
       ...loginState,
       [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleLogin = () => {
-    setLoginState({
-      ...loginState,
-      redirect: true,
     });
   };
 
@@ -82,20 +74,20 @@ function Login() {
         <div className="container">
           <h1 className="display-4 shadow-head">Welcome to CHIPPER!</h1>
           <h3 className="lead">Does your pet have a mircrochip?</h3>
-          <hr className="border-hr"/>
-          <p className="col-md-3 intro-p">If so then join our community! This platform allows owners to keep track of their pets mircrochip information and notify others if 
-            their pet is lost. It also gives veterinarian or rescues to check and see our database to help him/her make it home. Join us in the 
-            effort to keep all of your beloved little family members safe.  
+          <hr className="border-hr" />
+          <p className="col-md-3 intro-p">If so then join our community! This platform allows owners to keep track of their pets mircrochip information and notify others if
+          their pet is lost. It also gives veterinarian or rescues to check and see our database to help him/her make it home. Join us in the
+          effort to keep all of your beloved little family members safe.
           </p>
           <div id="down-arrow">
-            <span><a href="#about"><i className="fa fa-chevron-down down-arrow" aria-hidden="true"></i></a></span>
-        </div>
+            <span><a href="#about"><i className="fa fa-chevron-down down-arrow" aria-hidden="true"></i><span className="super-secret-text">.</span></a></span>
+          </div>
         </div>
       </div>
       <div className=" container main-content">
         <img src={chip} alt="logo" className="center"></img>
-        <h1 id="about"className="header-1">Welcome Back!</h1>
-        <br/>
+        <h1 id="about" className="header-1">Welcome Back!</h1>
+        <br />
         <form className="" onSubmit={onSubmit}>
           <div className="form-group">
             <label className="form-margin" htmlFor="">User Name</label>
@@ -117,7 +109,7 @@ function Login() {
             onChange={onChange}
             maxLength="15"
           />
-          <br/>
+          <br />
           <button type="submit" className="btn btn-outline-dark">
             Submit
           </button>

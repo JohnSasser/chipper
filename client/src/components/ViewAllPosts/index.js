@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
 
@@ -13,9 +13,7 @@ function ViewAllPosts() {
     useEffect(() => {
         Axios.get('/api/post')
             .then(res => {
-                console.log("Hello" + res.data);
                 setState({ posts: res.data });
-                console.log(state.posts);
             })
             .catch(err => console.log(err));
     }, []);
