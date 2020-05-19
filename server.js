@@ -5,8 +5,9 @@ let session = require("express-session");
 const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
-const flash = require("express-flash");
-const passport = require("./config/passport");
+const cookieParser = require("cookie-parser")
+const flash = require('express-flash')
+const passport = require("./config/index");
 const bodyParser = require("body-parser");
 
 const apiRoutes = require("./routes/apiRoutes");
@@ -19,7 +20,7 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-app.use(flash());
+app.use(flash());   
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

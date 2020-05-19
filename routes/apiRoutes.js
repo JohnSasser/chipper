@@ -1,10 +1,14 @@
 const router = require("express").Router();
 const db = require("../models");
-const passport = require("passport");
+const passport = require("../config");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // USER SIGN-UP ROUTE
-router.post("/api/signup", function (req, res) {
+router.post("/api/signup", passport.authenticate('local-signup', {
+  // successRedirect: '',
+  // failureRedirect: '/Signup',
+  // session: false
+}), function (req, res) {
   console.log(req.body);
   // const encryptedPass = bcrypt(req.body.password)
   // console.log("encrypted password:", encryptedPass)

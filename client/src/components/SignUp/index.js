@@ -21,8 +21,8 @@ function Signup() {
   });
 
   const onChange = (e) => {
-    console.log("working")
-    console.log(typeof e.target.type)
+    // console.log("working")
+    // console.log(typeof e.target.type)
     if (e.target.type === "checkbox") {
       if (signupState.isAdmin === false) {
         setSignupState({
@@ -64,7 +64,7 @@ function Signup() {
       }
     }
 
-    console.log(`handleFormSubmit ${signupState}`);
+    console.log(`onSubmit ${signupState}`);
 
     axios.post("/api/signup", {
       username: signupState.username,
