@@ -1,14 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from "axios";
 import "./style.css";
-import $ from 'jquery';
 import AwsUploadImage from '../AwsUploadImage';
 import AwsUploadContext from '../AwsUploadContext';
 
 function AddPet() {
   const [petName, setPetName] = useState("");
   const [petMicrochipNumber, setPetMicrochipNumber] = useState("");
-  const { fileState, setFileState } = useContext(AwsUploadContext);
+  const { fileState } = useContext(AwsUploadContext);
 
   const onSubmit = () => {
     axios

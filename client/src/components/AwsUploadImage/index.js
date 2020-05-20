@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import AwsUploadContext from '../AwsUploadContext';
 import axios from 'axios';
 import $ from 'jquery';
@@ -6,10 +6,6 @@ import $ from 'jquery';
 
 const AwsUploadImage = function () {
     const { fileState, setFileState } = useContext(AwsUploadContext);
-
-    useEffect(() => {
-
-    }, []);
 
     const singleFileChangedHandler = (event) => {
         setFileState({

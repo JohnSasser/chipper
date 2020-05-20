@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
-import Footer from "../Footer";
 import "./style.css";
 
 function Signup() {

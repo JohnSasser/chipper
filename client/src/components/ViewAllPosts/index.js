@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -14,9 +14,7 @@ function ViewAllPosts() {
     useEffect(() => {
         Axios.get('/api/post')
             .then(res => {
-                console.log("Hello" + res.data);
                 setState({ posts: res.data });
-                console.log(state.posts);
             })
             .catch(err => console.log(err));
     }, []);

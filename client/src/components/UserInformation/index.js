@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, forceUpdate } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../CurrentUserContext";
@@ -6,7 +6,7 @@ import UserContext from "../CurrentUserContext";
 
 function UserInformation() {
   // current user for the user check;
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   // set redirect for home route ****
   const [redirect, setRedirect] = useState(false);
@@ -18,7 +18,6 @@ function UserInformation() {
       console.log(res);
       // UserInformation.forceUpdate();
     });
-    console.log('currentUser in Userinformation:', currentUser);
   }, []);
 
   return redirect ? (
