@@ -11,7 +11,7 @@ import UserContext from "./components/CurrentUserContext";
 import AwsUploadContext from "./components/AwsUploadContext";
 import Footer from "./components/Footer";
 import "./App.css";
-
+import AllPosts from "../src/pages/AllPostPage"
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [fileState, setFileState] = useState({});
@@ -28,7 +28,7 @@ function App() {
                 path={["/userPetsProfile"]}
                 component={PetsProfilePage}
               ></Route>
-              <Route exact path={["/userFeed"]} component={UserFeed}></Route>
+              <Route exact path={["/createPost"]} component={UserFeed}></Route>
               <Route
                 exact
                 path={["/userUpdate"]}
@@ -37,9 +37,10 @@ function App() {
               <Route exact path={["/signUp"]} component={Signup}></Route>
               <Route exact path={["/adminPage"]} component={Admin}></Route>
               <Route exact path={["/", "/login"]} component={Login}></Route>
+              <Route exact path={["/allPosts"]} component={AllPosts}></Route>
             </Switch>
           </Router>
-          <Footer />
+          <Footer/>
         </div>
       </UserContext.Provider>
     </AwsUploadContext.Provider>

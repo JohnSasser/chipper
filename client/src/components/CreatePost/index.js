@@ -15,7 +15,8 @@ function CreatePost() {
       }).then((res) => {
         console.log(res);
         if (res.data) {
-          console.log(`post added sucessfully`)
+          console.log("post added sucessfully")
+          alert("Post created sucessfully")
         }
       }).catch((err) => {
         if (err) console.log(`create server error ${err}`)
