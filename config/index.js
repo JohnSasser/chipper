@@ -7,4 +7,5 @@ const LoginStratagy = require("./LoginStratagy");
 passport.use("local-signup", SignupStratagy);
 passport.use("local-login", LoginStratagy);
 
+
 module.exports = passport;

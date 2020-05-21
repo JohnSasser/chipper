@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 const cookieParser = require("cookie-parser")
-const flash = require('express-flash')
+// const flash = require('express-flash')
 const passport = require("./config/index");
 const bodyParser = require("body-parser");
 
@@ -16,11 +16,11 @@ const adminRoutes = require("./routes/adminRoutes");
 const awsRoutes = require("./routes/awsRoutes");
 const postRoutes = require("./routes/postRoutes");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3008;
 
 const app = express();
 
-app.use(flash());   
+// app.use(flash());   
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -62,8 +62,7 @@ app.get("*", function (req, res) {
 });
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://DBadmin:9W@mMcjUhgfna#j@ds157493.mlab.com:57493/heroku_f6qg5272",
+  process.env.MONGODB_URI,
   {
     useNewUrlParser: true,
   }
