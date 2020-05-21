@@ -40,7 +40,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "alanserver": "nodemon server.js",
+    "server": "nodemon server.js",
     "alanclient": "npm start --prefix client",
     "alanaws": "concurrently \"npm run alanserver\" \"npm run alanclient\""
   },

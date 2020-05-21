@@ -9,9 +9,9 @@ router.post("/api/signup", function (req, res, next) {
   passport.authenticate("local-signup", (error, user) => {
     console.log("/api/signup / user:", user);
     if (error)
-      return res.status(500).json({
-        message: "something went wrong, try again please!",
-      });
+    return res.status(500).json({
+      message: "something went wrong, try again please!",
+    });
     return res.status(200).json(user);
   })(req, res, next);
 });

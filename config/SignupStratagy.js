@@ -29,7 +29,7 @@ const SignupStrategy = new Strategy({ passReqToCallback: true }, function (
       }
 
       if (user) {
-        return done("User Name is already taken", null);
+        return done("User Name is already taken:", user);
       }
 
       // console.log("SignupStrategy.js / encrypted password:", encryptedPass);
@@ -50,6 +50,7 @@ const SignupStrategy = new Strategy({ passReqToCallback: true }, function (
 
       newUser.save((error, inserted) => {
         if (error) {
+          console.log(error)
           return done(error, null);
         }
         return done(null, inserted);
