@@ -25,11 +25,11 @@ const SignupStrategy = new Strategy({ passReqToCallback: true }, function (
   User.findOne({ username: username }, (err, user) => {
     // console.log("SignupStrategy.js / req:", req.body);
     if (err) {
-      return done(err, user);
+      done(err, null);
     }
 
     if (user) {
-      return done("User Name is already taken:", user);
+      done("User Name is already taken:", user);
     }
   })
     // .lean()
@@ -49,14 +49,14 @@ const SignupStrategy = new Strategy({ passReqToCallback: true }, function (
 
   User.create(user, (error, user) => {
     if (error) {
-      return done(error, null);
+      done(error, null);
     }
     // delete the user password before it is sent back to the front-end;
     user.password = undefined;
 
     delete user.password;
 
-    return done(null, user);
+    done(null, user);
   });
 });
 
