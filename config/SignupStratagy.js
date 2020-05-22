@@ -1,5 +1,6 @@
 const Strategy = require("passport-local").Strategy;
-const db = require("../models");
+const User = require("../models/User");
+// for password encryption;
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -20,42 +21,43 @@ const SignupStrategy = new Strategy({ passReqToCallback: true }, function (
   const zip = req.body.zip;
   const isAdmin = req.body.isAdmin;
 
-  db.User.findOne({ username: username })
-    .lean()
-    .exec((err, user) => {
-      // console.log("SignupStrategy.js / req:", req.body);
-      if (err) {
-        return done(err, user);
-      }
 
-      if (user) {
-        return done("User Name is already taken:", user);
-      }
+  User.findOne({ username: username }, (err, user) => {
+    // console.log("SignupStrategy.js / req:", req.body);
+    if (err) {
+      return done(err, user);
+    }
 
-      // console.log("SignupStrategy.js / encrypted password:", encryptedPass);
+    if (user) {
+      return done("User Name is already taken:", user);
+    }
+  })
+    // .lean()
+    // .exec();
+  // console.log("SignupStrategy.js / encrypted password:", encryptedPass);
+  let user = {
+    username,
+    password: encryptedPass,
+    phone,
+    email,
+    street,
+    city,
+    state,
+    zip,
+    isAdmin,
+  };
 
-      let newUser = db.User.create({
-        username,
-        password: encryptedPass,
-        phone,
-        email,
-        street,
-        city,
-        state,
-        zip,
-        isAdmin,
-      });
+  User.create(user, (error, user) => {
+    if (error) {
+      return done(error, null);
+    }
+    // delete the user password before it is sent back to the front-end;
+    user.password = undefined;
 
-      console.log(newUser);
+    delete user.password;
 
-      newUser.save((error, inserted) => {
-        if (error) {
-          console.log(error)
-          return done(error, null);
-        }
-        return done(null, inserted);
-      });
-    });
+    return done(null, user);
+  });
 });
 
 module.exports = SignupStrategy;

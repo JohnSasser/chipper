@@ -16,7 +16,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const awsRoutes = require("./routes/awsRoutes");
 const postRoutes = require("./routes/postRoutes");
 
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 

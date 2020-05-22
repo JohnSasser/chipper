@@ -28,7 +28,7 @@ function Signup() {
         setSignupState({
           ...signupState,
           isAdmin: true,
-        })
+        });
       } else {
         setSignupState({
           ...signupState,
@@ -51,8 +51,8 @@ function Signup() {
         key: signupState.key,
       });
       console.log(response.status);
-      if (response.status === 401) {
-        console.log(response.status);
+      if (response.status === 500) {
+        console.log(response);
         return;
       }
       if (response.status === 200) {
@@ -64,32 +64,38 @@ function Signup() {
       }
     }
 
-    console.log(`onSubmit ${signupState}`);
-
-    axios.post("/api/signup", {
-      username: signupState.username,
-      password: signupState.password,
-      phone: signupState.phone,
-      email: signupState.email,
-      street: signupState.street,
-      city: signupState.city,
-      state: signupState.state,
-      zip: signupState.zip,
-      isAdmin: signupState.isAdmin,
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.data) {
-          console.log(`Sign-in Successful`);
-          setSignupState({
-            ...signupState,
-            redirect: true,
-          });
-        }
+    // console.log(`onSubmit ${signupState}`);
+    const signupResponse = await axios
+      .post("/api/signup", {
+        username: signupState.username,
+        password: signupState.password,
+        phone: signupState.phone,
+        email: signupState.email,
+        street: signupState.street,
+        city: signupState.city,
+        state: signupState.state,
+        zip: signupState.zip,
+        isAdmin: signupState.isAdmin,
       })
-      .catch((err) => {
-        if (err) console.log(`Sign-Up server error ${err}`);
-      });
+      if (signupResponse === 500) {
+        console.log(signupResponse)
+      } 
+      if (signupResponse === 200) {
+        console.log(signupResponse.data)
+      } 
+      // .then((res) => {
+      //   console.log(res);
+      //   if (res.data) {
+      //     console.log(`Sign-in Successful`);
+      //     setSignupState({
+      //       ...signupState,
+      //       redirect: true,
+      //     });
+      //   }
+      // })
+      // .catch((err) => {
+      //   if (err) console.log(`Sign-Up server error ${err}`);
+      // });
   };
 
   if (signupState.adminRedirect) {

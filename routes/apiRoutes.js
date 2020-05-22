@@ -1,18 +1,18 @@
 const router = require("express").Router();
 const db = require("../models");
 const passport = require("../config");
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+// const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // USER SIGN-UP ROUTE
 router.post("/api/signup", function (req, res, next) {
   // console.log(req.body);
-  passport.authenticate("local-signup", (error, user) => {
-    console.log("/api/signup / user:", user);
-    if (error)
-    return res.status(500).json({
-      message: "something went wrong, try again please!",
-    });
-    return res.status(200).json(user);
+  passport.authenticate("local-signup", (error, user, newInfo) => {
+    // console.log("apiRoutes.js / error:", error, "apiRoutes.js / user:", user);
+    if (error) {
+      return res.status(500).json(error);
+    } 
+      return res.json(user);
+    
   })(req, res, next);
 });
 
