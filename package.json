@@ -9,6 +9,8 @@
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "concurrently": "^4.0.1",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
@@ -38,7 +40,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build",
-    "alanserver": "nodemon server.js",
+    "server": "nodemon server.js",
     "alanclient": "npm start --prefix client",
     "alanaws": "concurrently \"npm run alanserver\" \"npm run alanclient\""
   },

@@ -19,7 +19,7 @@ const User = new Schema({
   },
   key: {
     type: String,
-    required: false
+    required: false,
   },
   petIds: {
     type: [Number],
@@ -48,7 +48,7 @@ const User = new Schema({
   zip: {
     type: Number,
     required: false,
-  }
+  },
 });
 
 // User.plugin(passportLocalMongoose);

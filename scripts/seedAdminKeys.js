@@ -37,6 +37,7 @@ let adminkeys = [
   },
 ];
 
+
 db.adminkeys
   .deleteMany({})
   .then(() => db.adminkeys.collection.insertMany(adminkeys))

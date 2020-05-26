@@ -61,12 +61,17 @@ Pet Microchipping has been around since the late 90's, but there has always been
 Now with the use of CHIPPER and our partnerships with the american humane society & countless veterinarian practices, we have a solution. By allowing our users to update their contact information easily and from their phone or home computer, we lower the number of lost pets. The utilization of our FEED: allows user to stay connected with their local communities, vet practices and humane societys.
 
 # Resources
+[MongodDB](https://www.mongodb.com/)
+[Express](https://expressjs.com/)
+[ReactJs](https://reactjs.org/)
+[NodeJs](https://nodejs.org/en/about/)
+[AWSS3](https://aws.amazon.com/s3/)
+[MongooseJs](https://mongoosejs.com/)
+[Passport](http://www.passportjs.org/)
+[Multer](https://www.npmjs.com/package/multer)
+[Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+[]
 
-Rick and Morty api: https://rickandmortyapi.com/
-Utelly api: https://rapidapi.com/utelly/api/utelly
-Geolocation api: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
-Materialize CSS: https://materializecss.com/
-Reverse Geo-location: https://rapidapi.com/Noggle/api/reverse-geocoding-and-geolocation-service
 
 # Contributors
 
