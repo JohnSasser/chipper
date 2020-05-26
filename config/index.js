@@ -1,7 +1,7 @@
 const passport = require("passport");
 
-const SignupStratagy = require("./SignupStratagy");
-const LoginStratagy = require("./LoginStratagy");
+const SignupStratagy = require("./SignupStrategy");
+const LoginStratagy = require("./LoginStrategy");
 // const GoogleStratagy = require("./GoogleStratagy");
 
 passport.use("local-signup", SignupStratagy);
