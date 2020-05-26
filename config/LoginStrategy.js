@@ -14,7 +14,7 @@ const LoginStratagy = new Stratagy(function (username, password, done) {
     }
     if (user.password !== password) {
       // if the password does NOT match the DB pass;
-      return done(null, false);
+      return done("Password Is Incorrect", false);
     }
     // both match;
     return done(null, user);
