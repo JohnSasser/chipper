@@ -21,43 +21,41 @@ const SignupStrategy = new Strategy({ passReqToCallback: true }, function (
   const zip = req.body.zip;
   const isAdmin = req.body.isAdmin;
 
-
-  User.findOne({ username: username }, (err, user) => {
+  User.findOne({ username: username }, (error, user) => {
     // console.log("SignupStrategy.js / req:", req.body);
-    if (err) {
-      done(err, null);
-    }
+    if (error) {
+      return done(error, null);
+    } else if (user) {
+      return done("User Name is already taken:", user);
+    } else {
+      // console.log("SignupStrategy.js / encrypted password:", encryptedPass);
+      let user = {
+        username,
+        password: encryptedPass,
+        phone,
+        email,
+        street,
+        city,
+        state,
+        zip,
+        isAdmin,
+      };
 
-    if (user) {
-      done("User Name is already taken:", user);
+      User.create(user, (error, user) => {
+        if (error) {
+          return done(error, null);
+        } else {
+          // delete the user password before it is sent back to the front-end;
+          user.password = undefined;
+
+          delete user.password;
+
+          return done(null, user);
+        }
+      });
     }
   })
-    // .lean()
-    // .exec();
-  // console.log("SignupStrategy.js / encrypted password:", encryptedPass);
-  let user = {
-    username,
-    password: encryptedPass,
-    phone,
-    email,
-    street,
-    city,
-    state,
-    zip,
-    isAdmin,
-  };
 
-  User.create(user, (error, user) => {
-    if (error) {
-      done(error, null);
-    }
-    // delete the user password before it is sent back to the front-end;
-    user.password = undefined;
-
-    delete user.password;
-
-    done(null, user);
-  });
 });
 
 module.exports = SignupStrategy;

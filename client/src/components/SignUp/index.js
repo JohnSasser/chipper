@@ -3,6 +3,7 @@ import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
+// import { json } from "body-parser";
 
 function Signup() {
   const [signupState, setSignupState] = useState({
@@ -64,38 +65,30 @@ function Signup() {
       }
     }
 
-    // console.log(`onSubmit ${signupState}`);
-    const signupResponse = await axios
-      .post("/api/signup", {
-        username: signupState.username,
-        password: signupState.password,
-        phone: signupState.phone,
-        email: signupState.email,
-        street: signupState.street,
-        city: signupState.city,
-        state: signupState.state,
-        zip: signupState.zip,
-        isAdmin: signupState.isAdmin,
-      })
-      if (signupResponse === 500) {
-        console.log(signupResponse)
-      } 
-      if (signupResponse === 200) {
-        console.log(signupResponse.data)
-      } 
-      // .then((res) => {
-      //   console.log(res);
-      //   if (res.data) {
-      //     console.log(`Sign-in Successful`);
-      //     setSignupState({
-      //       ...signupState,
-      //       redirect: true,
-      //     });
-      //   }
-      // })
-      // .catch((err) => {
-      //   if (err) console.log(`Sign-Up server error ${err}`);
-      // });
+    let newUser = {
+      username: signupState.username,
+      password: signupState.password,
+      phone: signupState.phone,
+      email: signupState.email,
+      street: signupState.street,
+      city: signupState.city,
+      state: signupState.state,
+      zip: signupState.zip,
+      isAdmin: signupState.isAdmin,
+    };
+
+    fetch("/api/signup", {
+      method: "post",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((errorMessage) => errorMessage.json())
+      .then((errorMessage) => alert(errorMessage.message))
+      .catch((error) => {
+        console.log(`Sign-Up server error ******** ${error}`);
+      });
   };
 
   if (signupState.adminRedirect) {
