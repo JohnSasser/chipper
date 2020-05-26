@@ -7,13 +7,12 @@ const passport = require("../config");
 router.post("/api/signup", function (req, res, next) {
   // console.log(req.body);
   passport.authenticate("local-signup", (error, user, newInfo) => {
-    console.log("apiRoutes.js / error:", error, "apiRoutes.js / user:", user);
+    // console.log("apiRoutes.js / error:", error, "apiRoutes.js / user:", user);
     if (error) {
-      console.log('in the err block /api/signup')
-      return res.status(500).json(error);
-      console.log('after the res.status 500 apiRoutes.js')
+      console.log("in the err block /api/signup", error);
+      return res.status(500).json({ message: error });
     } else {
-    console.log('above the res.json(user) /api/signup')
+      console.log("above the res.json(user) /api/signup");
       return res.json(user);
     }
   })(req, res, next);
