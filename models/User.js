@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 // const passportLocalMongoose = require('passport-local-mongoose');
 
-const User = new Schema({
+const UserSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -15,7 +15,7 @@ const User = new Schema({
   },
   isAdmin: {
     type: Boolean,
-    required: false,
+    required: true,
   },
   key: {
     type: String,
@@ -51,9 +51,30 @@ const User = new Schema({
   },
 });
 
-// User.plugin(passportLocalMongoose);
-User.methods.verifyPassword = function (password, callback) {
-  callback(err, bcrypt.compareSync(password, this.password));
+UserSchema.pre('save', function (next) {
+  if (!this.isModified('password')) {
+      return next();
+  }
+  bcrypt.hash(this.password, 10, (err, passwordHash) => {
+      if (err) {
+          return next(err);
+      }
+      this.password = passwordHash;
+      next();
+  });
+});
+
+UserSchema.methods.comparePassword = function (password, cb) {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
+      if (err) {
+          return cb(err);
+      } else if (!isMatch) {
+          return cb(null, isMatch)
+      } else {
+          return cb(null, this);
+      }
+
+  });
 };
 
-module.exports = mongoose.model("User", User);
+module.exports = mongoose.model("User", UserSchema);
