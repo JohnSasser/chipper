@@ -70,24 +70,18 @@ router.get('/logout', passport.authenticate('jwt', { session: false }), (req, re
 });
 
 router.post("/api/userUpdate", passport.authenticate('jwt', { session: false }), (req, res) => {
-  console.log(req.body.user);
+  console.log('/api/userUpdate req.body: ', req.body);
+  const fieldToUpdate = req.body;
   db.User.findByIdAndUpdate(
-    { _id: req.body.user },
-    {
-      email: req.body.newInfo.email,
-      phone: req.body.newInfo.phone,
-      street: req.body.newInfo.street,
-      city: req.body.newInfo.city,
-      state: req.body.newInfo.state,
-      zip: req.body.newInfo.zip,
-    }
+    { _id: req.user._id },
+    fieldToUpdate,
+    { new: true }
   )
     .then((result) => {
-      console.log(res);
+      console.log('result of findoneandupdate: ', result);
       res.status(200).json(result);
     })
     .catch(function (err) {
-      console.log(err);
       res.json(err);
     });
 });
@@ -101,8 +95,8 @@ router.post("/api/userUpdate", passport.authenticate('jwt', { session: false }),
 // custom authentication route
 router.get('/authenticated', passport.authenticate('jwt', { session: false }), (req, res) => {
   console.log('inside /authenticated');
-  const { username, isAdmin } = req.user;
-  res.status(200).json({ isAuthenticated: true, user: { username, isAdmin } });
+  const { petIds, username, phone, email, street, city, state, zip, isAdmin } = req.user;
+  res.status(200).json({ isAuthenticated: true, user: { petIds, username, phone, email, street, city, state, zip, isAdmin } });
 });
 
 module.exports = router;

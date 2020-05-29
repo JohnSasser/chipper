@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import AuthContext from '../../Context/AuthContext';
+import { AuthContext } from '../../Context/AuthContext';
 import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
 import ViewAllPosts from "../../components/ViewAllPosts"

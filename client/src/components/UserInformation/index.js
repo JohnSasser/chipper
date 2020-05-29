@@ -6,7 +6,7 @@ import Message from '../Message';
 // import img from "../images/chipper/pets.png"
 
 const UserInformation = props => {
-  const authContext = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   // use effect for res.data === user from /authenticated to reroute home if user is not logged in ****
   // useEffect(() => {
@@ -23,20 +23,20 @@ const UserInformation = props => {
       <div className="card card-background">
         <div className="card-body">
           <br />
-          <h3 className="card-text">User Name:{authContext.user.username}</h3>
+          <h3 className="card-text">User Name:{user.username}</h3>
           <br />
-          <h3 className="card-text">Email Address:{authContext.user.email}</h3>
+          <h3 className="card-text">Email Address:{user.email}</h3>
           <br />
-          <h3 className="card-text">Phone Number:{authContext.user.phone}</h3>
+          <h3 className="card-text">Phone Number:{user.phone}</h3>
           <br />
           <h3 className="card-text">Address:</h3>
-          {authContext.user.street}
+          {user.street}
           <br />
-          {authContext.user.city}
+          {user.city}
           <br />
-          {authContext.user.state}
+          {user.state}
           <br />
-          {authContext.user.zip}
+          {user.zip}
           <br />
 
           <Link className="navlink btn btn-warning" to="/userUpdate">

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
+import { AuthContext } from '../../Context/AuthContext';
 
-function PetInformation() {
+const PetInformation = props => {
+  const { user, setUser } = useContext(AuthContext);
   const [state, setState] = useState({
     pets: [],
   });

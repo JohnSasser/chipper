@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from '../../Context/AuthContext';
 
 const Update = props => {
+  console.log('update props: ', props);
   // current user for the user check;
   const { user, setUser } = useContext(AuthContext);
 
@@ -25,7 +25,7 @@ const Update = props => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    let newStuffs = { ...user };
+    let newStuffs = {};
     if (newInfo.newEmail) newStuffs.email = newInfo.newEmail;
     if (newInfo.newPhone) newStuffs.phone = newInfo.newPhone;
     if (newInfo.newStreet) newStuffs.street = newInfo.newStreet;
@@ -34,17 +34,19 @@ const Update = props => {
     if (newInfo.newZip) newStuffs.zip = newInfo.newZip;
     axios
       .post("/api/userUpdate", {
-        newInfo: newStuffs,
-        user: user._id,
+        ...newStuffs
       })
       .then((res) => {
+        console.log('response from /api/userUpdate: ', res.data);
+        console.log('current user info: ', user);
+        console.log('new stuffs...: ', newStuffs);
         setUser({
+          ...user,
           ...newStuffs
         });
+        console.log('user after setting: ', user);
         if (res.status === 200) {
-          return (
-            <Redirect to="/home" />
-          )
+          props.history.push('/home');
         }
       });
   };
