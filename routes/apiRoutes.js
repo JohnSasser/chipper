@@ -57,10 +57,10 @@ router.post('/signup', (req, res) => {
 
 router.post('/login', passport.authenticate('local', { session: false }), (req, res) => {
   if (req.isAuthenticated()) {
-    const { _id, username, isAdmin } = req.user;
+    const { _id, username, isAdmin, petIds, phone, email, street, city, state, zip } = req.user;
     const token = signToken(_id);
     res.cookie('access_token', token, { httpOnly: true, sameSite: true });
-    res.status(200).json({ isAuthenticated: true, user: { username, isAdmin } });
+    res.status(200).json({ isAuthenticated: true, user: { username, isAdmin, petIds, phone, email, street, city, state, zip } });
   }
 });
 
@@ -69,7 +69,7 @@ router.get('/logout', passport.authenticate('jwt', { session: false }), (req, re
   res.json({ user: { username: "", isAdmin: null }, success: true });
 });
 
-router.post("/api/userUpdate", function (req, res) {
+router.post("/api/userUpdate", passport.authenticate('jwt', { session: false }), (req, res) => {
   console.log(req.body.user);
   db.User.findByIdAndUpdate(
     { _id: req.body.user },
@@ -99,9 +99,10 @@ router.post("/api/userUpdate", function (req, res) {
 // });
 
 // custom authentication route
-router.get("/api/authenticate", function (req, res) {
-  if (req.user) res.json(true);
-  else res.json(false);
+router.get('/authenticated', passport.authenticate('jwt', { session: false }), (req, res) => {
+  console.log('inside /authenticated');
+  const { username, isAdmin } = req.user;
+  res.status(200).json({ isAuthenticated: true, user: { username, isAdmin } });
 });
 
 module.exports = router;

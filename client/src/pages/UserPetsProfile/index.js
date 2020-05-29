@@ -9,9 +9,9 @@ function UserPetsProfile() {
   // set redirect for home route ****
   const [redirect, setRedirect] = useState(false);
 
-  // use effect for res.data === user from /api/authenticate to reroute home if user is not logged in ****
+  // use effect for res.data === user from /authenticated to reroute home if user is not logged in ****
   useEffect(() => {
-    axios.get("/api/authenticate").then((res) => {
+    axios.get("/authenticated").then((res) => {
       if (!res.data) setRedirect(true);
       console.log(res);
     });

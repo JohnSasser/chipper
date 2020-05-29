@@ -4,7 +4,7 @@ import UserInformation from "../../components/UserInformation";
 
 import "./UserProfile.css";
 
-function UserProfile() {
+const UserProfile = props => {
 
   return (
     <div>

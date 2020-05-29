@@ -15,7 +15,6 @@ export default {
         });
     },
     register: user => {
-        console.log('user in authservice register:', user);
         return fetch('/signup', {
             method: "post",
             body: JSON.stringify(user),
@@ -36,7 +35,7 @@ export default {
                 if (res.status !== 401) {
                     return res.json().then(data => data);
                 } else {
-                    return { isAuthenticated: false, user: { username: "", role: "" } };
+                    return { isAuthenticated: false, user: { username: "", isAdmin: null } };
                 }
             })
     }

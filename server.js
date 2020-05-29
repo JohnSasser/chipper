@@ -1,15 +1,13 @@
 require("dotenv").config();
+const createError = require('http-errors');
 let express = require("express");
-let session = require("express-session");
-
 const mongoose = require("mongoose");
 const path = require("path");
-const cors = require("cors");
-const cookieParser = require("cookie-parser")
+// const cors = require("cors");
+const logger = require('morgan');
 // const flash = require('express-flash')
-const passport = require("./config/index");
 const bodyParser = require("body-parser");
-
+const cookieParser = require('cookie-parser');
 const apiRoutes = require("./routes/apiRoutes");
 const petRoutes = require("./routes/petApi");
 const adminRoutes = require("./routes/adminRoutes");
@@ -25,29 +23,18 @@ const app = express();
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+  console.log('using prod setting static to client/build');
+} else {
+  console.log('using dev setting static to public');
+  app.use(express.static(path.join(__dirname, 'public')));
 }
 
 // middleware for bodyParser;
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
-// express middleware;
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("client"));
-
-app.use(cors());
-
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false, //required
-    saveUninitialized: false, //required
-  })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(cors());
 
 app.use(apiRoutes);
 app.use(petRoutes);
@@ -58,7 +45,7 @@ app.use(postRoutes);
 // Define all API routes before this runs
 // Send every request to the React app
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 mongoose.connect(
