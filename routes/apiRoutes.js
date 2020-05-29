@@ -66,7 +66,7 @@ router.post('/login', passport.authenticate('local', { session: false }), (req, 
 
 router.get('/logout', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.clearCookie('access_token');
-  res.json({ user: { username: "", isAdmin: null }, success: true });
+  res.json({ user: { username: "", role: "" }, success: true });
 });
 
 router.post("/api/userUpdate", passport.authenticate('jwt', { session: false }), (req, res) => {
