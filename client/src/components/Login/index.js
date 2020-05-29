@@ -34,10 +34,15 @@ const Login = props => {
       console.log('data returned from AuthService.login: ', data);
       const { isAuthenticated, user, message } = data;
       if (isAuthenticated) {
+        console.log(user);
         authContext.setUser(user);
         console.log('authcontextuser: ', authContext.user);
         authContext.setIsAuthenticated(isAuthenticated);
-        props.history.push('/home');
+        if (user.isAdmin){
+          props.history.push('/adminPage');
+        } else {
+          props.history.push('/home');
+        }
       } else {
         setMessage(message);
       }

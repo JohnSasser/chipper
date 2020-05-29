@@ -11,7 +11,6 @@ export default {
                 console.log('data from AuthService /login response: ', res);
                 return res.json().then(data => data);
             } else {
-                console.log('hello');
                 return { isAuthenticated: false, user: { username: "", isAdmin: "" } };
             }
         });
