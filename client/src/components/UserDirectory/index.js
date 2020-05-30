@@ -34,7 +34,7 @@ const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthCo
         <Link className="nav-item space" to="/userPetsProfile">
           <button type="button" className="btn btn-dark btn-lg">Pets</button>
         </Link>
-        <Link className="nav-item space">
+        <Link className="nav-item space" to="/">
           <button type="button" className="btn btn-outline-dark btn-lg" onClick={onClickLogoutHandler}>Logout</button>
         </Link>
       </div>
