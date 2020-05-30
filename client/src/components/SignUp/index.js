@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
-import AuthService from '../../Services/AuthService';
-import Message from '../Message';
+import AuthService from "../../Services/AuthService";
+import Message from "../Message";
 import "./style.css";
 
-const Signup = props => {
+const Signup = (props) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -26,7 +26,7 @@ const Signup = props => {
   useEffect(() => {
     return () => {
       clearTimeout(timerID);
-    }
+    };
   }, []);
 
   const onChange = (e) => {
@@ -56,15 +56,15 @@ const Signup = props => {
     setUser({ username: "", password: "", role: "" });
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    AuthService.register(user).then(data => {
+    AuthService.register(user).then((data) => {
       const { message } = data;
       setMessage(message);
       resetForm();
       if (!message.msgError) {
         timerID = setTimeout(() => {
-          props.history.push('/login');
+          props.history.push("/login");
         }, 2000);
       }
     });
@@ -91,8 +91,7 @@ const Signup = props => {
       <div className="container main-content">
         <img src={chip} alt="logo" className="center"></img>
         <form className="group-form" onSubmit={onSubmit}>
-
-        {message ? <Message message={message} /> : null}
+          {message ? <Message message={message} /> : null}
 
           {/* username */}
           <div className="form-group">
@@ -187,7 +186,7 @@ const Signup = props => {
                 type="text"
                 className="form-control form-style"
                 id="inputZip"
-                placeholder="80803"
+                placeholder="30303"
               />
             </div>
           </div>
@@ -202,7 +201,10 @@ const Signup = props => {
               checked={user.isAdmin}
               onChange={onChange}
             />
-            <label className="custom-control-label custom-switch-1" htmlFor="customSwitch1">
+            <label
+              className="custom-control-label custom-switch-1"
+              htmlFor="customSwitch1"
+            >
               Check if Admin
             </label>
           </div>
@@ -213,7 +215,10 @@ const Signup = props => {
             Submit
           </button>
           <Link className="login-link" to="/login">
-            <button type="button" className="btn btn-outline-warning sign-up-link">
+            <button
+              type="button"
+              className="btn btn-outline-warning sign-up-link"
+            >
               Or Login
             </button>
           </Link>
@@ -221,6 +226,6 @@ const Signup = props => {
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
