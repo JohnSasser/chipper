@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
+import AuthService from '../../Services/AuthService';
+import Message from '../Message';
+// import { json } from "body-parser";
 
-function Signup() {
-  const [signupState, setSignupState] = useState({
+const Signup = props => {
+  const [user, setUser] = useState({
     username: "",
     password: "",
     phone: "",
@@ -19,87 +22,57 @@ function Signup() {
     adminRedirect: false,
     isAdmin: false,
   });
+  const [message, setMessage] = useState(null);
+  let timerID = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerID);
+    }
+  }, []);
 
   const onChange = (e) => {
-    console.log("working")
-    console.log(typeof e.target.type)
+    // console.log("working")
+    // console.log(typeof e.target.type)
     if (e.target.type === "checkbox") {
-      if (signupState.isAdmin === false) {
-        setSignupState({
-          ...signupState,
+      if (user.isAdmin === false) {
+        setUser({
+          ...user,
           isAdmin: true,
-        })
+        });
       } else {
-        setSignupState({
-          ...signupState,
+        setUser({
+          ...user,
           isAdmin: false,
         });
       }
     } else {
-      setSignupState({
-        ...signupState,
+      setUser({
+        ...user,
         [e.target.name]: e.target.value,
       });
     }
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    if (signupState.isAdmin === true) {
-      const response = await axios.post("/api/admin-sign-up", {
-        key: signupState.key,
-      });
-      console.log(response.status);
-      if (response.status === 401) {
-        console.log(response.status);
-        return;
-      }
-      if (response.status === 200) {
-        console.log(response.status);
-        setSignupState({
-          ...signupState,
-          adminRedirect: true,
-        });
-      }
-    }
-
-    console.log(`handleFormSubmit ${signupState}`);
-
-    axios.post("/api/signup", {
-      username: signupState.username,
-      password: signupState.password,
-      phone: signupState.phone,
-      email: signupState.email,
-      street: signupState.street,
-      city: signupState.city,
-      state: signupState.state,
-      zip: signupState.zip,
-      isAdmin: signupState.isAdmin,
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.data) {
-          console.log(`Sign-in Successful`);
-          setSignupState({
-            ...signupState,
-            redirect: true,
-          });
-        }
-      })
-      .catch((err) => {
-        if (err) console.log(`Sign-Up server error ${err}`);
-      });
+  const resetForm = () => {
+    setUser({ username: "", password: "", role: "" });
   };
 
-  if (signupState.adminRedirect) {
-    return <Redirect to="/adminPage"></Redirect>;
-  }
-  if (signupState.redirect) {
-    return <Redirect to="/login"></Redirect>;
-  }
+  const onSubmit = e => {
+    e.preventDefault();
+    AuthService.register(user).then(data => {
+      const { message } = data;
+      setMessage(message);
+      resetForm();
+      if (!message.msgError) {
+        timerID = setTimeout(() => {
+          props.history.push('/login');
+        }, 2000);
+      }
+    });
+  };
 
-  const adminKeyInput = signupState.isAdmin ? (
+  const adminKeyInput = user.isAdmin ? (
     <div className="col-auto">
       <label className="sr-only" htmlFor="inlineFormInput">
         Name
@@ -109,11 +82,12 @@ function Signup() {
         className="form-control mb-2"
         name="key"
         placeholder="Enter Admin Key"
-        value={signupState.key}
+        value={user.key}
         onChange={onChange}
       />
     </div>
   ) : null;
+
   return (
     <div className="background">
       <div className="container main-content">
@@ -125,7 +99,7 @@ function Signup() {
             <input
               className="form-control form-style"
               name="username"
-              value={signupState.username}
+              value={user.username}
               onChange={onChange}
             />
           </div>
@@ -136,7 +110,7 @@ function Signup() {
               type="password"
               className="form-control form-style"
               name="password"
-              value={signupState.password}
+              value={user.password}
               onChange={onChange}
             />
           </div>
@@ -147,7 +121,7 @@ function Signup() {
               type="number"
               className="form-control form-style"
               name="phone"
-              value={signupState.phone}
+              value={user.phone}
               onChange={onChange}
               placeholder="678 456 1234"
             />
@@ -159,7 +133,7 @@ function Signup() {
               type="email"
               className="form-control form-style"
               name="email"
-              value={signupState.email}
+              value={user.email}
               onChange={onChange}
               placeholder="james@jamestown.com"
             />
@@ -171,7 +145,7 @@ function Signup() {
               type="text"
               className="form-control form-style"
               name="street"
-              value={signupState.street}
+              value={user.street}
               onChange={onChange}
               placeholder="1234 Main St"
             />
@@ -185,7 +159,7 @@ function Signup() {
                 className="form-control form-style"
                 id="inputCity"
                 name="city"
-                value={signupState.city}
+                value={user.city}
                 onChange={onChange}
                 placeholder="Atlanta"
               />
@@ -198,7 +172,7 @@ function Signup() {
                 className="form-control form-style"
                 id="inputState"
                 name="state"
-                value={signupState.state}
+                value={user.state}
                 onChange={onChange}
                 placeholder="Georgia"
               />
@@ -221,7 +195,7 @@ function Signup() {
               className="custom-control-input form-check-input"
               id="customSwitch1"
               name="is-admin"
-              checked={signupState.isAdmin}
+              checked={user.isAdmin}
               onChange={onChange}
             />
             <label className="custom-control-label" htmlFor="customSwitch1">
@@ -240,6 +214,7 @@ function Signup() {
             </button>
           </Link>
         </form>
+        {message ? <Message message={message} /> : null}
       </div>
     </div>
   );

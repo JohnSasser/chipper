@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
-import UserContext from "../CurrentUserContext";
 import axios from "axios";
+import { AuthContext } from '../../Context/AuthContext';
 
-function Update() {
+const Update = props => {
+  console.log('update props: ', props);
   // current user for the user check;
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { user, setUser } = useContext(AuthContext);
 
   const [newInfo, setNewInfo] = useState({
     newEmail: "",
@@ -16,17 +16,6 @@ function Update() {
     newZip: ""
   });
 
-  // set redirect for home route ****
-  const [redirect, setRedirect] = useState(false);
-
-  // use effect for res.data === user from /api/authenticate ****
-  useEffect(() => {
-    axios.get("/api/authenticate").then((res) => {
-      if (!res.data) setRedirect("/Login");
-      console.log(res);
-    });
-  }, []);
-
   const onChange = (e) => {
     setNewInfo({
       ...newInfo,
@@ -36,7 +25,7 @@ function Update() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    let newStuffs = { ...currentUser };
+    let newStuffs = {};
     if (newInfo.newEmail) newStuffs.email = newInfo.newEmail;
     if (newInfo.newPhone) newStuffs.phone = newInfo.newPhone;
     if (newInfo.newStreet) newStuffs.street = newInfo.newStreet;
@@ -45,128 +34,130 @@ function Update() {
     if (newInfo.newZip) newStuffs.zip = newInfo.newZip;
     axios
       .post("/api/userUpdate", {
-        newInfo: newStuffs,
-        user: currentUser._id,
+        ...newStuffs
       })
       .then((res) => {
-        setCurrentUser({
+        console.log('response from /api/userUpdate: ', res.data);
+        console.log('current user info: ', user);
+        console.log('new stuffs...: ', newStuffs);
+        setUser({
+          ...user,
           ...newStuffs
         });
+        console.log('user after setting: ', user);
         if (res.status === 200) {
-          setRedirect("/Home");
+          props.history.push('/home');
         }
       });
   };
 
   // add the login redirect to all primary components; ****
-  return redirect ? (
-    <Redirect to={redirect} />
-  ) : (
-      <div>
-        <form>
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">
-              Current Email: {currentUser.email}
-            </label>
-            <br></br>
-            <label htmlFor="exampleInputEmail1">New Email address:</label>
-            <input
-              type="email"
-              name="newEmail"
-              value={newInfo.newEmail}
-              onChange={onChange}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter New Email Here"
-            ></input>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="exampleInputPassword1">
-              Current Phone Number: {currentUser.phone}
-            </label>
-            <br></br>
-            <label htmlFor="exampleInputPassword1">New Phone Number Here</label>
-            <input
-              type="phone"
-              name="newPhone"
-              value={newInfo.newPhone}
-              onChange={onChange}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter New Phone Number Here"
-            ></input>
-          </div>
-
-          <label htmlFor="exampleInputPassword1">
-            Current Address:
-            <br></br>
-            {currentUser.street}
-            <br></br>
-            {currentUser.city}
-            <br></br>
-            {currentUser.state}
-            <br></br>
-            {currentUser.zip}
+  return (
+    <div>
+      <form>
+        <div className="form-group">
+          <label htmlFor="exampleInputEmail1">
+            Current Email: {user.email}
           </label>
+          <br></br>
+          <label htmlFor="exampleInputEmail1">New Email address:</label>
+          <input
+            type="email"
+            name="newEmail"
+            value={newInfo.newEmail}
+            onChange={onChange}
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="Enter New Email Here"
+          ></input>
+        </div>
 
-          <div className="form-group">
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">
+            Current Phone Number: {user.phone}
+          </label>
+          <br></br>
+          <label htmlFor="exampleInputPassword1">New Phone Number Here</label>
+          <input
+            type="phone"
+            name="newPhone"
+            value={newInfo.newPhone}
+            onChange={onChange}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter New Phone Number Here"
+          ></input>
+        </div>
 
+        <label htmlFor="exampleInputPassword1">
+          Current Address:
             <br></br>
-            <label htmlFor="exampleInputPassword1">New Street Here</label>
-            <input
-              type="text"
-              name="newStreet"
-              value={newInfo.newStreet}
-              onChange={onChange}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter New Street Here"
-            ></input>
+          {user.street}
+          <br></br>
+          {user.city}
+          <br></br>
+          {user.state}
+          <br></br>
+          {user.zip}
+        </label>
 
-            <br></br>
-            <label htmlFor="exampleInputPassword1">New City</label>
-            <input
-              type="text"
-              name="newCity"
-              value={newInfo.newCity}
-              onChange={onChange}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter New City"
-            ></input>
+        <div className="form-group">
 
-            <br></br>
-            <label htmlFor="exampleInputPassword1">New State</label>
-            <input
-              type="text"
-              name="newState"
-              value={newInfo.newState}
-              onChange={onChange}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter New State"
-            ></input>
+          <br></br>
+          <label htmlFor="exampleInputPassword1">New Street Here</label>
+          <input
+            type="text"
+            name="newStreet"
+            value={newInfo.newStreet}
+            onChange={onChange}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter New Street Here"
+          ></input>
 
-            <br></br>
-            <label htmlFor="exampleInputPassword1">New Zip Code</label>
-            <input
-              type="text"
-              name="newZip"
-              value={newInfo.newZip}
-              onChange={onChange}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter New Zip Code"
-            ></input>
-          </div>
+          <br></br>
+          <label htmlFor="exampleInputPassword1">New City</label>
+          <input
+            type="text"
+            name="newCity"
+            value={newInfo.newCity}
+            onChange={onChange}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter New City"
+          ></input>
 
-          <button type="submit" onClick={onSubmit} className="btn btn-primary">
-            Submit
+          <br></br>
+          <label htmlFor="exampleInputPassword1">New State</label>
+          <input
+            type="text"
+            name="newState"
+            value={newInfo.newState}
+            onChange={onChange}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter New State"
+          ></input>
+
+          <br></br>
+          <label htmlFor="exampleInputPassword1">New Zip Code</label>
+          <input
+            type="text"
+            name="newZip"
+            value={newInfo.newZip}
+            onChange={onChange}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter New Zip Code"
+          ></input>
+        </div>
+
+        <button type="submit" onClick={onSubmit} className="btn btn-primary">
+          Submit
         </button>
-        </form>
-      </div>
-    );
+      </form>
+    </div>
+  );
 }
 
 export default Update;

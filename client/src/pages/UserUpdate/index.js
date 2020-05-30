@@ -4,29 +4,19 @@ import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
 import Update from "../../components/Update";
 
-function UserUpdate() {
+const UserUpdate = props => {
   // set redirect for home route ****
-  const [redirect, setRedirect] = useState(false);
+  console.log('userupdate props: ', props);
 
-  // use effect for res.data === user from /api/authenticate to reroute home if user is not logged in ****
-  useEffect(() => {
-    axios.get("/api/authenticate").then((res) => {
-      if (!res.data) setRedirect(true);
-    });
-  }, []);
-
-  return redirect ? (
-    <Redirect to="/login" />
-  ) : (
+  return (
     <div>
       <UserDirectory />
       <div className="container">
         <div className="row">
-        <div className="col-10 userInformation">
-          <Update />
+          <div className="col-10 userInformation">
+            <Update history={props.history} />
+          </div>
         </div>
-        </div>
-        
       </div>
     </div>
   );

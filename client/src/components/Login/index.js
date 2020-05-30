@@ -1,74 +1,55 @@
-import React, { useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { Redirect, Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
-import UserContext from "../CurrentUserContext";
+import { AuthContext } from '../../Context/AuthContext';
+import AuthService from '../../Services/AuthService';
+import { Link } from 'react-router-dom';
+import Message from '../Message';
 
-function Login() {
-  const { setCurrentUser } = useContext(UserContext);
-
-  const [loginState, setLoginState] = useState({
+const Login = props => {
+  console.log('login props: ', props);
+  const [user, setUser] = useState({
     username: "",
     password: "",
-    redirect: false,
     isAdmin: false,
-    redirectRoute: "",
     user: {},
   });
-
-  useEffect(() => {
-    setCurrentUser(loginState.user);
-  }, [loginState.user, setCurrentUser]);
+  const [message, setMessage] = useState(null);
+  const authContext = useContext(AuthContext);
 
   const onChange = (e) => {
-    setLoginState({
-      ...loginState,
+    setUser({
+      ...user,
       [e.target.name]: e.target.value,
     });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(
-      `handleFormSubmit username: ${loginState.username}, password: ${loginState.password}`
-    );
-
-    axios.post("/api/login", {
-      username: loginState.username,
-      password: loginState.password,
-    })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          console.log(`Login-in Successful`);
-          //ASSUMING res.data is a user object that has the isAdmin flag:
-          let redirectRoute = res.data.isAdmin ? "/adminPage" : "/home";
-
-          setLoginState({
-            ...loginState,
-            redirect: true,
-            user: res.data.user,
-            redirectRoute,
-          });
-        }
-      })
-      .catch((err) => {
-        if (err) console.log(`Sign-Up server error ${err}`);
-      });
+  const resetForm = () => {
+    setUser({ username: "", password: "", isAdmin: null });
   };
 
-  if (loginState.redirect) {
-    return (
-      <Redirect to={loginState.redirectRoute}>
-        <UserContext.Provider value={loginState.user}></UserContext.Provider>
-      </Redirect>
-    );
-  }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    AuthService.login(user).then(data => {
+      console.log('data returned from AuthService.login: ', data);
+      const { isAuthenticated, user, message } = data;
+      if (isAuthenticated) {
+        console.log(user);
+        authContext.setUser(user);
+        console.log('authcontextuser: ', authContext.user);
+        authContext.setIsAuthenticated(isAuthenticated);
+        if (user.isAdmin){
+          props.history.push('/adminPage');
+        } else {
+          props.history.push('/home');
+        }
+      } else {
+        setMessage(message);
+      }
+    });
+  };
 
   return (
-
     <div className="background">
       <div className="jumbotron jumbotron-fluid size shadow">
         <div className="container">
@@ -95,7 +76,7 @@ function Login() {
               type="text"
               className="form-group form-style"
               name="username"
-              value={loginState.username}
+              value={user.username}
               onChange={onChange}
               maxLength="25"
             />
@@ -105,7 +86,7 @@ function Login() {
             type="password"
             className="form-group form-style"
             name="password"
-            value={loginState.password}
+            value={user.password}
             onChange={onChange}
             maxLength="15"
           />
@@ -120,6 +101,7 @@ function Login() {
           </Link>
         </form>
       </div>
+      {message ? <Message message={message} /> : null}
     </div>
   );
 }

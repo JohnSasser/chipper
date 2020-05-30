@@ -9,9 +9,9 @@ function Admin() {
   // set redirect for home route ****
   const [redirect, setRedirect] = useState(false);
 
-  // use effect for res.data === user from /api/authenticate ****
+  // use effect for res.data === user from /authenticated ****
   useEffect(() => {
-    axios.get("/api/authenticate").then((res) => {
+    axios.get("/authenticated").then((res) => {
       if (!res.data) setRedirect(true);
     });
   }, []);
