@@ -3,7 +3,7 @@ import React from 'react';
 const getStyle = props => {
     let baseClass = "alert";
     if (props.message.msgError) {
-        baseClass = baseClass + " alert-danger";
+        baseClass = baseClass + " alert-warning";
     } else {
         baseClass = baseClass + " alert-primary";
     }

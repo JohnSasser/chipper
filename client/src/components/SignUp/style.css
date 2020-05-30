@@ -3,11 +3,23 @@
 .header-1{
     font-size:35px;
     margin-bottom:10px;
-    
+}
+/* form div */
+.group-form {
+    width: 60%;
+    margin: 0 auto;
 }
 /* container */
 .main-content{
     text-align: center;     
+}
+/* submit and login buttons */
+button {
+    margin-top: 20px;
+}
+/* admin checkbox */
+.custom-switch-1 {
+    margin-bottom: 15px;
 }
 /* Div abouve container */
 .background{
@@ -18,7 +30,6 @@
     border-bottom:solid black 5px;
     border-radius:25px;
     margin-bottom:20px;
-    
 }
 /* Given margin to both forms */
 .form-style{
@@ -36,5 +47,4 @@
 .login-link:hover{
     box-shadow: 5px 5px 5px 5px rgb(255, 150, 29);
     cursor: pointer;
-
 }
