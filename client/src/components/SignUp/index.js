@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
+import AuthService from "../../Services/AuthService";
+import Message from "../Message";
 import "./style.css";
-import AuthService from '../../Services/AuthService';
-import Message from '../Message';
-// import { json } from "body-parser";
 
-const Signup = props => {
+const Signup = (props) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -28,12 +26,12 @@ const Signup = props => {
   useEffect(() => {
     return () => {
       clearTimeout(timerID);
-    }
+    };
   }, []);
 
   const onChange = (e) => {
-    // console.log("working")
-    // console.log(typeof e.target.type)
+    // // console.log("working")
+    // // console.log(typeof e.target.type)
     if (e.target.type === "checkbox") {
       if (user.isAdmin === false) {
         setUser({
@@ -58,22 +56,22 @@ const Signup = props => {
     setUser({ username: "", password: "", role: "" });
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    AuthService.register(user).then(data => {
+    AuthService.register(user).then((data) => {
       const { message } = data;
       setMessage(message);
       resetForm();
       if (!message.msgError) {
         timerID = setTimeout(() => {
-          props.history.push('/login');
+          props.history.push("/login");
         }, 2000);
       }
     });
   };
 
   const adminKeyInput = user.isAdmin ? (
-    <div className="col-auto">
+    <div className="col-auto admin-key-input">
       <label className="sr-only" htmlFor="inlineFormInput">
         Name
       </label>
@@ -92,7 +90,9 @@ const Signup = props => {
     <div className="background">
       <div className="container main-content">
         <img src={chip} alt="logo" className="center"></img>
-        <form className="" onSubmit={onSubmit}>
+        <form className="group-form" onSubmit={onSubmit}>
+          {message ? <Message message={message} /> : null}
+
           {/* username */}
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">User Name</label>
@@ -101,6 +101,7 @@ const Signup = props => {
               name="username"
               value={user.username}
               onChange={onChange}
+              placeholder="Drax-The-Dogstroyer"
             />
           </div>
           {/* password */}
@@ -112,6 +113,7 @@ const Signup = props => {
               name="password"
               value={user.password}
               onChange={onChange}
+              placeholder="************"
             />
           </div>
           {/* phone */}
@@ -152,7 +154,7 @@ const Signup = props => {
           </div>
           {/* city */}
           <div className="form-row">
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-6 city-col">
               <label htmlFor="inputCity">City</label>
               <input
                 type="text"
@@ -165,7 +167,7 @@ const Signup = props => {
               />
             </div>
             {/* state */}
-            <div className="form-group col-md-4">
+            <div className="form-group col-md-4 city-col">
               <label htmlFor="inputState">State</label>
               <input
                 type="text"
@@ -178,12 +180,13 @@ const Signup = props => {
               />
             </div>
             {/* zip */}
-            <div className="form-group col-md-2">
+            <div className="form-group col-md-2 city-col">
               <label htmlFor="inputZip">Zip</label>
               <input
                 type="text"
                 className="form-control form-style"
                 id="inputZip"
+                placeholder="30303"
               />
             </div>
           </div>
@@ -198,7 +201,10 @@ const Signup = props => {
               checked={user.isAdmin}
               onChange={onChange}
             />
-            <label className="custom-control-label" htmlFor="customSwitch1">
+            <label
+              className="custom-control-label custom-switch-1"
+              htmlFor="customSwitch1"
+            >
               Check if Admin
             </label>
           </div>
@@ -209,15 +215,17 @@ const Signup = props => {
             Submit
           </button>
           <Link className="login-link" to="/login">
-            <button type="button" className="btn btn-outline-warning">
+            <button
+              type="button"
+              className="btn btn-outline-warning sign-up-link"
+            >
               Or Login
             </button>
           </Link>
         </form>
-        {message ? <Message message={message} /> : null}
       </div>
     </div>
   );
-}
+};
 
 export default Signup;

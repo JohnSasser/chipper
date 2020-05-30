@@ -23,9 +23,9 @@ const app = express();
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-  console.log('using prod setting static to client/build');
+  // console.log('using prod setting static to client/build');
 } else {
-  console.log('using dev setting static to public');
+  // console.log('using dev setting static to public');
   app.use(express.static(path.join(__dirname, 'public')));
 }
 
@@ -56,5 +56,5 @@ mongoose.connect(
   }
 );
 app.listen(PORT, function () {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+  // console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

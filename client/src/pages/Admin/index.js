@@ -31,7 +31,7 @@ function Admin() {
         microNum: searchTerm,
       })
       .then((returnedSearch) => {
-        console.log(returnedSearch);
+        // console.log(returnedSearch);
         if (returnedSearch.data) {
           setPet({
             petName: returnedSearch.data.pet.petName,

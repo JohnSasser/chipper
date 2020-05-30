@@ -18,9 +18,9 @@ function AddPet() {
         petImageURL: fileState.recentImageURL
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data) {
-          console.log(`pet added successfully`);
+          // console.log(`pet added successfully`);
         }
       })
       .catch((err) => {
@@ -29,7 +29,7 @@ function AddPet() {
   };
 
   const onChange = (e) => {
-    console.log(e.target, e.target.name, e.target.value);
+    // console.log(e.target, e.target.name, e.target.value);
     if (e.target.name === "petName") {
       setPetName(e.target.value);
     } else if (e.target.name === "petMicrochipNumber") {

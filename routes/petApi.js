@@ -3,7 +3,7 @@ const db = require("../models");
 const passport = require('passport');
 
 router.get("/api/pets", passport.authenticate('jwt', { session: false }), (req, res) => {
-  console.log('req.user inside /api/pets: ', req.user);
+  // console.log('req.user inside /api/pets: ', req.user);
   db.Pets.find({
     ownerId: req.user._id,
   })
@@ -23,11 +23,11 @@ router.post("/api/add", passport.authenticate('jwt', { session: false }), (req, 
   };
 
   db.Pets.insertMany(newPet, (err, result) => {
-    console.log("reached inside model");
+    // console.log("reached inside model");
     if (err) {
       res.send(err);
     } else {
-      console.log(result);
+      // console.log(result);
       res.send(result);
     }
   });

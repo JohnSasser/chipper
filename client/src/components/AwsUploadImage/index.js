@@ -32,13 +32,13 @@ const AwsUploadImage = function () {
                             if ('LIMIT_FILE_SIZE' === response.data.error.code) {
                                 ocShowAlert('Max size: 2MB', 'red');
                             } else {
-                                console.log("response.data awsupload.js l38:", response.data);// If not the given file type
+                                // console.log("response.data awsupload.js l38:", response.data);// If not the given file type
                                 ocShowAlert(response.data.error, 'red');
                             }
                         } else {
                             // Success
                             let fileData = response.data;
-                            console.log('filedata', fileData);
+                            // console.log('filedata', fileData);
                             setFileState({ ...fileState, recentImageURL: fileData.location })
                             ocShowAlert('File Uploaded', '#3089cf');
                         }
@@ -67,7 +67,7 @@ const AwsUploadImage = function () {
         }, 3000);
     };
 
-    console.log(fileState);
+    // console.log(fileState);
 
     return (
         <div className="container">

@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from '../../Context/AuthContext';
 
 const Update = props => {
-  console.log('update props: ', props);
+  // console.log('update props: ', props);
   // current user for the user check;
   const { user, setUser } = useContext(AuthContext);
 
@@ -37,14 +37,14 @@ const Update = props => {
         ...newStuffs
       })
       .then((res) => {
-        console.log('response from /api/userUpdate: ', res.data);
-        console.log('current user info: ', user);
-        console.log('new stuffs...: ', newStuffs);
+        // console.log('response from /api/userUpdate: ', res.data);
+        // console.log('current user info: ', user);
+        // console.log('new stuffs...: ', newStuffs);
         setUser({
           ...user,
           ...newStuffs
         });
-        console.log('user after setting: ', user);
+        // console.log('user after setting: ', user);
         if (res.status === 200) {
           props.history.push('/home');
         }
