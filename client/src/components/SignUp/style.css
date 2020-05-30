@@ -43,8 +43,3 @@ button {
 .sign-up-link{
     margin-left:15px;
 }
-
-.login-link:hover{
-    box-shadow: 5px 5px 5px 5px rgb(255, 150, 29);
-    cursor: pointer;
-}
