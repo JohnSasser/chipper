@@ -24,7 +24,7 @@ function AddPet() {
         }
       })
       .catch((err) => {
-        if (err) // console.log(`Addpet server error ${err}`);
+        if (err) console.log(`Addpet server error ${err}`);
       });
   };
 

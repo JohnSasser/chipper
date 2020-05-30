@@ -10,7 +10,7 @@ router.get("/api/pets", passport.authenticate('jwt', { session: false }), (req, 
     .then((pets) => {
       res.status(200).json(pets);
     })
-    .catch((err) => // console.log(err));
+    .catch((err) => console.log(err));
 });
 
 router.post("/api/add", passport.authenticate('jwt', { session: false }), (req, res) => {

@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
-import "./style.css";
 import chip from "../../images/chipper/chipperOne.png";
 import { AuthContext } from '../../Context/AuthContext';
 import AuthService from '../../Services/AuthService';
 import { Link } from 'react-router-dom';
 import Message from '../Message';
+import "./style.css";
 
 const Login = props => {
   // console.log('login props: ', props);

@@ -13,7 +13,7 @@ const PetInformation = props => {
       .then((res) => {
         setState({ pets: res.data });
       })
-      .catch((err) => // console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
   let petImg = "";

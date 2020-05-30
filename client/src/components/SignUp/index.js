@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
-import "./style.css";
 import AuthService from '../../Services/AuthService';
 import Message from '../Message';
-// import { json } from "body-parser";
+import "./style.css";
 
 const Signup = props => {
   const [user, setUser] = useState({
@@ -209,7 +207,7 @@ const Signup = props => {
             Submit
           </button>
           <Link className="login-link" to="/login">
-            <button type="button" className="btn btn-outline-warning">
+            <button type="button" className="btn btn-outline-warning sign-up-link">
               Or Login
             </button>
           </Link>

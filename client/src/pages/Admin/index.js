@@ -41,7 +41,7 @@ function Admin() {
         }
       })
       .catch((err) => {
-        if (err) // console.log(`petsearch server error ${err}`);
+        if (err) console.log(`petsearch server error ${err}`);
       });
   };
 

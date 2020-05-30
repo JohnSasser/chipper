@@ -21,7 +21,7 @@ router.post("/api/admin-sign-up", function (req, res) {
             res.status(200).send(result));
       })
       .catch((err) => {
-        // console.log(err);
+         console.log(err);
       });
 });
 
@@ -36,10 +36,10 @@ router.post("/api/search", function (req, res) {
       res.status(200).json({user,pet});
       }
       ).catch(err =>{
-        // console.log(err);
+        console.log(err);
       })
     })
-    .catch(err => // console.log(err));
+    .catch(err => console.log(err));
 })
 
 module.exports = router;

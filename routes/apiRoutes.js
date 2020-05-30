@@ -86,12 +86,6 @@ router.post("/api/userUpdate", passport.authenticate('jwt', { session: false }),
     });
 });
 
-// router.post("/api/replies/", (req, res) => {
-//   db.Reply.create(req.body).then(results => {
-//     res.json(results);
-//   });
-// });
-
 // custom authentication route
 router.get('/authenticated', passport.authenticate('jwt', { session: false }), (req, res) => {
   // console.log('inside /authenticated');

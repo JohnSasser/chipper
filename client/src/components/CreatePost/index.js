@@ -19,7 +19,7 @@ function CreatePost() {
           alert("Post created sucessfully")
         }
       }).catch((err) => {
-        if (err) // console.log(`create server error ${err}`)
+        if (err) console.log(`create server error ${err}`)
       })
   }
   const onChange = (e) => {

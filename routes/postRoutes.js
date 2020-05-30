@@ -7,7 +7,7 @@ router.get("/api/post", function (req, res) {
       // console.log(posts)
       res.status(200).json(posts);
     })
-    .catch((err) => // console.log(err));
+    .catch((err) => console.log(err));
 });
 
 router.post("/api/create", function (req, res) {
