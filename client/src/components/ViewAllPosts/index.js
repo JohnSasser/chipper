@@ -16,7 +16,7 @@ function ViewAllPosts() {
             .then(res => {
                 setState({ posts: res.data });
             })
-            .catch(err => console.log(err));
+            .catch(err => // console.log(err));
     }, []);
     return (
         <div>

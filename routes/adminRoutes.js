@@ -4,7 +4,7 @@ const passport = require("passport");
 
 // ADMIN SIGN-UP ROUTE
 router.post("/api/admin-sign-up", function (req, res) {
-    console.log(req.body, "line 8 apiRoutes.js");
+    // console.log(req.body, "line 8 apiRoutes.js");
     db.adminkeys
       .findOne({
         key: req.body.key,
@@ -13,7 +13,7 @@ router.post("/api/admin-sign-up", function (req, res) {
         if (result === null || result.expired == true) {
           res.status(401).send(result);
         }
-        console.log(result, "result line 12 apiRoutes.js");
+        // console.log(result, "result line 12 apiRoutes.js");
         db.adminkeys
           .updateOne({ key: result.key }, { expired: true })
           .then(
@@ -21,25 +21,25 @@ router.post("/api/admin-sign-up", function (req, res) {
             res.status(200).send(result));
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
 });
 
 
 // FIND PET BY MICROCHIP API ROUTE
 router.post("/api/search", function (req, res) {
-  console.log("REACHED API/adminpets");
+  // console.log("REACHED API/adminpets");
   db.Pets.findOne({ microNum: req.body.microNum })
     .then(pet => {
       db.User.findById(pet.ownerId).then( user =>{
-        console.log(pet)
+        // console.log(pet)
       res.status(200).json({user,pet});
       }
       ).catch(err =>{
-        console.log(err);
+        // console.log(err);
       })
     })
-    .catch(err => console.log(err));
+    .catch(err => // console.log(err));
 })
 
 module.exports = router;

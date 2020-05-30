@@ -8,7 +8,7 @@ export default {
             }
         }).then(res => {
             if (res.status !== 401) {
-                console.log('data from AuthService /login response: ', res);
+                // console.log('data from AuthService /login response: ', res);
                 return res.json().then(data => data);
             } else {
                 return { isAuthenticated: false, user: { username: "", isAdmin: "" } };

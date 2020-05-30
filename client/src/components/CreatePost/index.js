@@ -13,17 +13,17 @@ function CreatePost() {
         title: title,
         body: body
       }).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data) {
-          console.log("post added sucessfully")
+          // console.log("post added sucessfully")
           alert("Post created sucessfully")
         }
       }).catch((err) => {
-        if (err) console.log(`create server error ${err}`)
+        if (err) // console.log(`create server error ${err}`)
       })
   }
   const onChange = (e) => {
-    console.log(e.target, e.target.name, e.target.value);
+    // console.log(e.target, e.target.name, e.target.value);
     if (e.target.name === "title") {
       setTitle(e.target.value);
     } else if (e.target.name === "body") {

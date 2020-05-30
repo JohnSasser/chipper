@@ -32,8 +32,8 @@ const Signup = props => {
   }, []);
 
   const onChange = (e) => {
-    // console.log("working")
-    // console.log(typeof e.target.type)
+    // // console.log("working")
+    // // console.log(typeof e.target.type)
     if (e.target.type === "checkbox") {
       if (user.isAdmin === false) {
         setUser({

@@ -6,7 +6,7 @@ import Update from "../../components/Update";
 
 const UserUpdate = props => {
   // set redirect for home route ****
-  console.log('userupdate props: ', props);
+  // console.log('userupdate props: ', props);
 
   return (
     <div>
