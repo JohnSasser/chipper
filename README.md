@@ -56,7 +56,7 @@ We also ask that you make a post in the Feed as to alert the local community tha
 
 # User Solutions
 
-Pet Microchipping has been around since the late 90's, but there has always been one fatal flaw to the system. As a pet owner, it has always & always was a hassle to update your contact information. This one simple issue created a pit-fall for pet reunification. When database information displays delinquent information, such as; old home addresses, old phone numbers or email addresses, the vet or humane society is left with no options. The pet unfortunately falls into the adoption cycle and is almost never reunited with their original family after that point.
+Pet Microchipping has been around since the late 90's, but there has always been one fatal flaw to the system. As a pet owner, it was always a hassle to update your contact information. This one simple issue created a pit-fall for pet reunification. When database information displays delinquent information, such as; old home addresses, old phone numbers or email addresses, the vet or humane society is left with no options. The pet unfortunately falls into the adoption cycle and is almost never reunited with their original family after that point.
 
 Now with the use of CHIPPER and our partnerships with the american humane society & countless veterinarian practices, we have a solution. By allowing our users to update their contact information easily and from their phone or home computer, we lower the number of lost pets. The utilization of our FEED: allows user to stay connected with their local communities, vet practices and humane societies.
 
