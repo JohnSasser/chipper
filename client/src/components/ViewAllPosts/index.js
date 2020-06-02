@@ -26,9 +26,9 @@ function ViewAllPosts() {
             {
                 state.posts.map((post, index) => {
                     return (
-                        <div key={index} className="border border-warning box">
+                        <div key={index} className="border border-warning box post-boouuxx" style={{ margin: "0 auto", marginBottom: "20px" }}>
                             <h1 className=" text-center post-title">{post.title}</h1>
-                            <div className="card-body">
+                            <div className="card-body post-boux-boudeh">
                                 <p>{post.body}</p>
                                 <Link className="nav-item" to="/reply">
                                     <button type="button" className="btn btn-outline-dark btn-lg">Reply</button>
