@@ -41,7 +41,7 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "seedAll": "node scripts/seedDB.js && node scripts/seedAdminKeys.js",
-    "seedPets": "node scripts/seedDB.js",
+    "seedDB": "node scripts/seedDB.js",
     "seedKeys": "node scripts/seedAdminKeys.js",
     "removeEverything": "node scripts/removeEverything.js",
     "install": "cd client && npm install",
