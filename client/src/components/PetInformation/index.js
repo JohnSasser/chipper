@@ -29,13 +29,13 @@ const PetInformation = props => {
         }
 
         return (
-          <div key={index} className="row card" style={{margin: "0 auto", width: 18 + "rem" }}>
+          <div key={index} className="row card" style={{margin: "0 auto",marginBottom: "40px", width: 18 + "rem" }}>
             <div className="card-body">
               <img
                 src={petImg}
                 style={{
                   height: 6 + "rem",
-                  marginBottom: 2 + "rem",
+                  marginBottom: 20 + "px",
                   marginLeft: 2 + "rem",
                   border: "solid black" + 5 + "px",
                 }}
