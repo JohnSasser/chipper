@@ -38,7 +38,7 @@ const Login = props => {
         authContext.setUser(user);
         // console.log('authcontextuser: ', authContext.user);
         authContext.setIsAuthenticated(isAuthenticated);
-        if (user.isAdmin){
+        if (user.isAdmin) {
           props.history.push('/adminPage');
         } else {
           props.history.push('/home');
@@ -68,6 +68,8 @@ const Login = props => {
       <div className=" container main-content">
         <img src={chip} alt="logo" className="center"></img>
         <h1 id="about" className="header-1">Welcome Back!</h1>
+        <br />
+        {message ? <Message message={message} /> : null}
         <br />
         <form className="" onSubmit={onSubmit}>
           <div className="form-group">
@@ -101,7 +103,6 @@ const Login = props => {
           </Link>
         </form>
       </div>
-      {message ? <Message message={message} /> : null}
     </div>
   );
 }

@@ -53,27 +53,27 @@ const UserSchema = new Schema({
 
 UserSchema.pre('save', function (next) {
   if (!this.isModified('password')) {
-      return next();
+    return next();
   }
   bcrypt.hash(this.password, 10, (err, passwordHash) => {
-      if (err) {
-          return next(err);
-      }
-      this.password = passwordHash;
-      next();
+    if (err) {
+      return next(err);
+    }
+    this.password = passwordHash;
+    next();
   });
 });
 
 UserSchema.methods.comparePassword = function (password, cb) {
   bcrypt.compare(password, this.password, (err, isMatch) => {
-      if (err) {
-          return cb(err);
-      } else if (!isMatch) {
-          return cb(null, isMatch)
-      } else {
-          return cb(null, this);
-      }
-
+    if (err) {
+      return cb(err);
+    } else if (!isMatch) {
+      console.log('Password wrong block');
+      return cb(null, isMatch, { message: "Incorrect password", type: "wrongpassword" })
+    } else {
+      return cb(null, this);
+    }
   });
 };
 

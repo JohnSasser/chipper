@@ -7,11 +7,13 @@ export default {
                 'Content-Type': 'application/json'
             }
         }).then(res => {
-            if (res.status !== 401) {
+            if (res.status == 200) {
                 // console.log('data from AuthService /login response: ', res);
                 return res.json().then(data => data);
             } else {
-                return { isAuthenticated: false, user: { username: "", isAdmin: "" } };
+                return res.json().then(data => {
+                    return { isAuthenticated: false, user: { username: "", isAdmin: "" }, message: data.message };
+                });
             }
         });
     },

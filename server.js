@@ -18,8 +18,6 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-// app.use(flash());   
-
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -53,6 +51,7 @@ mongoose.connect(
   "mongodb://DBadmin:g0atf4c3@ds017185.mlab.com:17185/heroku_7s6d98z5",
   {
     useNewUrlParser: true,
+    useUnifiedTopology: true
   }
 );
 app.listen(PORT, function () {

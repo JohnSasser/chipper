@@ -55,13 +55,23 @@ router.post('/signup', (req, res) => {
 
 // PASSPORT AUTHENTICATION ROUTE
 
-router.post('/login', passport.authenticate('local', { session: false }), (req, res) => {
-  if (req.isAuthenticated()) {
-    const { _id, username, isAdmin, petIds, phone, email, street, city, state, zip } = req.user;
-    const token = signToken(_id);
-    res.cookie('access_token', token, { httpOnly: true, sameSite: true });
-    res.status(200).json({ isAuthenticated: true, user: { username, isAdmin, petIds, phone, email, street, city, state, zip } });
-  }
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (user) {
+      const { _id, username, isAdmin, petIds, phone, email, street, city, state, zip } = user;
+      const token = signToken(_id);
+      res.cookie('access_token', token, { httpOnly: true, sameSite: true });
+      res.status(200).json({ isAuthenticated: true, user: { username, isAdmin, petIds, phone, email, street, city, state, zip } });
+    } else if (err) {
+      res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
+    } else if (info.type === "wronguser") {
+      res.status(400).json({ message: { msgBody: "Username does not exist", msgError: true } });
+    } else if (info.type === "wrongpassword") {
+      res.status(400).json({ message: { msgBody: "Password is incorrect", msgError: true } });
+    } else if (info.message === "Missing credentials") {
+      res.status(400).json({ message: { msgBody: "Enter login information", msgError: true } });
+    }
+  })(req, res, next);
 });
 
 router.get('/logout', passport.authenticate('jwt', { session: false }), (req, res) => {
