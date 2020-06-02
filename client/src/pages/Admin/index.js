@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AdminPetInformation from "../../components/AdminPetInformation";
 import AdminUserInformation from "../../components/AdminUserInformation";
+import AdminDirectory from "../../components/AdminDirectory";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
@@ -48,6 +49,7 @@ function Admin() {
       <div className="admin-container">
         <img src={chip} alt="logo" className="center"></img>
         <br />
+        <AdminDirectory />
         <input
           name="search"
           className=""
