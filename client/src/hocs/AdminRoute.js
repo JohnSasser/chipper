@@ -10,7 +10,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
                 return <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
             }
             if (!user.isAdmin) {
-                return <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+                return <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
             }
             return <Component {...props} />
         }} />

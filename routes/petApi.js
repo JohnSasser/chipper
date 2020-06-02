@@ -3,7 +3,6 @@ const db = require("../models");
 const passport = require('passport');
 
 router.get("/api/pets", passport.authenticate('jwt', { session: false }), (req, res) => {
-  // console.log('req.user inside /api/pets: ', req.user);
   db.Pets.find({
     ownerId: req.user._id,
   })

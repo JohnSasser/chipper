@@ -28,7 +28,7 @@ function App() {
           <UserRoute exact path={["/allPosts"]} component={AllPosts} />
           <UnPrivateRoute exact path={["/signUp"]} component={Signup} />
           <UnPrivateRoute exact path={["/login"]} component={Login} />
-          <Route exact path={["/"]} component={Login} />
+          <UnPrivateRoute exact path={["/"]} component={Login} />
           <AdminRoute exact path={["/adminPage"]} component={Admin} />
           <Footer />
         </Router>

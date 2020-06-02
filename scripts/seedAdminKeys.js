@@ -1,3 +1,4 @@
+require('dotenv').config;
 let db = require("../models");
 let mongoose = require("mongoose");
 
