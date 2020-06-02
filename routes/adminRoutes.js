@@ -34,6 +34,7 @@ router.post("/api/search", function (req, res) {
       db.User.findById(pet.ownerId).then(user => {
         // console.log(pet)
         console.log(user);
+        user.password = "";
         res.status(200).json({ user, pet });
       }
       ).catch(err => {
