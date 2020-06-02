@@ -9,7 +9,10 @@ export default {
         }).then(res => {
             if (res.status == 200) {
                 // console.log('data from AuthService /login response: ', res);
-                return res.json().then(data => data);
+                return res.json().then(data => {
+                    console.log('dis data: ', data);
+                    return data;
+                });
             } else {
                 return res.json().then(data => {
                     return { isAuthenticated: false, user: { username: "", isAdmin: "" }, message: data.message };

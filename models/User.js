@@ -21,8 +21,9 @@ const UserSchema = new Schema({
     type: String,
     required: false,
   },
-  petIds: {
-    type: [Number],
+  pets: {
+    type: Array,
+    "default": [],
     required: false,
   },
   phone: {
