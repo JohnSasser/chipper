@@ -15,13 +15,14 @@ The navigation tab on the left will direct you to your local communities news fe
 THE FEED: is where our community and and and update posts about lost and reunified pets. This is a great tool to help your neighbors stay informed on local, lost pet information.
 THE PET PROFILE: is where you can add a pet to your chipper family. Just grab the microchip # from your documentation were you got your pet chipped, or visit your veterinarian and ask them to scan your pet for the number.
 
-<!-- GIF OF NAVIGATION FROM HOME TO, FEED & PET PROFILE WITH SEEDED DATA -->
 
-<!-- <p align="center">
-  <a href="https://file-fish.herokuapp.com/" style="font-size: 45px">CHIPPER</a>
+<!-- PHOTO OF USER - HOME -->
+<p align="center">
+  <a href="https://evening-mountain-29318.herokuapp.com/" style="font-size: 45px">CHIPPER</a> 
   <br><br>
-  <img src="public/img/fileFish-dashboard.png">
-</p> -->
+  <img src="readme-images/chipper-home-min.png">
+</p>
+
 
 <!-- PICTURE OF FEED -->
 
@@ -46,13 +47,12 @@ Upon completion and approval, we will send out your welcome email with instructi
 Your Practice or Humane Society office manager, will receive a unique and one-time-use Admin-Key. While signing up we ask that you have this key ready to enter. The key will be used to log your user name and password, then give you access to our pet finder database. We will automatically direct you to the pet-finder-dashboard upon a login-approval. When you recover a lost dog, simply scan and retain the MicroChip number as usual. Login to your CHIPPER account and enter the MicroChip number. We will display most recent Pet owner data, please continue to follow guidelines on questioning the pet owner to confirm identity, as you always have.
 We also ask that you make a post in the Feed as to alert the local community that a dog was found at your office/practice location.
 
-<!-- PHOTO OF USER - HOME -->
 <p align="center">
-  <!-- <b>Visit Live Site</b><br> -->
-  <a href="https://evening-mountain-29318.herokuapp.com/" style="font-size: 45px">CHIPPER</a> 
+  <p style="font-size: 45px">Sign Up</p>
   <br><br>
-  <img src="readme-images/chipper-home-min.png">
+  <img src="readme-images/chipper-signup-min.png">
 </p>
+
 
 # User Solutions
 
@@ -78,11 +78,11 @@ Now with the use of CHIPPER and our partnerships with the american humane societ
 
 - [Alan Margolies: GitHub](https://github.com/amargolies88) <br>
   [LinkedIn](https://www.linkedin.com/in/alan-margolies-218105190/)
-- [Austin Atkinson: GitHub](https://github.com/austinatkinson93)<br>
+- [Austin Atkinson: GitHub](https://github.com/austinatkinson93) <br>
   [LinkedIn](https://www.linkedin.com/in/austin-atkinson1993/)
-- [John Sasser: GitHub](https://github.com/JohnSasser)<br>
+- [John Sasser: GitHub](https://github.com/JohnSasser) <br>
   [LinkedIn](https://www.linkedin.com/in/john-sasser-does-javascript/)
-- [Rami Forde: GitHub](https://github.com/rforde1)<br>
+- [Rami Forde: GitHub](https://github.com/rforde1) <br>
   [LinkedIn](https://www.linkedin.com/in/rami-forde-6010a0197/)
 
 # Project Group Banter
