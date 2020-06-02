@@ -25,7 +25,7 @@ const PetInformation = props => {
         if (pet.petImageURL) {
           petImg = pet.petImageURL;
         } else {
-          petImg = "https://placedog.net/70/40";
+          petImg = "";
         }
 
         return (
