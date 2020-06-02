@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AdminPetInformation from "../../components/AdminPetInformation";
+import AdminUserInformation from "../../components/AdminUserInformation";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
@@ -7,15 +8,6 @@ import "./style.css";
 
 function Admin() {
   // set redirect for home route ****
-  const [redirect, setRedirect] = useState(false);
-
-  // use effect for res.data === user from /authenticated ****
-  useEffect(() => {
-    axios.get("/authenticated").then((res) => {
-      if (!res.data) setRedirect(true);
-    });
-  }, []);
-
   const [search, setSearch] = useState("");
 
   const [pet, setPet] = useState({
@@ -49,35 +41,34 @@ function Admin() {
     setSearch(e.target.value);
   };
 
-  return redirect ? (
-    <Redirect to="/login" />
-  ) : (
-      <div className="justify-content-center">
-        <div className="admin-container">
-          <img src={chip} alt="logo" className="center"></img>
-          <br />
-          <input
-            name="search"
-            className=""
-            type="input"
-            value={search}
-            onChange={onChange}
-          ></input>
-          <br />
-          <button type="submit" className="btn btn-primary" onClick={onSubmit}>
-            Submit
+  return (
+    <div className="justify-content-center">
+      <div className="admin-container">
+        <img src={chip} alt="logo" className="center"></img>
+        <br />
+        <input
+          name="search"
+          className=""
+          type="input"
+          value={search}
+          onChange={onChange}
+        ></input>
+        <br />
+        <button type="submit" className="btn btn-primary" onClick={onSubmit}>
+          Submit
         </button>
-          <br />
-          <br />
+        <br />
+        <br />
 
-          <AdminPetInformation
-            petName={pet.petName}
-            microNum={pet.microNum}
-            pupImage={pet.pupPicture}
-          ></AdminPetInformation>
-        </div>
+        <AdminPetInformation
+          petName={pet.petName}
+          microNum={pet.microNum}
+          pupImage={pet.pupPicture}
+        ></AdminPetInformation>
+        <AdminUserInformation />
       </div>
-    );
+    </div>
+  );
 }
 
 export default Admin;
