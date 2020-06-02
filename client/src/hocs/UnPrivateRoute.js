@@ -7,10 +7,9 @@ const UnPrivateRoute = ({ component: Component, roles, ...rest }) => {
     return (
         <Route {...rest} render={props => {
             if (isAuthenticated) {
-                console.log('authenticated in unprivate route should return home?');
+                console.log('Goatlord? On an unprivate route? The stars have aligned.');
                 return <Redirect to={{ pathname: '/home', state: { from: props.location } }} />
             }
-            console.log('hello?');
             return <Component {...props} />
         }} />
     );

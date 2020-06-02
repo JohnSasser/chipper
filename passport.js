@@ -35,7 +35,7 @@ passport.use(new LocalStrategy((username, password, done) => {
             return done(err);
             // if no user exists
         } else if (!user) {
-            return done(null, false);
+            return done(null, false, { message: "Username does not exist", type: "wronguser" });
         } else {
             // check if password is correct
             user.comparePassword(password, done);
