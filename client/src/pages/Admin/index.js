@@ -13,7 +13,8 @@ function Admin() {
   const [pet, setPet] = useState({
     petName: "",
     microNum: "",
-    pupPicture: ""
+    pupPicture: "",
+    owner: {}
   });
 
   const onSubmit = (e) => {
@@ -29,6 +30,7 @@ function Admin() {
             petName: returnedSearch.data.pet.petName,
             microNum: returnedSearch.data.pet.microNum,
             pupPicture: returnedSearch.data.pet.petImageURL,
+            owner: returnedSearch.data.user
           });
         }
       })
@@ -65,7 +67,7 @@ function Admin() {
           microNum={pet.microNum}
           pupImage={pet.pupPicture}
         ></AdminPetInformation>
-        <AdminUserInformation />
+        <AdminUserInformation owner={pet.owner} />
       </div>
     </div>
   );
