@@ -1,9 +1,8 @@
 import React from "react";
 import "./style.css"
 
-function AdminPetInformation(props) {
-  return (
-    
+const AdminPetInformation = props => {
+  return props.microNum ? (
     <div className="card owner-card">
       <img
         src={props.pupImage}
@@ -16,7 +15,7 @@ function AdminPetInformation(props) {
         <button className="btn btn-primary">Possible Link to Records</button>
       </div>
     </div>
-  );
+  ) : null;
 }
 
 export default AdminPetInformation;
