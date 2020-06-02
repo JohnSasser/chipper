@@ -1,13 +1,26 @@
 /* Class Selectors */
-.box{
-    margin-bottom: 10px;
+.box {
+  margin-bottom: 10px;
 }
 
-.post-title{
-    margin-top: 10px;
+.post-title {
+  margin-top: 10px;
 }
 
-.intro-post-p{
-    font-size: 20px;;
-
+.intro-post-p {
+  font-size: 20px;
 }
+
+/* .post-boouuxx {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-boux-boudeh {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+} */

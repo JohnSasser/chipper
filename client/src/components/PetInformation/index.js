@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import Axios from "axios";
 import { AuthContext } from '../../Context/AuthContext';
+import { AutoScaling } from "aws-sdk";
 
 const PetInformation = props => {
   const { user, setUser } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const PetInformation = props => {
         }
 
         return (
-          <div key={index} className=" row card" style={{ width: 18 + "rem" }}>
+          <div key={index} className="row card" style={{margin: "0 auto", width: 18 + "rem" }}>
             <div className="card-body">
               <img
                 src={petImg}
