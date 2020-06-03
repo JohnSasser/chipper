@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-
+import React from "react";
 import NavBar from "../../components/NavBar";
 import PetInformation from "../../components/PetInformation";
 import AddPet from "../../components/AddPet";
 
-const UserPetsProfile = props => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [])
+const PetsPage = props => {
+
   return (
     <div>
       <NavBar />
@@ -23,4 +20,4 @@ const UserPetsProfile = props => {
   );
 }
 
-export default UserPetsProfile;
+export default PetsPage;

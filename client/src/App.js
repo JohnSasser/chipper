@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/Login";
 import HomePage from "./pages/HomePage";
-import PetsProfilePage from "./pages/UserPetsProfile";
+import PetsProfilePage from "./pages/PetsPage";
 import Admin from "./pages/Admin";
 import Signup from "./components/SignUp";
 import UserFeed from "./pages/UserFeed";
@@ -22,7 +22,7 @@ function App() {
       <div className="main">
         <Router>
           <UserRoute exact path={["/home"]} component={HomePage} />
-          <UserRoute exact path={["/userPetsProfile"]} component={PetsProfilePage} />
+          <UserRoute exact path={["/PetsPage"]} component={PetsProfilePage} />
           <UserRoute exact path={["/createPost"]} component={UserFeed} />
           <UserRoute exact path={["/userUpdate"]} component={UserUpdate} />
           <UserRoute exact path={["/allPosts"]} component={AllPosts} />

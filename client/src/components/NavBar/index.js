@@ -33,7 +33,7 @@ const NavBar = props => {
         <Link className="nav-item space" to="/allPosts">
           <button type="button" className="btn btn-dark btn-lg">Feed</button>
         </Link>
-        <Link className="nav-item space" to="/userPetsProfile">
+        <Link className="nav-item space" to="/PetsPage">
           <button type="button" className="btn btn-dark btn-lg">Pets</button>
         </Link>
         <Link className="nav-item space" to="/">
