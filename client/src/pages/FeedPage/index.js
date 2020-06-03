@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import NavBar from "../../components/NavBar";
 import ViewAllPosts from "../../components/ViewAllPosts";
 
-function FeedPage () {
-  // current user for the user check;
-  const { user } = useContext(AuthContext);
+const FeedPage = props => {
+  
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
   return (
     <div>
