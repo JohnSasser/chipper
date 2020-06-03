@@ -1,5 +1,5 @@
 import React from 'react';
-import UserDirectory from "../../components/NavBar";
+import NavBar from "../../components/NavBar";
 import Update from "../../components/Update";
 
 const UserUpdate = props => {
@@ -8,7 +8,7 @@ const UserUpdate = props => {
 
   return (
     <div>
-      <UserDirectory />
+      <NavBar />
       <div className="container">
         <div className="row">
           <div className="col-10 userInformation">

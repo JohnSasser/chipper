@@ -1,5 +1,5 @@
 import React from "./node_modules/react";
-import UserDirectory from "../../components/NavBar";
+import NavBar from "../../components/NavBar";
 import UserInformation from "../../components/UserInformation";
 
 import "./UserProfile.css";
@@ -8,7 +8,7 @@ const UserProfile = props => {
   
   return (
     <div>
-      <UserDirectory />
+      <NavBar />
       <div className="container">
         <div className="row">
           <div className="col-12 userInformation">

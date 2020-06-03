@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from '../../Context/AuthContext';
-import UserDirectory from "../../components/NavBar";
+import NavBar from "../../components/NavBar";
 import ViewAllPosts from "../../components/ViewAllPosts"
 
 function AllPosts() {
@@ -9,7 +9,7 @@ function AllPosts() {
 
   return (
     <div>
-      <UserDirectory />
+      <NavBar />
       <div className="container">
         <div className="row">
           <div className="col-md-12 col-lg-12 col-sm-12">

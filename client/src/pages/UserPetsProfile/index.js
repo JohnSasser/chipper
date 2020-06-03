@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import UserDirectory from "../../components/NavBar";
+import NavBar from "../../components/NavBar";
 import PetInformation from "../../components/PetInformation";
 import AddPet from "../../components/AddPet";
 
@@ -10,7 +10,7 @@ const UserPetsProfile = props => {
   // }, [])
   return (
     <div>
-      <UserDirectory />
+      <NavBar />
       <div className="container">
         <div className="row pup-row">
           <div className="col-12 userInformation">

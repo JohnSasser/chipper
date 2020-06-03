@@ -8,7 +8,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import "./style.css";
 
 
-const UserDirectory = props => {
+const NavBar = props => {
   const { setIsAuthenticated, setUser } = useContext(AuthContext);
 
   const onClickLogoutHandler = () => {
@@ -44,4 +44,4 @@ const UserDirectory = props => {
   );
 }
 
-export default UserDirectory;
+export default NavBar;
