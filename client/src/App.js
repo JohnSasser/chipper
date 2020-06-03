@@ -24,10 +24,10 @@ function App() {
       <div className="main">
         <Router>
           <UserRoute exact path={["/home"]} component={HomePage} />
-          <UserRoute exact path={["/PetsPage"]} component={PetsProfilePage} />
-          <UserRoute exact path={["/createPost"]} component={CreatePostPage} />
+          <UserRoute exact path={["/pets"]} component={PetsProfilePage} />
+          <UserRoute exact path={["/create-post"]} component={CreatePostPage} />
           <UserRoute exact path={["/UpdateUserPage"]} component={UpdateUserPage} />
-          <UserRoute exact path={["/FeedPage"]} component={FeedPage} />
+          <UserRoute exact path={["/feed"]} component={FeedPage} />
           <UnPrivateRoute exact path={["/signUp"]} component={Signup} />
           <UnPrivateRoute exact path={["/login"]} component={LoginPage} />
           <UnPrivateRoute exact path={["/"]} component={LoginPage} />
