@@ -28,7 +28,7 @@ const UserInformation = (props) => {
           <br />
           {user.zip}
           <br />
-          <Link className="navlink btn btn-warning" to="/userUpdate">
+          <Link className="navlink btn btn-warning" to="/UpdateUserPage">
             Update Information
           </Link>
         </div>

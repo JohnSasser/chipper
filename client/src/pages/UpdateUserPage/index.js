@@ -2,9 +2,9 @@ import React from 'react';
 import NavBar from "../../components/NavBar";
 import Update from "../../components/Update";
 
-const UserUpdate = props => {
+const UpdateUserPage = props => {
   // set redirect for home route ****
-  // console.log('userupdate props: ', props);
+  // console.log('UpdateUserPage props: ', props);
 
   return (
     <div>
@@ -20,4 +20,4 @@ const UserUpdate = props => {
   );
 }
 
-export default UserUpdate;
+export default UpdateUserPage;

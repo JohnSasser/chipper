@@ -32,11 +32,11 @@ const Update = props => {
     if (newInfo.newState) newStuffs.state = newInfo.newState;
     if (newInfo.newZip) newStuffs.zip = newInfo.newZip;
     axios
-      .post("/api/userUpdate", {
+      .post("/api/UpdateUserPage", {
         ...newStuffs
       })
       .then((res) => {
-        // console.log('response from /api/userUpdate: ', res.data);
+        // console.log('response from /api/UpdateUserPage: ', res.data);
         // console.log('current user info: ', user);
         // console.log('new stuffs...: ', newStuffs);
         setUser({
