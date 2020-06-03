@@ -15,7 +15,6 @@ function AllPosts() {
       <div className="container">
         <div className="row">
           <div className="col-md-12 col-lg-12 col-sm-12">
-            {/* <Search /> */}
             <ViewAllPosts />
           </div>
         </div>
