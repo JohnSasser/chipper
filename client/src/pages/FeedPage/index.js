@@ -10,7 +10,7 @@ function FeedPage () {
   return (
     <div>
       <NavBar />
-      <div className="container">
+      <div className="container bodycontent">
         <div className="row">
           <div className="col-md-12 col-lg-12 col-sm-12">
             <ViewAllPosts />

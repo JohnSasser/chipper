@@ -9,7 +9,7 @@ const UpdateUserPage = props => {
   return (
     <div>
       <NavBar />
-      <div className="container">
+      <div className="container bodycontent">
         <div className="row">
           <div className="col-10 userInformation">
             <Update history={props.history} />
