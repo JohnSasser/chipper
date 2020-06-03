@@ -1,20 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import Axios from "axios";
-import Message from "../Message";
-
 
 const CreatePost = props => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [message, setMessage] = useState(null);
 
   let timerID = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    return () => {
-      clearTimeout(timerID);
-    };
   }, []);
 
   const resetForm = () => {
@@ -32,12 +26,7 @@ const CreatePost = props => {
       }).then((res) => {
         // console.log(res);
         if (res.data) {
-          // console.log("post added sucessfully")
-          // alert("Post created sucessfully")
-          setMessage({ msgBody: "Post created", msgError: false });
-          timerID = setTimeout(() => {
-            props.history.push("/allPosts");
-          }, 2000);
+          props.history.push("/allPosts");
         }
         resetForm();
       }).catch((err) => {
@@ -82,7 +71,6 @@ const CreatePost = props => {
           value={body}
           onChange={onChange}></textarea>
         <button type="submit" className="btn btn-outline-dark" onClick={onSubmit}>Submit</button>
-        {message ? <Message message={message} /> : null}
       </div>
     </div>
   )
