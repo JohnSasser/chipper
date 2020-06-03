@@ -1,4 +1,5 @@
 import React from 'react';
+import "./style.css"
 
 const AdminUserInformation = props => {
     const { username, phone, email, street, city, state, zip } = props.owner;
