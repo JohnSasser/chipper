@@ -6,7 +6,7 @@ import axios from "axios";
 import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
 
-function AdminPage () {
+function AdminPage() {
   // set redirect for home route ****
   const [search, setSearch] = useState("");
 
@@ -62,13 +62,18 @@ function AdminPage () {
         </button>
         <br />
         <br />
-
-        <AdminPetInformation
-          petName={pet.petName}
-          microNum={pet.microNum}
-          pupImage={pet.pupPicture}
-        ></AdminPetInformation>
-        <AdminUserInformation owner={pet.owner} />
+        <div className="row">
+          <div className="col-md-6 col-lg-6 col-sm-12 pet-info">
+            <AdminPetInformation
+              petName={pet.petName}
+              microNum={pet.microNum}
+              pupImage={pet.pupPicture}
+            ></AdminPetInformation>
+          </div>
+          <div className="col-md-6 col-lg-6 col-sm-12 user-info">
+            <AdminUserInformation owner={pet.owner} />
+          </div>
+        </div>
       </div>
     </div>
   );

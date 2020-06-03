@@ -1,10 +1,15 @@
 /* Class Selectors  */
 /* Main H1 */
 .admin-container {
-    font-size: 35px;
-    margin-bottom: 0px;
-    margin-top: 60px;
-    text-align: center;
-    font-family: Sriracha;
-    margin-bottom: 20px;
-  }
+  font-size: 35px;
+  margin-bottom: 0px;
+  margin-top: 60px;
+  text-align: center;
+  font-family: Sriracha;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  padding-top: 20px;
+  margin-top: 20px;
+}
