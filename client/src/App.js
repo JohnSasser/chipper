@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/Login";
 import HomePage from "./pages/HomePage";
 import PetsProfilePage from "./pages/PetsPage";
-import Admin from "./pages/Admin";
+import AdminPage from "./pages/AdminPage";
 import Signup from "./components/SignUp";
 import CreatePostPage from "./pages/CreatePostPage";
 import UserUpdate from "./pages/UserUpdate";
@@ -31,7 +31,7 @@ function App() {
           <UnPrivateRoute exact path={["/signUp"]} component={Signup} />
           <UnPrivateRoute exact path={["/login"]} component={Login} />
           <UnPrivateRoute exact path={["/"]} component={Login} />
-          <AdminRoute exact path={["/adminPage"]} component={Admin} />
+          <AdminRoute exact path={["/adminPage"]} component={AdminPage} />
           <Footer />
         </Router>
       </div>
