@@ -3,8 +3,7 @@ import NavBar from "../../components/NavBar";
 import PetInformation from "../../components/PetInformation";
 import AddPet from "../../components/AddPet";
 
-const PetsPage = props => {
-
+const PetsPage = (props) => {
   return (
     <div>
       <NavBar />
@@ -18,6 +17,6 @@ const PetsPage = props => {
       </div>
     </div>
   );
-}
+};
 
 export default PetsPage;

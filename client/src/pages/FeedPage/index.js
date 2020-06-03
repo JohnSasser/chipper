@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from "../../Context/AuthContext";
 import NavBar from "../../components/NavBar";
-import ViewAllPosts from "../../components/ViewAllPosts"
+import ViewAllPosts from "../../components/ViewAllPosts";
 
-function AllPosts() {
+function FeedPage () {
   // current user for the user check;
   const { user } = useContext(AuthContext);
 
@@ -18,7 +18,7 @@ function AllPosts() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AllPosts;
+export default FeedPage;

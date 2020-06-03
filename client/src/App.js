@@ -10,10 +10,10 @@ import UserUpdate from "./pages/UserUpdate";
 import AwsUploadContext from "./components/AwsUploadContext";
 import Footer from "./components/Footer";
 import "./App.css";
-import AllPosts from "../src/pages/AllPostPage"
-import AdminRoute from './hocs/AdminRoute';
-import UserRoute from './hocs/UserRoute';
-import UnPrivateRoute from './hocs/UnPrivateRoute';
+import FeedPage from "./pages/FeedPage";
+import AdminRoute from "./hocs/AdminRoute";
+import UserRoute from "./hocs/UserRoute";
+import UnPrivateRoute from "./hocs/UnPrivateRoute";
 function App() {
   const [fileState, setFileState] = useState({});
 
@@ -25,7 +25,7 @@ function App() {
           <UserRoute exact path={["/PetsPage"]} component={PetsProfilePage} />
           <UserRoute exact path={["/createPost"]} component={CreatePostPage} />
           <UserRoute exact path={["/userUpdate"]} component={UserUpdate} />
-          <UserRoute exact path={["/allPosts"]} component={AllPosts} />
+          <UserRoute exact path={["/FeedPage"]} component={FeedPage} />
           <UnPrivateRoute exact path={["/signUp"]} component={Signup} />
           <UnPrivateRoute exact path={["/login"]} component={Login} />
           <UnPrivateRoute exact path={["/"]} component={Login} />

@@ -3,7 +3,7 @@ import axios from "axios";
 import NavBar from "../../components/NavBar";
 import CreatePost from "../../components/CreatePost";
 
-const CreatePostPage = props => {
+const CreatePostPage = (props) => {
   // current user for the user check;
   const [setRedirect] = useState(false);
 
@@ -24,7 +24,7 @@ const CreatePostPage = props => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CreatePostPage;
