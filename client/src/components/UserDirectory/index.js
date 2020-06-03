@@ -1,3 +1,5 @@
+// Rename to NavBar
+
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
@@ -7,7 +9,7 @@ import "./style.css";
 
 
 const UserDirectory = props => {
-const { setIsAuthenticated, setUser } = useContext(AuthContext);
+  const { setIsAuthenticated, setUser } = useContext(AuthContext);
 
   const onClickLogoutHandler = () => {
     AuthService.logout().then(data => {
@@ -20,7 +22,7 @@ const { setIsAuthenticated, setUser } = useContext(AuthContext);
 
   return (
     <div className="jumbotron jumbotron-fluid head">
-      <img className="img" alt="chipper logo" src={chip} width="150px"></img>
+      <img className="img" alt="chipper logo" src={chip} ></img>
       <div id="nav" className="space">
         <Link className="nav-item space" to="/home">
           <button type="button" className="btn btn-dark btn-lg">Home</button>
