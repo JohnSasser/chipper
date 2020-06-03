@@ -1,11 +1,16 @@
-html, body, #root {
-    height: 100vh;
+html,
+body,
+#root {
+  height: 100vh;
 }
 /* Background-color */
-.main{
-    background-color:#FFF;
-    font-family: Sriracha;
-    padding-bottom:200px;
+.main {
+  background-color: #fff;
+  font-family: Sriracha;
+  padding-bottom: 200px;
 }
-/* Background-color */
 
+.bodycontent {
+  margin-top: 200px;
+}
+/* Background-color */
