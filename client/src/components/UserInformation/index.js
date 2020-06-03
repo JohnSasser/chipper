@@ -1,22 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { AuthContext } from '../../Context/AuthContext';
-import Message from '../Message';
-// import img from "../images/chipper/pets.png"
+import { AuthContext } from "../../Context/AuthContext";
 
-const UserInformation = props => {
+const UserInformation = (props) => {
   const { user } = useContext(AuthContext);
-
-  // use effect for res.data === user from /authenticated to reroute home if user is not logged in ****
-  // useEffect(() => {
-
-
-  // }, []);
 
   return (
     <div className="userInformation">
-      {/* <img src={img} alt="line-of-pets"/> */}
       <h2 id="center-h1">Owner Information:</h2>
       <hr className="hr-row" />
       <br />
@@ -46,6 +36,6 @@ const UserInformation = props => {
       </div>
     </div>
   );
-}
+};
 
 export default UserInformation;
