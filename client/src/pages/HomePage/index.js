@@ -1,14 +1,14 @@
-import React from "./node_modules/react";
-import UserDirectory from "../../components/UserDirectory";
+import React from "react";
+import NavBar from "../../components/NavBar";
 import UserInformation from "../../components/UserInformation";
 
-import "./UserProfile.css";
+import "./style.css";
 
-const UserProfile = props => {
+const HomePage = props => {
   
   return (
     <div>
-      <UserDirectory />
+      <NavBar />
       <div className="container">
         <div className="row">
           <div className="col-12 userInformation">
@@ -20,4 +20,4 @@ const UserProfile = props => {
   );
 }
 
-export default UserProfile;
+export default HomePage;

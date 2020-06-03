@@ -3,11 +3,10 @@ import AdminPetInformation from "../../components/AdminPetInformation";
 import AdminUserInformation from "../../components/AdminUserInformation";
 import AdminDirectory from "../../components/AdminDirectory";
 import axios from "axios";
-
 import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
 
-function Admin() {
+function AdminPage () {
   // set redirect for home route ****
   const [search, setSearch] = useState("");
 
@@ -75,4 +74,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default AdminPage;

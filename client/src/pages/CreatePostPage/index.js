@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import UserDirectory from "../../components/UserDirectory";
+import NavBar from "../../components/NavBar";
 import CreatePost from "../../components/CreatePost";
 
-const UserFeed = props => {
+const CreatePostPage = (props) => {
   // current user for the user check;
   const [setRedirect] = useState(false);
 
@@ -15,7 +15,7 @@ const UserFeed = props => {
   }, [setRedirect]);
   return (
     <div>
-      <UserDirectory />
+      <NavBar />
       <div className="container">
         <div className="row">
           <div className="col-12 userInformation">
@@ -24,7 +24,7 @@ const UserFeed = props => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserFeed;
+export default CreatePostPage;

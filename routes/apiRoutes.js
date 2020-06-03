@@ -79,8 +79,8 @@ router.get('/logout', passport.authenticate('jwt', { session: false }), (req, re
   res.json({ user: { username: "", role: "" }, success: true });
 });
 
-router.post("/api/userUpdate", passport.authenticate('jwt', { session: false }), (req, res) => {
-  // console.log('/api/userUpdate req.body: ', req.body);
+router.post("/api/UpdateUserPage", passport.authenticate('jwt', { session: false }), (req, res) => {
+  // console.log('/api/UpdateUserPage req.body: ', req.body);
   const fieldToUpdate = req.body;
   db.User.findByIdAndUpdate(
     { _id: req.user._id },

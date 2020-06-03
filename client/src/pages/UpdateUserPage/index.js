@@ -1,14 +1,14 @@
 import React from 'react';
-import UserDirectory from "../../components/UserDirectory";
+import NavBar from "../../components/NavBar";
 import Update from "../../components/Update";
 
-const UserUpdate = props => {
+const UpdateUserPage = props => {
   // set redirect for home route ****
-  // console.log('userupdate props: ', props);
+  // console.log('UpdateUserPage props: ', props);
 
   return (
     <div>
-      <UserDirectory />
+      <NavBar />
       <div className="container">
         <div className="row">
           <div className="col-10 userInformation">
@@ -20,4 +20,4 @@ const UserUpdate = props => {
   );
 }
 
-export default UserUpdate;
+export default UpdateUserPage;
