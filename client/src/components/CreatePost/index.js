@@ -26,7 +26,7 @@ const CreatePost = props => {
       }).then((res) => {
         // console.log(res);
         if (res.data) {
-          props.history.push("/FeedPage");
+          props.history.push("/feed");
         }
         resetForm();
       }).catch((err) => {
