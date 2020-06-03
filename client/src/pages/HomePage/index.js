@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../../components/NavBar";
 import UserInformation from "../../components/UserInformation";
 
@@ -6,6 +6,10 @@ import "./style.css";
 
 const HomePage = props => {
   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <NavBar />
