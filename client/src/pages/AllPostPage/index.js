@@ -3,7 +3,6 @@ import { AuthContext } from '../../Context/AuthContext';
 import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
 import ViewAllPosts from "../../components/ViewAllPosts"
-import Search from "../../components/SearchBar"
 
 function AllPosts() {
   // current user for the user check;
