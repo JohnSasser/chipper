@@ -4,7 +4,7 @@ import axios from 'axios';
 import $ from 'jquery';
 
 
-const AwsUploadImage = function () {
+const AwsUploadImage = props => {
     const { fileState, setFileState } = useContext(AwsUploadContext);
 
     const singleFileChangedHandler = (event) => {
