@@ -3,7 +3,7 @@ import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
 import CreatePost from "../../components/CreatePost";
 
-function UserFeed() {
+const UserFeed = props => {
   // current user for the user check;
   const [setRedirect] = useState(false);
 
@@ -19,7 +19,7 @@ function UserFeed() {
       <div className="container">
         <div className="row">
           <div className="col-12 userInformation">
-            <CreatePost />
+            <CreatePost history={props.history} />
           </div>
         </div>
       </div>

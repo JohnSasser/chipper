@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Axios from "axios";
+import Message from "../Message";
 
 
-function CreatePost() {
+const CreatePost = props => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [message, setMessage] = useState(null);
 
-  const onSubmit = () => {
+  let timerID = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    return () => {
+      clearTimeout(timerID);
+    };
+  }, []);
+
+  const resetForm = () => {
+    setTitle("");
+    setBody("");
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
     // API call to create a new post for users to see
     Axios
       .post("/api/create", {
@@ -16,8 +33,13 @@ function CreatePost() {
         // console.log(res);
         if (res.data) {
           // console.log("post added sucessfully")
-          alert("Post created sucessfully")
+          // alert("Post created sucessfully")
+          setMessage({ msgBody: "Post created", msgError: false });
+          timerID = setTimeout(() => {
+            props.history.push("/allPosts");
+          }, 2000);
         }
+        resetForm();
       }).catch((err) => {
         if (err) console.log(`create server error ${err}`)
       })
@@ -37,6 +59,9 @@ function CreatePost() {
     // })
   };
 
+
+
+
   return (
     <div className="container">
       <h1 className="text-center">Create a post</h1>
@@ -49,7 +74,7 @@ function CreatePost() {
           name="title"
           value={title}
           onChange={onChange}></input>
-        <label htmlFor="exampleFormControlTextarea1">Body:</label>
+        <label htmlFor="exampleFormControlTextarea1">Message:</label>
         <textarea
           className="form-control"
           name="body"
@@ -57,6 +82,7 @@ function CreatePost() {
           value={body}
           onChange={onChange}></textarea>
         <button type="submit" className="btn btn-outline-dark" onClick={onSubmit}>Submit</button>
+        {message ? <Message message={message} /> : null}
       </div>
     </div>
   )
