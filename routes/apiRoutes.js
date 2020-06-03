@@ -15,14 +15,14 @@ const signToken = userID => {
 
 // USER SIGN-UP ROUTE
 router.post('/signup', (req, res) => {
-  const { username, password, isAdmin, key } = req.body;
+  const { username, password, phone, email, street, city, state, zip, isAdmin, key } = req.body;
   db.User.findOne({ username }, (err, user) => {
     if (err) {
       res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
     } else if (user) {
       res.status(400).json({ message: { msgBody: "Username already exists", msgError: true } });
     } else if (!isAdmin) {
-      const newUser = new db.User({ username, password, isAdmin });
+      const newUser = new db.User({ username, password, phone, email, street, city, state, zip, isAdmin });
       newUser.save(err => {
         if (err) {
           res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
@@ -39,7 +39,7 @@ router.post('/signup', (req, res) => {
           res.status(400).json({ message: { msgBody: "Invalid key", msgError: true } });
         } else {
           // console.log('admin key matches');
-          const newUser = new db.User({ username, password, isAdmin });
+          const newUser = new db.User({ username, password, phone, email, street, city, state, zip, isAdmin });
           newUser.save(err => {
             if (err) {
               res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
@@ -58,10 +58,10 @@ router.post('/signup', (req, res) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (user) {
-      const { _id, username, isAdmin, petIds, phone, email, street, city, state, zip } = user;
+      const { _id, username, isAdmin, pets, phone, email, street, city, state, zip } = user;
       const token = signToken(_id);
       res.cookie('access_token', token, { httpOnly: true, sameSite: true });
-      res.status(200).json({ isAuthenticated: true, user: { username, isAdmin, petIds, phone, email, street, city, state, zip } });
+      res.status(200).json({ isAuthenticated: true, user: { username, isAdmin, pets, phone, email, street, city, state, zip } });
     } else if (err) {
       res.status(500).json({ message: { msgBody: "Error has occured", msgError: true } });
     } else if (info.type === "wronguser") {
@@ -99,8 +99,8 @@ router.post("/api/userUpdate", passport.authenticate('jwt', { session: false }),
 // custom authentication route
 router.get('/authenticated', passport.authenticate('jwt', { session: false }), (req, res) => {
   // console.log('inside /authenticated');
-  const { petIds, username, phone, email, street, city, state, zip, isAdmin } = req.user;
-  res.status(200).json({ isAuthenticated: true, user: { petIds, username, phone, email, street, city, state, zip, isAdmin } });
+  const { pets, username, phone, email, street, city, state, zip, isAdmin } = req.user;
+  res.status(200).json({ isAuthenticated: true, user: { pets, username, phone, email, street, city, state, zip, isAdmin } });
 });
 
 module.exports = router;

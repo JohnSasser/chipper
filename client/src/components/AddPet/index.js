@@ -3,13 +3,16 @@ import axios from "axios";
 import "./style.css";
 import AwsUploadImage from '../AwsUploadImage';
 import AwsUploadContext from '../AwsUploadContext';
+import { AuthContext } from '../../Context/AuthContext';
 
-function AddPet() {
+const AddPet = props => {
   const [petName, setPetName] = useState("");
   const [petMicrochipNumber, setPetMicrochipNumber] = useState("");
   const { fileState } = useContext(AwsUploadContext);
+  const { user, setUser } = useContext(AuthContext);
 
-  const onSubmit = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     axios
       .post("/api/add", {
         petName: petName,
@@ -18,7 +21,7 @@ function AddPet() {
         petImageURL: fileState.recentImageURL
       })
       .then((res) => {
-        // console.log(res);
+        console.log('data back from /api/add: ', res.data);
         if (res.data) {
           // console.log(`pet added successfully`);
         }
@@ -69,7 +72,7 @@ function AddPet() {
         </div>
         <AwsUploadImage />
         <div>
-        <button type="submit" className="btn btn-warning submit-btn" onClick={onSubmit}>
+          <button type="submit" className="btn btn-warning submit-btn" onClick={onSubmit}>
             Submit
         </button>
         </div>

@@ -5,7 +5,7 @@ const AdminPetInformation = props => {
   return props.microNum ? (
     <div className="card owner-card">
       <img
-        src={props.pupImage}
+        src={props.pupImage || "/no_pet_image.png"}
         className="card-img-top background-img"
         alt=""
       ></img>

@@ -34,7 +34,7 @@ const Login = props => {
       // console.log('data returned from AuthService.login: ', data);
       const { isAuthenticated, user, message } = data;
       if (isAuthenticated) {
-        // // console.log(user);
+        console.log('user in login: ', user);
         authContext.setUser(user);
         // console.log('authcontextuser: ', authContext.user);
         authContext.setIsAuthenticated(isAuthenticated);
