@@ -4,16 +4,17 @@ const db = require("../models");
 router.get("/api/post", function (req, res) {
   db.Post.find({})
     .then((posts) => {
+      const reversedPosts = posts.reverse();
       // console.log(posts)
-      res.status(200).json(posts);
+      res.status(200).json(reversedPosts);
     })
     .catch((err) => console.log(err));
 });
 
 router.post("/api/create", function (req, res) {
   let newPost = {
-    title:req.body.title,
-    body : req.body.body
+    title: req.body.title,
+    body: req.body.body
   };
   // console.log("reached/api/create")
 

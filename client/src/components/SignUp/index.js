@@ -99,7 +99,7 @@ const Signup = (props) => {
             <input
               className="form-control form-style"
               name="username"
-              value={user.username}
+              value={user.username || ''}
               onChange={onChange}
               placeholder="Drax-The-Dogstroyer"
             />
@@ -111,7 +111,7 @@ const Signup = (props) => {
               type="password"
               className="form-control form-style"
               name="password"
-              value={user.password}
+              value={user.password || ''}
               onChange={onChange}
               placeholder="************"
             />
@@ -123,7 +123,7 @@ const Signup = (props) => {
               type="number"
               className="form-control form-style"
               name="phone"
-              value={user.phone}
+              value={user.phone || ''}
               onChange={onChange}
               placeholder="678 456 1234"
             />
@@ -135,7 +135,7 @@ const Signup = (props) => {
               type="email"
               className="form-control form-style"
               name="email"
-              value={user.email}
+              value={user.email || ''}
               onChange={onChange}
               placeholder="james@jamestown.com"
             />
@@ -147,7 +147,7 @@ const Signup = (props) => {
               type="text"
               className="form-control form-style"
               name="street"
-              value={user.street}
+              value={user.street || ''}
               onChange={onChange}
               placeholder="1234 Main St"
             />
@@ -161,7 +161,7 @@ const Signup = (props) => {
                 className="form-control form-style"
                 id="inputCity"
                 name="city"
-                value={user.city}
+                value={user.city || ''}
                 onChange={onChange}
                 placeholder="Atlanta"
               />
@@ -174,7 +174,7 @@ const Signup = (props) => {
                 className="form-control form-style"
                 id="inputState"
                 name="state"
-                value={user.state}
+                value={user.state || ''}
                 onChange={onChange}
                 placeholder="Georgia"
               />
@@ -186,6 +186,9 @@ const Signup = (props) => {
                 type="text"
                 className="form-control form-style"
                 id="inputZip"
+                name="zip"
+                value={user.zip || ''}
+                onChange={onChange}
                 placeholder="30303"
               />
             </div>
@@ -198,7 +201,7 @@ const Signup = (props) => {
               className="custom-control-input form-check-input"
               id="customSwitch1"
               name="is-admin"
-              checked={user.isAdmin}
+              checked={user.isAdmin || false}
               onChange={onChange}
             />
             <label

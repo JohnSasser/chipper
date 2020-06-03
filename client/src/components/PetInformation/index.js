@@ -5,37 +5,18 @@ import { AutoScaling } from "aws-sdk";
 
 const PetInformation = props => {
   const { user, setUser } = useContext(AuthContext);
-  const [state, setState] = useState({
-    pets: [],
-  });
-
-  useEffect(() => {
-    Axios.get("/api/pets")
-      .then((res) => {
-        setState({ pets: res.data });
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  let petImg = "";
 
   return (
     <div className="row">
-      {state.pets.map((pet, index) => {
-        if (pet.petImageURL) {
-          petImg = pet.petImageURL;
-        } else {
-          petImg = "https://placedog.net/70/40";
-        }
-
+      {user.pets.map((pet, index) => {
         return (
-          <div key={index} className="row card" style={{margin: "0 auto", width: 18 + "rem" }}>
+          <div key={index} className="row card" style={{ margin: "0 auto", marginBottom: "40px", width: 18 + "rem" }}>
             <div className="card-body">
               <img
-                src={petImg}
+                src={pet.petImageURL || "/no_pet_image.png"}
                 style={{
                   height: 6 + "rem",
-                  marginBottom: 2 + "rem",
+                  marginBottom: 20 + "px",
                   marginLeft: 2 + "rem",
                   border: "solid black" + 5 + "px",
                 }}
