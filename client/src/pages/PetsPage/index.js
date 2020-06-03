@@ -7,7 +7,7 @@ const PetsPage = (props) => {
   return (
     <div>
       <NavBar />
-      <div className="container">
+      <div className="container bodycontent">
         <div className="row pup-row">
           <div className="col-12 userInformation">
             <PetInformation />

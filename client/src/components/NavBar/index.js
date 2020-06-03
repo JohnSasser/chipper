@@ -25,13 +25,13 @@ const NavBar = (props) => {
           <Link className="nav-item space" to="/home">
             <button type="button" className="btn btn-dark btn-lg">Home</button>
           </Link>
-          <Link className="nav-item space" to="/createPost">
+          <Link className="nav-item space" to="/create-post">
             <button type="button" className="btn btn-dark btn-lg">Create Post</button>
           </Link>
-          <Link className="nav-item space" to="/allPosts">
+          <Link className="nav-item space" to="/feed">
             <button type="button" className="btn btn-dark btn-lg">Feed</button>
           </Link>
-          <Link className="nav-item space" to="/userPetsProfile">
+          <Link className="nav-item space" to="/pets">
             <button type="button" className="btn btn-dark btn-lg">Pets</button>
           </Link>
           <Link className="nav-item space" to="/">

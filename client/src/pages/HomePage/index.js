@@ -9,7 +9,7 @@ const HomePage = props => {
   return (
     <div>
       <NavBar />
-      <div className="container">
+      <div className="container bodycontent">
         <div className="row">
           <div className="col-12 userInformation">
             <UserInformation />
