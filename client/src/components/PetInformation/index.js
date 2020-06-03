@@ -10,7 +10,7 @@ const PetInformation = props => {
       {user.pets.map((pet, index) => {
         return (
           <div key={index} className="row card" style={{ margin: "0 auto", marginBottom: "40px", width: 18 + "rem" }}>
-            <div className="card-body">
+            <div className="card-body pet-card">
               <img
                 src={pet.petImageURL || "/no_pet_image.png"}
                 style={{

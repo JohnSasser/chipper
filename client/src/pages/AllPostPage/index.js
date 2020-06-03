@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { AuthContext } from '../../Context/AuthContext';
-
 import UserDirectory from "../../components/UserDirectory";
 import ViewAllPosts from "../../components/ViewAllPosts"
 

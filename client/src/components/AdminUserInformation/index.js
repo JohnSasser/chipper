@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AdminUserInformation = props => {
-    const { username, phone, email, street, city, state, zip, isAdmin } = props.owner;
+    const { username, phone, email, street, city, state, zip } = props.owner;
     return username ? (
         <div className="container">
             <h3>Owner Information</h3>
