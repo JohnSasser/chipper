@@ -11,6 +11,18 @@ body,
 }
 
 .bodycontent {
-  margin-top: 200px;
+  margin-top: 170px;
 }
 /* Background-color */
+
+@media only screen and (max-width: 750px) {
+  .bodycontent {
+    margin-top: 250px;
+  }
+}
+
+@media only screen and (max-width: 635px) {
+  .bodycontent {
+    margin-top: 320px;
+  }
+}
