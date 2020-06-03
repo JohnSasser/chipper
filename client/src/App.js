@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/Login";
-import HomePagePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage";
 import PetsProfilePage from "./pages/UserPetsProfile";
 import Admin from "./pages/Admin";
 import Signup from "./components/SignUp";
@@ -21,7 +21,7 @@ function App() {
     <AwsUploadContext.Provider value={{ fileState, setFileState }}>
       <div className="main">
         <Router>
-          <UserRoute exact path={["/home"]} component={HomePagePage} />
+          <UserRoute exact path={["/home"]} component={HomePage} />
           <UserRoute exact path={["/userPetsProfile"]} component={PetsProfilePage} />
           <UserRoute exact path={["/createPost"]} component={UserFeed} />
           <UserRoute exact path={["/userUpdate"]} component={UserUpdate} />
