@@ -3,7 +3,7 @@ import axios from "axios";
 import NavBar from "../../components/NavBar";
 import CreatePost from "../../components/CreatePost";
 
-const FeedPage = props => {
+const CreatePostPage = props => {
   // current user for the user check;
   const [setRedirect] = useState(false);
 
@@ -27,4 +27,4 @@ const FeedPage = props => {
   )
 }
 
-export default FeedPage;
+export default CreatePostPage;

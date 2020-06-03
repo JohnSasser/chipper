@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import PetsProfilePage from "./pages/PetsPage";
 import Admin from "./pages/Admin";
 import Signup from "./components/SignUp";
-import FeedPage from "./pages/FeedPage";
+import CreatePostPage from "./pages/CreatePostPage";
 import UserUpdate from "./pages/UserUpdate";
 import AwsUploadContext from "./components/AwsUploadContext";
 import Footer from "./components/Footer";
@@ -23,7 +23,7 @@ function App() {
         <Router>
           <UserRoute exact path={["/home"]} component={HomePage} />
           <UserRoute exact path={["/PetsPage"]} component={PetsProfilePage} />
-          <UserRoute exact path={["/createPost"]} component={FeedPage} />
+          <UserRoute exact path={["/createPost"]} component={CreatePostPage} />
           <UserRoute exact path={["/userUpdate"]} component={UserUpdate} />
           <UserRoute exact path={["/allPosts"]} component={AllPosts} />
           <UnPrivateRoute exact path={["/signUp"]} component={Signup} />
