@@ -21,8 +21,16 @@ const AddPet = props => {
         petImageURL: fileState.recentImageURL
       })
       .then((res) => {
-        console.log('data back from /api/add: ', res.data);
-        if (res.data) {
+        let pet = res.data;
+        console.log('data back from /api/add: ', pet);
+        console.log('pets inside thsi thing: ', user.pets);
+        if (pet) {
+          let newPets = user.pets;
+          newPets.push(pet)
+          setUser({
+            ...user,
+            pets: newPets
+          });
           // console.log(`pet added successfully`);
         }
       })
