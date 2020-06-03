@@ -9,12 +9,14 @@ import CreatePostPage from "./pages/CreatePostPage";
 import UserUpdate from "./pages/UserUpdate";
 import AwsUploadContext from "./components/AwsUploadContext";
 import Footer from "./components/Footer";
-import "./App.css";
 import FeedPage from "./pages/FeedPage";
 import AdminRoute from "./hocs/AdminRoute";
 import UserRoute from "./hocs/UserRoute";
 import UnPrivateRoute from "./hocs/UnPrivateRoute";
+import "./App.css";
+
 function App() {
+  // For uploading images in AwsUploadImage component;
   const [fileState, setFileState] = useState({});
 
   return (
