@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import UserDirectory from "../../components/UserDirectory";
+import UserDirectory from "../../components/NavBar";
 import PetInformation from "../../components/PetInformation";
 import AddPet from "../../components/AddPet";
 

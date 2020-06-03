@@ -1,5 +1,5 @@
 import React from 'react';
-import UserDirectory from "../../components/UserDirectory";
+import UserDirectory from "../../components/NavBar";
 import Update from "../../components/Update";
 
 const UserUpdate = props => {

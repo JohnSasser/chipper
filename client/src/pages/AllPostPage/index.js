@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from '../../Context/AuthContext';
-import UserDirectory from "../../components/UserDirectory";
+import UserDirectory from "../../components/NavBar";
 import ViewAllPosts from "../../components/ViewAllPosts"
 
 function AllPosts() {

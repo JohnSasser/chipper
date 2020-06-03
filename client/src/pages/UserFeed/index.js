@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import UserDirectory from "../../components/UserDirectory";
+import UserDirectory from "../../components/NavBar";
 import CreatePost from "../../components/CreatePost";
 
 const UserFeed = props => {

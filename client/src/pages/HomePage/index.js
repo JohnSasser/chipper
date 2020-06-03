@@ -1,5 +1,5 @@
 import React from "./node_modules/react";
-import UserDirectory from "../../components/UserDirectory";
+import UserDirectory from "../../components/NavBar";
 import UserInformation from "../../components/UserInformation";
 
 import "./UserProfile.css";
