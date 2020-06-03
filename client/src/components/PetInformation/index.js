@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
-import Axios from "axios";
+import React, { useContext } from "react";
 import { AuthContext } from '../../Context/AuthContext';
 import { AutoScaling } from "aws-sdk";
 

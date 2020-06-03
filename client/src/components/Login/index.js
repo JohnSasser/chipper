@@ -24,6 +24,7 @@ const Login = props => {
     });
   };
 
+  // empty the input fields if error
   const resetForm = () => {
     setUser({ username: "", password: "", isAdmin: null });
   };
@@ -45,6 +46,7 @@ const Login = props => {
         }
       } else {
         setMessage(message);
+        resetForm();
       }
     });
   };
