@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AdminPetInformation from "../../components/AdminPetInformation";
 import AdminUserInformation from "../../components/AdminUserInformation";
 import AdminDirectory from "../../components/AdminDirectory";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+
 import chip from "../../images/chipper/chipperOne.png";
 import "./style.css";
 
@@ -15,7 +15,7 @@ function Admin() {
     petName: "",
     microNum: "",
     pupPicture: "",
-    owner: {}
+    owner: {},
   });
 
   const onSubmit = (e) => {
@@ -31,7 +31,7 @@ function Admin() {
             petName: returnedSearch.data.pet.petName,
             microNum: returnedSearch.data.pet.microNum,
             pupPicture: returnedSearch.data.pet.petImageURL,
-            owner: returnedSearch.data.user
+            owner: returnedSearch.data.user,
           });
         }
       })
