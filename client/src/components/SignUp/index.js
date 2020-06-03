@@ -56,7 +56,7 @@ const Signup = (props) => {
     setUser({ username: "", password: "", role: "" });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
     AuthService.register(user).then((data) => {
       const { message } = data;

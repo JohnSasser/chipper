@@ -8,8 +8,14 @@ import { AuthContext } from '../../Context/AuthContext';
 const AddPet = props => {
   const [petName, setPetName] = useState("");
   const [petMicrochipNumber, setPetMicrochipNumber] = useState("");
-  const { fileState } = useContext(AwsUploadContext);
+  const { fileState, setFileState } = useContext(AwsUploadContext);
   const { user, setUser } = useContext(AuthContext);
+
+  const resetForm = () => {
+    setPetName("");
+    setPetMicrochipNumber("");
+    setFileState({ recentImageURL: "", selectedFile: null });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -33,6 +39,8 @@ const AddPet = props => {
           });
           // console.log(`pet added successfully`);
         }
+        resetForm();
+        window.scrollTo(0, 0);
       })
       .catch((err) => {
         if (err) console.log(`Addpet server error ${err}`);

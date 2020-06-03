@@ -80,7 +80,7 @@ const AwsUploadImage = function () {
                     <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 2MB )</p>
                 </div>
                 <div className="card-body">
-                    <p className="card-text">Please upload an image for your profile</p>
+                    <p className="card-text">Please upload an image for your pet</p>
                     <input type="file" onChange={singleFileChangedHandler} />
                     <div className="mt-5">
                         <button className="btn btn-info" onClick={singleFileUploadHandler}>Upload!</button>
