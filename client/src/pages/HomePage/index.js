@@ -1,10 +1,10 @@
-import React from "./node_modules/react";
+import React from "react";
 import NavBar from "../../components/NavBar";
 import UserInformation from "../../components/UserInformation";
 
-import "./UserProfile.css";
+import "./style.css";
 
-const UserProfile = props => {
+const HomePage = props => {
   
   return (
     <div>
@@ -20,4 +20,4 @@ const UserProfile = props => {
   );
 }
 
-export default UserProfile;
+export default HomePage;

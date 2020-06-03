@@ -2,10 +2,10 @@ import React from "react";
 import NavBar from "../../components/NavBar";
 import UserInformation from "../../components/UserInformation";
 
-import "./UserProfile.css";
+import "./HomePage.css";
 
-const UserProfile = props => {
-  // console.log('userprofile props: ', props);
+const HomePage = props => {
+  // console.log('HomePage props: ', props);
   
   return (
     <div>
@@ -21,4 +21,4 @@ const UserProfile = props => {
   );
 }
 
-export default UserProfile;
+export default HomePage;
