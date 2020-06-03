@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
-import axios from "axios";
+import React from "react";
+
 import UserDirectory from "../../components/UserDirectory";
 import PetInformation from "../../components/PetInformation";
 import AddPet from "../../components/AddPet";

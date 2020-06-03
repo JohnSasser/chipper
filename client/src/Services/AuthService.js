@@ -7,7 +7,7 @@ export default {
                 'Content-Type': 'application/json'
             }
         }).then(res => {
-            if (res.status == 200) {
+            if (res.status === 200) {
                 // console.log('data from AuthService /login response: ', res);
                 return res.json().then(data => {
                     console.log('dis data: ', data);

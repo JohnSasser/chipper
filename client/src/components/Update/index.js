@@ -1,10 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from '../../Context/AuthContext';
 
 const Update = props => {
-  // console.log('update props: ', props);
-  // current user for the user check;
+  
   const { user, setUser } = useContext(AuthContext);
 
   const [newInfo, setNewInfo] = useState({
@@ -51,7 +50,6 @@ const Update = props => {
       });
   };
 
-  // add the login redirect to all primary components; ****
   return (
     <div>
       <form>

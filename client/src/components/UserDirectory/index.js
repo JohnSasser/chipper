@@ -7,7 +7,7 @@ import "./style.css";
 
 
 const UserDirectory = props => {
-const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthContext);
+const { setIsAuthenticated, setUser } = useContext(AuthContext);
 
   const onClickLogoutHandler = () => {
     AuthService.logout().then(data => {

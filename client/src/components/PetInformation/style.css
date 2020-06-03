@@ -1,4 +1,4 @@
-.centered{
+.centered {
     min-height: 150px;
     min-width: 300px;
     margin-left: auto;
@@ -8,9 +8,15 @@
     vertical-align: middle
 }
 
-.pet-name{
+.pet-name {
     font-family: Sriracha;
     font-size: 20px;
-    border-bottom:2px solid black;
+    border-bottom: 2px solid black;
+    text-align: center;
 }
 
+.pet-card {
+    display: block;
+    justify-content: center;
+    text-align: center;
+}

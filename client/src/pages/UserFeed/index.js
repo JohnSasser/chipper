@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UserDirectory from "../../components/UserDirectory";
 import CreatePost from "../../components/CreatePost";
-import ViewAllPosts from "../../components/ViewAllPosts"
 
 function UserFeed() {
   // current user for the user check;
