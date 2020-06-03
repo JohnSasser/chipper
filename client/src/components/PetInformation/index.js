@@ -5,10 +5,6 @@ import { AutoScaling } from "aws-sdk";
 
 const PetInformation = props => {
   const { user, setUser } = useContext(AuthContext);
-  // console.log('user from context in petinfo: ', user);
-
-
-  console.log("user's pets: ", user.pets);
 
   return (
     <div className="row">
