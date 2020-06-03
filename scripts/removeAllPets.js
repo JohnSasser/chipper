@@ -13,14 +13,6 @@ mongoose.connect(
 
 db.Pets.deleteMany({})
     .then(res => {
-        console.log(`Removed all ${res.deletedCount} pets`);
-        return db.User.deleteMany({});
-    })
-    .then(res => {
-        console.log(`Removed all ${res.deletedCount} users`);
-        return db.Post.deleteMany({})
-    })
-    .then(res => {
         console.log(`Removed all ${res.deletedCount} posts`);
         process.exit(0);
     })
