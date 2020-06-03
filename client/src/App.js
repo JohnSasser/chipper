@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Login from "./components/Login";
+import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import PetsProfilePage from "./pages/PetsPage";
 import AdminPage from "./pages/AdminPage";
-import Signup from "./components/SignUp";
+import Signup from "./pages/SignUpPage";
 import CreatePostPage from "./pages/CreatePostPage";
 import UpdateUserPage from "./pages/UpdateUserPage";
 import AwsUploadContext from "./components/AwsUploadContext";
@@ -24,13 +24,13 @@ function App() {
       <div className="main">
         <Router>
           <UserRoute exact path={["/home"]} component={HomePage} />
-          <UserRoute exact path={["/PetsPage"]} component={PetsProfilePage} />
-          <UserRoute exact path={["/createPost"]} component={CreatePostPage} />
+          <UserRoute exact path={["/pets"]} component={PetsProfilePage} />
+          <UserRoute exact path={["/create-post"]} component={CreatePostPage} />
           <UserRoute exact path={["/UpdateUserPage"]} component={UpdateUserPage} />
-          <UserRoute exact path={["/FeedPage"]} component={FeedPage} />
+          <UserRoute exact path={["/feed"]} component={FeedPage} />
           <UnPrivateRoute exact path={["/signUp"]} component={Signup} />
-          <UnPrivateRoute exact path={["/login"]} component={Login} />
-          <UnPrivateRoute exact path={["/"]} component={Login} />
+          <UnPrivateRoute exact path={["/login"]} component={LoginPage} />
+          <UnPrivateRoute exact path={["/"]} component={LoginPage} />
           <AdminRoute exact path={["/adminPage"]} component={AdminPage} />
           <Footer />
         </Router>

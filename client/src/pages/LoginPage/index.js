@@ -3,7 +3,7 @@ import chip from "../../images/chipper/chipperOne.png";
 import { AuthContext } from '../../Context/AuthContext';
 import AuthService from '../../Services/AuthService';
 import { Link } from 'react-router-dom';
-import Message from '../Message';
+import Message from '../../components/Message';
 import "./style.css";
 
 const Login = props => {

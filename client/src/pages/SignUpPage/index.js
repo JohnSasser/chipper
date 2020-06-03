@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import chip from "../../images/chipper/chipperOne.png";
 import AuthService from "../../Services/AuthService";
-import Message from "../Message";
+import Message from "../../components/Message";
 import "./style.css";
 
 const Signup = (props) => {
