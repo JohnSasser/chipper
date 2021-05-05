@@ -48,7 +48,7 @@ app.get("*", function (req, res) {
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://DBadmin:g0atf4c3@ds017185.mlab.com:17185/heroku_7s6d98z5",
+  `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@amc1.9fj2m.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
